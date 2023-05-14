@@ -49,6 +49,7 @@ namespace ImageUtil
             // panel1
             // 
             this.panel1.AutoScroll = true;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.panel1.Controls.Add(this.panelConvert);
             this.panel1.Controls.Add(this.btnConvert);
             this.panel1.Controls.Add(this.panelAbout);
@@ -73,7 +74,12 @@ namespace ImageUtil
             // 
             // btnConvertIndividual
             // 
+            this.btnConvertIndividual.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(69)))), ((int)(((byte)(69)))));
             this.btnConvertIndividual.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnConvertIndividual.FlatAppearance.BorderSize = 0;
+            this.btnConvertIndividual.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConvertIndividual.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConvertIndividual.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnConvertIndividual.Location = new System.Drawing.Point(0, 45);
             this.btnConvertIndividual.Name = "btnConvertIndividual";
             this.btnConvertIndividual.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
@@ -81,11 +87,16 @@ namespace ImageUtil
             this.btnConvertIndividual.TabIndex = 4;
             this.btnConvertIndividual.Text = "Individual";
             this.btnConvertIndividual.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConvertIndividual.UseVisualStyleBackColor = true;
+            this.btnConvertIndividual.UseVisualStyleBackColor = false;
             // 
             // btnConvertBulk
             // 
+            this.btnConvertBulk.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(69)))), ((int)(((byte)(69)))));
             this.btnConvertBulk.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnConvertBulk.FlatAppearance.BorderSize = 0;
+            this.btnConvertBulk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConvertBulk.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConvertBulk.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnConvertBulk.Location = new System.Drawing.Point(0, 0);
             this.btnConvertBulk.Name = "btnConvertBulk";
             this.btnConvertBulk.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
@@ -93,11 +104,15 @@ namespace ImageUtil
             this.btnConvertBulk.TabIndex = 3;
             this.btnConvertBulk.Text = "Bulk";
             this.btnConvertBulk.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConvertBulk.UseVisualStyleBackColor = true;
+            this.btnConvertBulk.UseVisualStyleBackColor = false;
             // 
             // btnConvert
             // 
             this.btnConvert.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnConvert.FlatAppearance.BorderSize = 0;
+            this.btnConvert.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConvert.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConvert.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnConvert.Location = new System.Drawing.Point(0, 285);
             this.btnConvert.Name = "btnConvert";
             this.btnConvert.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -120,7 +135,12 @@ namespace ImageUtil
             // 
             // btnAboutCompany
             // 
+            this.btnAboutCompany.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(69)))), ((int)(((byte)(69)))));
             this.btnAboutCompany.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnAboutCompany.FlatAppearance.BorderSize = 0;
+            this.btnAboutCompany.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAboutCompany.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAboutCompany.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnAboutCompany.Location = new System.Drawing.Point(0, 45);
             this.btnAboutCompany.Name = "btnAboutCompany";
             this.btnAboutCompany.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
@@ -128,11 +148,16 @@ namespace ImageUtil
             this.btnAboutCompany.TabIndex = 1;
             this.btnAboutCompany.Text = "About Company";
             this.btnAboutCompany.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAboutCompany.UseVisualStyleBackColor = true;
+            this.btnAboutCompany.UseVisualStyleBackColor = false;
             // 
             // btnAboutProject
             // 
+            this.btnAboutProject.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(69)))), ((int)(((byte)(69)))));
             this.btnAboutProject.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnAboutProject.FlatAppearance.BorderSize = 0;
+            this.btnAboutProject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAboutProject.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAboutProject.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnAboutProject.Location = new System.Drawing.Point(0, 0);
             this.btnAboutProject.Name = "btnAboutProject";
             this.btnAboutProject.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
@@ -140,11 +165,15 @@ namespace ImageUtil
             this.btnAboutProject.TabIndex = 0;
             this.btnAboutProject.Text = "About Project";
             this.btnAboutProject.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAboutProject.UseVisualStyleBackColor = true;
+            this.btnAboutProject.UseVisualStyleBackColor = false;
             // 
             // btnAbout
             // 
             this.btnAbout.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnAbout.FlatAppearance.BorderSize = 0;
+            this.btnAbout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAbout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAbout.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnAbout.Location = new System.Drawing.Point(0, 100);
             this.btnAbout.Name = "btnAbout";
             this.btnAbout.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -156,6 +185,7 @@ namespace ImageUtil
             // 
             // panelLogo
             // 
+            this.panelLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
             this.panelLogo.Name = "panelLogo";
@@ -164,7 +194,12 @@ namespace ImageUtil
             // 
             // btnAboutSchool
             // 
+            this.btnAboutSchool.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(69)))), ((int)(((byte)(69)))));
             this.btnAboutSchool.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnAboutSchool.FlatAppearance.BorderSize = 0;
+            this.btnAboutSchool.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAboutSchool.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAboutSchool.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnAboutSchool.Location = new System.Drawing.Point(0, 90);
             this.btnAboutSchool.Name = "btnAboutSchool";
             this.btnAboutSchool.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
@@ -172,11 +207,16 @@ namespace ImageUtil
             this.btnAboutSchool.TabIndex = 2;
             this.btnAboutSchool.Text = "About School";
             this.btnAboutSchool.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAboutSchool.UseVisualStyleBackColor = true;
+            this.btnAboutSchool.UseVisualStyleBackColor = false;
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(69)))), ((int)(((byte)(69)))));
             this.button1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.Gainsboro;
             this.button1.Location = new System.Drawing.Point(0, 90);
             this.button1.Name = "button1";
             this.button1.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
@@ -184,7 +224,7 @@ namespace ImageUtil
             this.button1.TabIndex = 5;
             this.button1.Text = "Per Format";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // Form1
             // 
