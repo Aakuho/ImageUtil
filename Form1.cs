@@ -15,6 +15,28 @@ namespace ImageUtil
         public Form1()
         {
             InitializeComponent();
+            HideSubMenus();
+        }
+
+        private void HideSubMenus()
+        {
+            panelAbout.Visible = false;
+            panelConvert.Visible = false;
+        }
+
+        private void ToggleSubMenu(Panel subMenu)
+        {
+            if (subMenu.Visible ? subMenu.Visible = false : subMenu.Visible = true) ;
+        }
+
+        private void btnAbout_Click(object sender, EventArgs e)
+        {
+            ToggleSubMenu(panelAbout);
+        }
+
+        private void btnConvert_Click(object sender, EventArgs e)
+        {
+            ToggleSubMenu(panelConvert);
         }
     }
 }

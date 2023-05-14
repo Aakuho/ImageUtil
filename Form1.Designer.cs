@@ -29,7 +29,7 @@ namespace ImageUtil
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panelMenu = new System.Windows.Forms.Panel();
             this.panelConvert = new System.Windows.Forms.Panel();
             this.btnConvertIndividual = new System.Windows.Forms.Button();
             this.btnConvertBulk = new System.Windows.Forms.Button();
@@ -40,30 +40,30 @@ namespace ImageUtil
             this.btnAbout = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.btnAboutSchool = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
+            this.btnConvertFormat = new System.Windows.Forms.Button();
+            this.panelMenu.SuspendLayout();
             this.panelConvert.SuspendLayout();
             this.panelAbout.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // panelMenu
             // 
-            this.panel1.AutoScroll = true;
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.panel1.Controls.Add(this.panelConvert);
-            this.panel1.Controls.Add(this.btnConvert);
-            this.panel1.Controls.Add(this.panelAbout);
-            this.panel1.Controls.Add(this.btnAbout);
-            this.panel1.Controls.Add(this.panelLogo);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 567);
-            this.panel1.TabIndex = 0;
+            this.panelMenu.AutoScroll = true;
+            this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.panelMenu.Controls.Add(this.panelConvert);
+            this.panelMenu.Controls.Add(this.btnConvert);
+            this.panelMenu.Controls.Add(this.panelAbout);
+            this.panelMenu.Controls.Add(this.btnAbout);
+            this.panelMenu.Controls.Add(this.panelLogo);
+            this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelMenu.Location = new System.Drawing.Point(0, 0);
+            this.panelMenu.Name = "panelMenu";
+            this.panelMenu.Size = new System.Drawing.Size(200, 561);
+            this.panelMenu.TabIndex = 0;
             // 
             // panelConvert
             // 
-            this.panelConvert.Controls.Add(this.button1);
+            this.panelConvert.Controls.Add(this.btnConvertFormat);
             this.panelConvert.Controls.Add(this.btnConvertIndividual);
             this.panelConvert.Controls.Add(this.btnConvertBulk);
             this.panelConvert.Dock = System.Windows.Forms.DockStyle.Top;
@@ -121,6 +121,7 @@ namespace ImageUtil
             this.btnConvert.Text = "CONVERT";
             this.btnConvert.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnConvert.UseVisualStyleBackColor = true;
+            this.btnConvert.Click += new System.EventHandler(this.btnConvert_Click);
             // 
             // panelAbout
             // 
@@ -182,6 +183,7 @@ namespace ImageUtil
             this.btnAbout.Text = "ABOUT";
             this.btnAbout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAbout.UseVisualStyleBackColor = true;
+            this.btnAbout.Click += new System.EventHandler(this.btnAbout_Click);
             // 
             // panelLogo
             // 
@@ -209,32 +211,33 @@ namespace ImageUtil
             this.btnAboutSchool.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAboutSchool.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // btnConvertFormat
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(69)))), ((int)(((byte)(69)))));
-            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Gainsboro;
-            this.button1.Location = new System.Drawing.Point(0, 90);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.button1.Size = new System.Drawing.Size(200, 45);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Per Format";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnConvertFormat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(69)))), ((int)(((byte)(69)))));
+            this.btnConvertFormat.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnConvertFormat.FlatAppearance.BorderSize = 0;
+            this.btnConvertFormat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConvertFormat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConvertFormat.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnConvertFormat.Location = new System.Drawing.Point(0, 90);
+            this.btnConvertFormat.Name = "btnConvertFormat";
+            this.btnConvertFormat.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnConvertFormat.Size = new System.Drawing.Size(200, 45);
+            this.btnConvertFormat.TabIndex = 5;
+            this.btnConvertFormat.Text = "Per Format";
+            this.btnConvertFormat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConvertFormat.UseVisualStyleBackColor = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1040, 567);
-            this.Controls.Add(this.panel1);
+            this.ClientSize = new System.Drawing.Size(934, 561);
+            this.Controls.Add(this.panelMenu);
+            this.MinimumSize = new System.Drawing.Size(950, 600);
             this.Name = "Form1";
             this.Text = "Form1";
-            this.panel1.ResumeLayout(false);
+            this.panelMenu.ResumeLayout(false);
             this.panelConvert.ResumeLayout(false);
             this.panelAbout.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -243,7 +246,7 @@ namespace ImageUtil
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panelMenu;
         private System.Windows.Forms.Button btnConvert;
         private System.Windows.Forms.Panel panelAbout;
         private System.Windows.Forms.Button btnAboutCompany;
@@ -254,7 +257,7 @@ namespace ImageUtil
         private System.Windows.Forms.Button btnConvertIndividual;
         private System.Windows.Forms.Button btnConvertBulk;
         private System.Windows.Forms.Button btnAboutSchool;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnConvertFormat;
     }
 }
 
