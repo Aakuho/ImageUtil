@@ -86,5 +86,10 @@ namespace ImageUtil
         {
             openChildForm(new aboutSchoolForm());
         }
+
+        private void btnConvertBulk_Click(object sender, EventArgs e)
+        {
+            openChildForm(new convertBulk());
+        }
     }
 }

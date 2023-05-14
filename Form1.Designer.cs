@@ -144,6 +144,7 @@ namespace ImageUtil
             this.btnConvertBulk.Text = "Bulk";
             this.btnConvertBulk.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnConvertBulk.UseVisualStyleBackColor = false;
+            this.btnConvertBulk.Click += new System.EventHandler(this.btnConvertBulk_Click);
             // 
             // btnConvert
             // 
