@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ImageUtil.childForms;
 
 namespace ImageUtil
 {
@@ -69,6 +70,21 @@ namespace ImageUtil
             panelChildForm.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
+        }
+
+        private void btnAboutProject_Click(object sender, EventArgs e)
+        {
+            openChildForm(new aboutProjectForm());
+        }
+
+        private void btnAboutCompany_Click(object sender, EventArgs e)
+        {
+            openChildForm(new aboutCompanyForm());
+        }
+
+        private void btnAboutSchool_Click(object sender, EventArgs e)
+        {
+            openChildForm(new aboutSchoolForm());
         }
     }
 }

@@ -190,6 +190,7 @@ namespace ImageUtil
             this.btnAboutSchool.Text = "About School";
             this.btnAboutSchool.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAboutSchool.UseVisualStyleBackColor = false;
+            this.btnAboutSchool.Click += new System.EventHandler(this.btnAboutSchool_Click);
             // 
             // btnAboutCompany
             // 
@@ -208,6 +209,7 @@ namespace ImageUtil
             this.btnAboutCompany.Text = "About Company";
             this.btnAboutCompany.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAboutCompany.UseVisualStyleBackColor = false;
+            this.btnAboutCompany.Click += new System.EventHandler(this.btnAboutCompany_Click);
             // 
             // btnAboutProject
             // 
@@ -226,6 +228,7 @@ namespace ImageUtil
             this.btnAboutProject.Text = "About Project";
             this.btnAboutProject.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAboutProject.UseVisualStyleBackColor = false;
+            this.btnAboutProject.Click += new System.EventHandler(this.btnAboutProject_Click);
             // 
             // btnAbout
             // 

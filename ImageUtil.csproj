@@ -46,6 +46,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="childForms\aboutCompanyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="childForms\aboutCompanyForm.Designer.cs">
+      <DependentUpon>aboutCompanyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="childForms\aboutProjectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="childForms\aboutProjectForm.Designer.cs">
+      <DependentUpon>aboutProjectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="childForms\aboutSchoolForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="childForms\aboutSchoolForm.Designer.cs">
+      <DependentUpon>aboutSchoolForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -54,6 +72,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="childForms\aboutCompanyForm.resx">
+      <DependentUpon>aboutCompanyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="childForms\aboutProjectForm.resx">
+      <DependentUpon>aboutProjectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="childForms\aboutSchoolForm.resx">
+      <DependentUpon>aboutSchoolForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
