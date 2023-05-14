@@ -77,6 +77,7 @@ namespace ImageUtil
             this.btnConvertIndividual.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(69)))), ((int)(((byte)(69)))));
             this.btnConvertIndividual.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnConvertIndividual.FlatAppearance.BorderSize = 0;
+            this.btnConvertIndividual.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.btnConvertIndividual.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConvertIndividual.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConvertIndividual.ForeColor = System.Drawing.Color.Gainsboro;
@@ -94,6 +95,7 @@ namespace ImageUtil
             this.btnConvertBulk.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(69)))), ((int)(((byte)(69)))));
             this.btnConvertBulk.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnConvertBulk.FlatAppearance.BorderSize = 0;
+            this.btnConvertBulk.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.btnConvertBulk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConvertBulk.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConvertBulk.ForeColor = System.Drawing.Color.Gainsboro;
@@ -139,6 +141,7 @@ namespace ImageUtil
             this.btnAboutCompany.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(69)))), ((int)(((byte)(69)))));
             this.btnAboutCompany.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnAboutCompany.FlatAppearance.BorderSize = 0;
+            this.btnAboutCompany.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.btnAboutCompany.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAboutCompany.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAboutCompany.ForeColor = System.Drawing.Color.Gainsboro;
@@ -156,6 +159,7 @@ namespace ImageUtil
             this.btnAboutProject.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(69)))), ((int)(((byte)(69)))));
             this.btnAboutProject.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnAboutProject.FlatAppearance.BorderSize = 0;
+            this.btnAboutProject.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.btnAboutProject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAboutProject.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAboutProject.ForeColor = System.Drawing.Color.Gainsboro;
@@ -199,6 +203,7 @@ namespace ImageUtil
             this.btnAboutSchool.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(69)))), ((int)(((byte)(69)))));
             this.btnAboutSchool.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnAboutSchool.FlatAppearance.BorderSize = 0;
+            this.btnAboutSchool.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.btnAboutSchool.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAboutSchool.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAboutSchool.ForeColor = System.Drawing.Color.Gainsboro;
@@ -216,6 +221,7 @@ namespace ImageUtil
             this.btnConvertFormat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(69)))), ((int)(((byte)(69)))));
             this.btnConvertFormat.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnConvertFormat.FlatAppearance.BorderSize = 0;
+            this.btnConvertFormat.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.btnConvertFormat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConvertFormat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConvertFormat.ForeColor = System.Drawing.Color.Gainsboro;
