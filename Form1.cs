@@ -12,6 +12,14 @@ namespace ImageUtil
 {
     public partial class Form1 : Form
     {
+        /*
+         * Color 1-4 will be used as 4 dominant colors that will manipulate the general appearance. 
+         * If the colors are not hard set, and are instead stored as variables, they can be changed during run time.
+         */
+        private String color1 = "";
+        private String color2 = "";
+        private String color3 = "";
+        private String color4 = "";
         public Form1()
         {
             InitializeComponent();

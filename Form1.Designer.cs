@@ -41,6 +41,7 @@ namespace ImageUtil
             this.panelLogo = new System.Windows.Forms.Panel();
             this.btnAboutSchool = new System.Windows.Forms.Button();
             this.btnConvertFormat = new System.Windows.Forms.Button();
+            this.btnSettings = new System.Windows.Forms.Button();
             this.panelMenu.SuspendLayout();
             this.panelConvert.SuspendLayout();
             this.panelAbout.SuspendLayout();
@@ -50,6 +51,7 @@ namespace ImageUtil
             // 
             this.panelMenu.AutoScroll = true;
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.panelMenu.Controls.Add(this.btnSettings);
             this.panelMenu.Controls.Add(this.panelConvert);
             this.panelMenu.Controls.Add(this.btnConvert);
             this.panelMenu.Controls.Add(this.panelAbout);
@@ -234,6 +236,22 @@ namespace ImageUtil
             this.btnConvertFormat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnConvertFormat.UseVisualStyleBackColor = false;
             // 
+            // btnSettings
+            // 
+            this.btnSettings.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnSettings.FlatAppearance.BorderSize = 0;
+            this.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSettings.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnSettings.Location = new System.Drawing.Point(0, 470);
+            this.btnSettings.Name = "btnSettings";
+            this.btnSettings.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnSettings.Size = new System.Drawing.Size(200, 50);
+            this.btnSettings.TabIndex = 5;
+            this.btnSettings.Text = "SETTINGS";
+            this.btnSettings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSettings.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -264,6 +282,7 @@ namespace ImageUtil
         private System.Windows.Forms.Button btnConvertBulk;
         private System.Windows.Forms.Button btnAboutSchool;
         private System.Windows.Forms.Button btnConvertFormat;
+        private System.Windows.Forms.Button btnSettings;
     }
 }
 
