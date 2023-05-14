@@ -16,10 +16,19 @@ namespace ImageUtil
          * Color 1-4 will be used as 4 dominant colors that will manipulate the general appearance. 
          * If the colors are not hard set, and are instead stored as variables, they can be changed during run time.
          */
-        private String color1 = "";
-        private String color2 = "";
-        private String color3 = "";
-        private String color4 = "";
+        private Color color1 = Color.FromArgb(60, 60, 60);
+        /*
+         * Dominant color
+         */
+        private Color color2 = Color.FromArgb(69, 69, 69);
+        /*
+         * Buttons
+         */
+        private Color color3 = Color.FromArgb(50, 50, 50);
+        /*
+         * Restricted Buttons
+         */
+
         public Form1()
         {
             InitializeComponent();
@@ -45,6 +54,21 @@ namespace ImageUtil
         private void btnConvert_Click(object sender, EventArgs e)
         {
             ToggleSubMenu(panelConvert);
+        }
+
+        private Form activeForm = null;
+        private void openChildForm(Form childForm)
+        {
+            if (activeForm != null) { activeForm.Close(); }
+            activeForm = childForm;
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+
+            panelChildForm.Controls.Add(childForm);
+            panelChildForm.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
         }
     }
 }
