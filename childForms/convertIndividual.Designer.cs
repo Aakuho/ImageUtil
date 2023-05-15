@@ -109,8 +109,8 @@
             // 
             // convertIndividual
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.ClientSize = new System.Drawing.Size(960, 643);
             this.Controls.Add(this.btnFormatBMP);
@@ -119,6 +119,7 @@
             this.Controls.Add(this.btnConvert);
             this.Controls.Add(this.btnFileSelection);
             this.Name = "convertIndividual";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "convertIndividual";
             this.ResumeLayout(false);
 

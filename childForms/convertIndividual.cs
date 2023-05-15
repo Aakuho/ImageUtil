@@ -35,6 +35,7 @@ namespace ImageUtil.childForms
                     Console.WriteLine("User cancelled the selection");
                     break;
             }
+
         }
 
         String activeFormat = "";

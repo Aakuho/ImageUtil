@@ -11,7 +11,7 @@ using ImageUtil.childForms;
 
 namespace ImageUtil
 {
-    public partial class Form1 : Form
+    public partial class ParentForm : Form
     {
         /*
          * Color 1-3 will be used as 3 dominant colors that will manipulate the general appearance. 
@@ -30,7 +30,7 @@ namespace ImageUtil
          * Restricted Buttons
          */
 
-        public Form1()
+        public ParentForm()
         {
             InitializeComponent();
             HideSubMenus();
@@ -102,6 +102,11 @@ namespace ImageUtil
         private void btnConvertFormat_Click(object sender, EventArgs e)
         {
             openChildForm(new convertPerFormat());
+        }
+
+        private void panelChildForm_Paint(object sender, PaintEventArgs e)
+        {
+            Console.WriteLine($"{this.Width} | {this.Height}");
         }
     }
 }

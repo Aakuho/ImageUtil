@@ -81,6 +81,7 @@
             this.btnToPNG.TabIndex = 3;
             this.btnToPNG.Text = "PNG";
             this.btnToPNG.UseVisualStyleBackColor = false;
+            this.btnToPNG.Click += new System.EventHandler(this.btnToPNG_Click);
             // 
             // btnFromPNG
             // 
@@ -95,6 +96,7 @@
             this.btnFromPNG.TabIndex = 2;
             this.btnFromPNG.Text = "PNG";
             this.btnFromPNG.UseVisualStyleBackColor = false;
+            this.btnFromPNG.Click += new System.EventHandler(this.btnFromPNG_Click);
             // 
             // btnToJPG
             // 
@@ -109,6 +111,7 @@
             this.btnToJPG.TabIndex = 5;
             this.btnToJPG.Text = "JPG";
             this.btnToJPG.UseVisualStyleBackColor = false;
+            this.btnToJPG.Click += new System.EventHandler(this.btnToJPG_Click);
             // 
             // btnFromJPG
             // 
@@ -123,6 +126,7 @@
             this.btnFromJPG.TabIndex = 4;
             this.btnFromJPG.Text = "JPG";
             this.btnFromJPG.UseVisualStyleBackColor = false;
+            this.btnFromJPG.Click += new System.EventHandler(this.btnFromJPG_Click);
             // 
             // btnToBMP
             // 
@@ -137,6 +141,7 @@
             this.btnToBMP.TabIndex = 7;
             this.btnToBMP.Text = "BMP";
             this.btnToBMP.UseVisualStyleBackColor = false;
+            this.btnToBMP.Click += new System.EventHandler(this.btnToBMP_Click);
             // 
             // btnFromBMP
             // 
@@ -151,6 +156,7 @@
             this.btnFromBMP.TabIndex = 6;
             this.btnFromBMP.Text = "BMP";
             this.btnFromBMP.UseVisualStyleBackColor = false;
+            this.btnFromBMP.Click += new System.EventHandler(this.btnFromBMP_Click);
             // 
             // btnKeepFiles
             // 
@@ -165,13 +171,14 @@
             this.btnKeepFiles.TabIndex = 8;
             this.btnKeepFiles.Text = "Keep original files";
             this.btnKeepFiles.UseVisualStyleBackColor = false;
+            this.btnKeepFiles.Click += new System.EventHandler(this.btnKeepFiles_Click);
             // 
             // convertPerFormat
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.ClientSize = new System.Drawing.Size(960, 643);
+            this.ClientSize = new System.Drawing.Size(977, 946);
             this.Controls.Add(this.btnKeepFiles);
             this.Controls.Add(this.btnToBMP);
             this.Controls.Add(this.btnFromBMP);
