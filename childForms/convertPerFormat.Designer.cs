@@ -124,7 +124,7 @@
             this.btnFromJPG.Name = "btnFromJPG";
             this.btnFromJPG.Size = new System.Drawing.Size(200, 50);
             this.btnFromJPG.TabIndex = 4;
-            this.btnFromJPG.Text = "JPG";
+            this.btnFromJPG.Text = "JPEG";
             this.btnFromJPG.UseVisualStyleBackColor = false;
             this.btnFromJPG.Click += new System.EventHandler(this.btnFromJPG_Click);
             // 
