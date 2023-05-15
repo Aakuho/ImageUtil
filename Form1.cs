@@ -14,7 +14,7 @@ namespace ImageUtil
     public partial class Form1 : Form
     {
         /*
-         * Color 1-4 will be used as 4 dominant colors that will manipulate the general appearance. 
+         * Color 1-3 will be used as 3 dominant colors that will manipulate the general appearance. 
          * If the colors are not hard set, and are instead stored as variables, they can be changed during run time.
          */
         private Color color1 = Color.FromArgb(60, 60, 60);
@@ -44,7 +44,9 @@ namespace ImageUtil
 
         private void ToggleSubMenu(Panel subMenu)
         {
-            if (subMenu.Visible ? subMenu.Visible = false : subMenu.Visible = true) ;
+            //if (subMenu.Visible ? subMenu.Visible = false : subMenu.Visible = true) ;
+            HideSubMenus();
+            subMenu.Visible = true;
         }
 
         private void btnAbout_Click(object sender, EventArgs e)
@@ -90,6 +92,16 @@ namespace ImageUtil
         private void btnConvertBulk_Click(object sender, EventArgs e)
         {
             openChildForm(new convertBulk());
+        }
+
+        private void btnConvertIndividual_Click(object sender, EventArgs e)
+        {
+            openChildForm(new convertIndividual());
+        }
+
+        private void btnConvertFormat_Click(object sender, EventArgs e)
+        {
+            openChildForm(new convertPerFormat());
         }
     }
 }
