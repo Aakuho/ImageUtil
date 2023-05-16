@@ -12,24 +12,26 @@ using ImageUtil.childForms;
 
 namespace ImageUtil.structure
 {
-    partial class formatButton 
+    public class formatButton : Button
     {
-        public Button button;
-        private String name {get; set;}
-        private String text {get; set;}
-        private String formatName { get; set;}
+        public Button button2;
+        public String name;
+        public String text;
+        public String formatName;
 
         public int x;
         public int y;
+        public bool isSelected;
+        public bool isDisabled;
         public formatButton(string name, string text, string formatName, int x, int y)
         {
+            Button button = this;
             this.name = name;
             this.text = text;
             this.formatName = formatName;
             this.x = x;
             this.y = y;
-            this.button = new Button();
-
+            
             // common design
             button.BackColor = Color.FromArgb(60, 60, 60);
             button.FlatAppearance.BorderSize = 0;
@@ -42,17 +44,16 @@ namespace ImageUtil.structure
             button.Text = this.text;
             button.TextAlign = ContentAlignment.MiddleCenter;
             button.UseVisualStyleBackColor = false;
-            
 
         }
 
         public formatButton(string name, string text, string formatName)
         {
+            Button button = this;
             this.name = name;
             this.text = text;
             this.formatName = formatName;
-            this.button = new Button();
-
+            
             // common design
             button.BackColor = Color.FromArgb(60, 60, 60);
             button.FlatAppearance.BorderSize = 0;
@@ -67,7 +68,8 @@ namespace ImageUtil.structure
 
         }
 
-        public void Highlight() { this.button.BackColor = Color.FromArgb(80, 80, 80); }
-        public void Default() { this.button.BackColor = Color.FromArgb(60, 60, 60); }
+        public void Highlight() { this.BackColor = Color.FromArgb(80, 80, 80); }
+        public void Default() { this.BackColor = Color.FromArgb(60, 60, 60);this.isDisabled = false; }
+        public void Disable() { this.BackColor = Color.FromArgb(50, 50, 50); this.isDisabled = true; }
     }
 }

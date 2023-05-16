@@ -12,16 +12,20 @@ using System.Windows.Forms;
 using Microsoft.WindowsAPICodePack.Dialogs;
 using ImageUtil.structure;
 
-
 namespace ImageUtil.childForms
 {
     public partial class convertPerFormat : Form
     {
+        public String fromFormat;
+        public String toFormat;
+        public List<formatButton> leftButtons;
+        public List<formatButton> rightButtons;
+
         public convertPerFormat()
         {
             InitializeComponent();
-            List<formatButton> leftButtons = new List<formatButton>();
-            List<formatButton> rightButtons = new List<formatButton>();
+            leftButtons = new List<formatButton>();
+            rightButtons = new List<formatButton>();
 
             foreach (string format in Program.formats)
             {
@@ -32,21 +36,77 @@ namespace ImageUtil.childForms
 
             foreach (formatButton fb in leftButtons)
             {
-                panelButtonsLeft.Controls.Add(fb.button);
+                panelButtonsLeft.Controls.Add(fb);
             }
-            foreach ( formatButton fb in rightButtons)
+            foreach (formatButton fb in rightButtons)
             {
-                panelButtonsRight.Controls.Add(fb.button);
+                panelButtonsRight.Controls.Add(fb);
             }
             formatButton exButton = leftButtons[0];
-            Console.WriteLine($"{exButton.button.Width} | {exButton.button.Height}");
-            panelButtonsLeft.Size = new Size(exButton.button.Width, 400);
-            panelButtonsRight.Size = new Size(exButton.button.Width, 400);
-            panelButtonsRight.Location = new Point(exButton.button.Width + 60, panelButtonsRight.Location.Y);
+            Console.WriteLine($"{exButton.Width} | {exButton.Height}");
+            panelButtonsLeft.Size = new Size(exButton.Width, 400);
+            panelButtonsRight.Size = new Size(exButton.Width, 400);
+            panelButtonsRight.Location = new Point(exButton.Width + 60, panelButtonsRight.Location.Y);
+
+
+            foreach (formatButton fb in leftButtons)
+            {
+                fb.Click += new EventHandler(LeftButtonClick);
+            }
+
+            foreach (formatButton fb in rightButtons)
+            {
+                fb.Click += new EventHandler(RightButtonClick);
+            }
+
 
             this.AutoScaleMode = AutoScaleMode.Dpi;
 
         }
+
+        private void selectButtonInColumn(List<formatButton> fblist, formatButton fb) {
+            foreach (formatButton iterButton in fblist)
+            {
+                if (!(iterButton.isDisabled)) { iterButton.Default();  }
+            }
+            fb.Highlight(); fb.isSelected = true;
+        }
+
+        private void LeftButtonClick(object sender, EventArgs e)
+        {
+            
+            formatButton activeButton = ((formatButton)sender);
+            fromFormat = activeButton.formatName;
+            if (!(activeButton.isDisabled))
+            {
+                // Disable conversion to the same type
+                resetButtonColors(rightButtons);
+                selectButtonInColumn(leftButtons, activeButton);
+                rightButtons[leftButtons.IndexOf(activeButton)].Disable();
+
+                // Toggle isSelected
+                foreach (formatButton fb in leftButtons) { fb.isSelected = false; }
+                activeButton.isSelected = true;
+                Console.WriteLine($"Updated - from {fromFormat} to {toFormat}");
+            }
+        }
+
+        private void RightButtonClick(object sender, EventArgs e)
+        {
+            formatButton activeButton = ((formatButton)sender);
+            toFormat = activeButton.formatName;
+            if (!(activeButton.isDisabled))
+            {
+                resetButtonColors(leftButtons);
+                selectButtonInColumn(rightButtons, activeButton);
+                leftButtons[rightButtons.IndexOf(activeButton)].Disable();
+
+                foreach (formatButton fb in rightButtons) { fb.isSelected = false; }
+                activeButton.isSelected = true;
+                Console.WriteLine($"Updated - from {fromFormat} to {toFormat}");
+            }
+        }
+
         ArrayList files = new ArrayList();
         private void btnFileSelect_Click(object sender, EventArgs e)
         {
@@ -83,31 +143,17 @@ namespace ImageUtil.childForms
         public bool keepFiles;
         Color defaultColor = Color.FromArgb(60, 60, 60);
 
-        private void resetButtonColorsLeft()
+        public void call()
         {
-            
+            Console.WriteLine("Called function");
         }
 
-        private void resetButtonColorsRight()
+        private void resetButtonColors(List<formatButton> fblist)
         {
-              
-        }
-        private void ToggleButtonLeft(Button button)
-        {
-            resetButtonColorsLeft();
-
-            button.BackColor = Color.FromArgb(80, 80, 80);
-            if (formatFrom == "") { btnConvert.BackColor = Color.FromArgb(50, 50, 50); }
-            else { btnConvert.BackColor = Color.FromArgb(69, 69, 69); }
-        }
-
-        private void ToggleButtonRight(Button button)
-        {
-            resetButtonColorsRight();
-
-            button.BackColor = Color.FromArgb(80, 80, 80);
-            if (formatFrom == "") { btnConvert.BackColor = Color.FromArgb(50, 50, 50); }
-            else { btnConvert.BackColor = Color.FromArgb(69, 69, 69); }
+            foreach ( formatButton fb in fblist )
+            {
+                if (!(fb.isSelected)) { fb.Default(); }
+            }
         }
         private void btnKeepFiles_Click(object sender, EventArgs e)
         {

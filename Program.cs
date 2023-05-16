@@ -14,7 +14,9 @@ namespace ImageUtil
             "jpg",
             "png",
             "bmp",
-            "tga"
+            "webp",
+            "tga",
+            "jpeg"
         };
 
         [STAThread]

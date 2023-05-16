@@ -59,7 +59,7 @@ namespace ImageUtil
             ToggleSubMenu(panelConvert);
         }
 
-        private Form activeForm = null;
+        public static Form activeForm = null;
         private void openChildForm(Form childForm)
         {
             if (activeForm != null) { activeForm.Close(); }
