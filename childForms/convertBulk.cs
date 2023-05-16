@@ -102,5 +102,10 @@ namespace ImageUtil.childForms
             activeFormat = "bmp";
             ToggleButton(btnFormatBMP);
         }
+
+        public void call()
+        {
+
+        }
     }
 }

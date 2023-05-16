@@ -30,13 +30,9 @@
         {
             this.btnFileSelect = new System.Windows.Forms.Button();
             this.btnConvert = new System.Windows.Forms.Button();
-            this.btnToPNG = new System.Windows.Forms.Button();
-            this.btnFromPNG = new System.Windows.Forms.Button();
-            this.btnToJPG = new System.Windows.Forms.Button();
-            this.btnFromJPG = new System.Windows.Forms.Button();
-            this.btnToBMP = new System.Windows.Forms.Button();
-            this.btnFromBMP = new System.Windows.Forms.Button();
             this.btnKeepFiles = new System.Windows.Forms.Button();
+            this.panelButtonsLeft = new System.Windows.Forms.Panel();
+            this.panelButtonsRight = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // btnFileSelect
@@ -61,102 +57,12 @@
             this.btnConvert.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConvert.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConvert.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnConvert.Location = new System.Drawing.Point(230, 10);
+            this.btnConvert.Location = new System.Drawing.Point(450, 10);
             this.btnConvert.Name = "btnConvert";
             this.btnConvert.Size = new System.Drawing.Size(200, 50);
             this.btnConvert.TabIndex = 1;
             this.btnConvert.Text = "Convert";
             this.btnConvert.UseVisualStyleBackColor = false;
-            // 
-            // btnToPNG
-            // 
-            this.btnToPNG.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.btnToPNG.FlatAppearance.BorderSize = 0;
-            this.btnToPNG.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnToPNG.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnToPNG.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnToPNG.Location = new System.Drawing.Point(330, 150);
-            this.btnToPNG.Name = "btnToPNG";
-            this.btnToPNG.Size = new System.Drawing.Size(200, 50);
-            this.btnToPNG.TabIndex = 3;
-            this.btnToPNG.Text = "PNG";
-            this.btnToPNG.UseVisualStyleBackColor = false;
-            this.btnToPNG.Click += new System.EventHandler(this.btnToPNG_Click);
-            // 
-            // btnFromPNG
-            // 
-            this.btnFromPNG.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.btnFromPNG.FlatAppearance.BorderSize = 0;
-            this.btnFromPNG.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFromPNG.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFromPNG.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnFromPNG.Location = new System.Drawing.Point(10, 150);
-            this.btnFromPNG.Name = "btnFromPNG";
-            this.btnFromPNG.Size = new System.Drawing.Size(200, 50);
-            this.btnFromPNG.TabIndex = 2;
-            this.btnFromPNG.Text = "PNG";
-            this.btnFromPNG.UseVisualStyleBackColor = false;
-            this.btnFromPNG.Click += new System.EventHandler(this.btnFromPNG_Click);
-            // 
-            // btnToJPG
-            // 
-            this.btnToJPG.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.btnToJPG.FlatAppearance.BorderSize = 0;
-            this.btnToJPG.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnToJPG.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnToJPG.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnToJPG.Location = new System.Drawing.Point(330, 210);
-            this.btnToJPG.Name = "btnToJPG";
-            this.btnToJPG.Size = new System.Drawing.Size(200, 50);
-            this.btnToJPG.TabIndex = 5;
-            this.btnToJPG.Text = "JPG";
-            this.btnToJPG.UseVisualStyleBackColor = false;
-            this.btnToJPG.Click += new System.EventHandler(this.btnToJPG_Click);
-            // 
-            // btnFromJPG
-            // 
-            this.btnFromJPG.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.btnFromJPG.FlatAppearance.BorderSize = 0;
-            this.btnFromJPG.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFromJPG.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFromJPG.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnFromJPG.Location = new System.Drawing.Point(10, 210);
-            this.btnFromJPG.Name = "btnFromJPG";
-            this.btnFromJPG.Size = new System.Drawing.Size(200, 50);
-            this.btnFromJPG.TabIndex = 4;
-            this.btnFromJPG.Text = "JPEG";
-            this.btnFromJPG.UseVisualStyleBackColor = false;
-            this.btnFromJPG.Click += new System.EventHandler(this.btnFromJPG_Click);
-            // 
-            // btnToBMP
-            // 
-            this.btnToBMP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.btnToBMP.FlatAppearance.BorderSize = 0;
-            this.btnToBMP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnToBMP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnToBMP.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnToBMP.Location = new System.Drawing.Point(330, 270);
-            this.btnToBMP.Name = "btnToBMP";
-            this.btnToBMP.Size = new System.Drawing.Size(200, 50);
-            this.btnToBMP.TabIndex = 7;
-            this.btnToBMP.Text = "BMP";
-            this.btnToBMP.UseVisualStyleBackColor = false;
-            this.btnToBMP.Click += new System.EventHandler(this.btnToBMP_Click);
-            // 
-            // btnFromBMP
-            // 
-            this.btnFromBMP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.btnFromBMP.FlatAppearance.BorderSize = 0;
-            this.btnFromBMP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFromBMP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFromBMP.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnFromBMP.Location = new System.Drawing.Point(10, 270);
-            this.btnFromBMP.Name = "btnFromBMP";
-            this.btnFromBMP.Size = new System.Drawing.Size(200, 50);
-            this.btnFromBMP.TabIndex = 6;
-            this.btnFromBMP.Text = "BMP";
-            this.btnFromBMP.UseVisualStyleBackColor = false;
-            this.btnFromBMP.Click += new System.EventHandler(this.btnFromBMP_Click);
             // 
             // btnKeepFiles
             // 
@@ -165,7 +71,7 @@
             this.btnKeepFiles.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnKeepFiles.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnKeepFiles.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnKeepFiles.Location = new System.Drawing.Point(10, 380);
+            this.btnKeepFiles.Location = new System.Drawing.Point(230, 10);
             this.btnKeepFiles.Name = "btnKeepFiles";
             this.btnKeepFiles.Size = new System.Drawing.Size(200, 50);
             this.btnKeepFiles.TabIndex = 8;
@@ -173,19 +79,29 @@
             this.btnKeepFiles.UseVisualStyleBackColor = false;
             this.btnKeepFiles.Click += new System.EventHandler(this.btnKeepFiles_Click);
             // 
+            // panelButtonsLeft
+            // 
+            this.panelButtonsLeft.Location = new System.Drawing.Point(10, 100);
+            this.panelButtonsLeft.Name = "panelButtonsLeft";
+            this.panelButtonsLeft.Size = new System.Drawing.Size(200, 400);
+            this.panelButtonsLeft.TabIndex = 9;
+            // 
+            // panelButtonsRight
+            // 
+            this.panelButtonsRight.Location = new System.Drawing.Point(230, 100);
+            this.panelButtonsRight.Name = "panelButtonsRight";
+            this.panelButtonsRight.Size = new System.Drawing.Size(200, 400);
+            this.panelButtonsRight.TabIndex = 10;
+            // 
             // convertPerFormat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.ClientSize = new System.Drawing.Size(977, 946);
+            this.Controls.Add(this.panelButtonsRight);
+            this.Controls.Add(this.panelButtonsLeft);
             this.Controls.Add(this.btnKeepFiles);
-            this.Controls.Add(this.btnToBMP);
-            this.Controls.Add(this.btnFromBMP);
-            this.Controls.Add(this.btnToJPG);
-            this.Controls.Add(this.btnFromJPG);
-            this.Controls.Add(this.btnToPNG);
-            this.Controls.Add(this.btnFromPNG);
             this.Controls.Add(this.btnConvert);
             this.Controls.Add(this.btnFileSelect);
             this.Name = "convertPerFormat";
@@ -198,12 +114,8 @@
 
         private System.Windows.Forms.Button btnFileSelect;
         private System.Windows.Forms.Button btnConvert;
-        private System.Windows.Forms.Button btnToPNG;
-        private System.Windows.Forms.Button btnFromPNG;
-        private System.Windows.Forms.Button btnToJPG;
-        private System.Windows.Forms.Button btnFromJPG;
-        private System.Windows.Forms.Button btnToBMP;
-        private System.Windows.Forms.Button btnFromBMP;
         private System.Windows.Forms.Button btnKeepFiles;
+        private System.Windows.Forms.Panel panelButtonsLeft;
+        private System.Windows.Forms.Panel panelButtonsRight;
     }
 }

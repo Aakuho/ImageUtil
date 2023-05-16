@@ -57,16 +57,12 @@ namespace ImageUtil.childForms
 
         private void resetButtonColorsLeft()
         {
-            btnFromPNG.BackColor = defaultColor;
-            btnFromJPG.BackColor = defaultColor;
-            btnFromBMP.BackColor = defaultColor;
+            
         }
 
         private void resetButtonColorsRight()
         {
-            btnToPNG.BackColor = defaultColor;
-            btnToJPG.BackColor = defaultColor;
-            btnToBMP.BackColor = defaultColor;  
+              
         }
         private void ToggleButtonLeft(Button button)
         {
@@ -90,23 +86,5 @@ namespace ImageUtil.childForms
             if ( keepFiles ) { keepFiles = false; btnKeepFiles.BackColor = defaultColor; }
             else { keepFiles = true; btnKeepFiles.BackColor = Color.FromArgb(80, 80, 80); }
         }
-
-        private void btnFromPNG_Click(object sender, EventArgs e)
-        { formatFrom = "png"; ToggleButtonLeft(btnFromPNG); }
-
-        private void btnFromJPG_Click(object sender, EventArgs e)
-        { formatFrom = "jpeg"; ToggleButtonLeft(btnFromJPG); }
-
-        private void btnFromBMP_Click(object sender, EventArgs e)
-        { formatFrom = "bmp"; ToggleButtonLeft(btnFromBMP); }
-
-        private void btnToPNG_Click(object sender, EventArgs e)
-        { formatTo = "png"; ToggleButtonRight(btnToPNG); }
-
-        private void btnToJPG_Click(object sender, EventArgs e)
-        { formatTo = "jpeg"; ToggleButtonRight(btnToJPG); }
-
-        private void btnToBMP_Click(object sender, EventArgs e)
-        { formatTo = "bmp"; ToggleButtonRight(btnToBMP); }
     }
 }
