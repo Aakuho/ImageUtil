@@ -10,6 +10,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.WindowsAPICodePack.Dialogs;
+using ImageUtil.structure;
+
 
 namespace ImageUtil.childForms
 {
@@ -18,6 +20,24 @@ namespace ImageUtil.childForms
         public convertPerFormat()
         {
             InitializeComponent();
+            List<formatButton> leftButtons = new List<formatButton>();
+            List<formatButton> rightButtons = new List<formatButton>();
+
+            foreach (string format in Program.formats)
+            {
+                Console.WriteLine(format);
+                leftButtons.Add(new formatButton($"btnLeft{format}", format.ToUpper(), format, 0, (1 + Program.formats.IndexOf(format)) * 60));
+                rightButtons.Add(new formatButton($"btnRight{format}", format.ToUpper(), format, 0, (1 + Program.formats.IndexOf(format)) * 60));
+            }
+
+            foreach (formatButton fb in leftButtons)
+            {
+                panelButtonsLeft.Controls.Add(fb.button);
+            }
+            foreach ( formatButton fb in rightButtons)
+            {
+                panelButtonsRight.Controls.Add(fb.button);
+            }
         }
         ArrayList files = new ArrayList();
         private void btnFileSelect_Click(object sender, EventArgs e)

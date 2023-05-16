@@ -8,9 +8,15 @@ namespace ImageUtil
 {
     static class Program
     {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
+        // Register new formats here, only if they are supported by the Image library
+        public static List<String> formats = new List<String>
+        {
+            "jpg",
+            "png",
+            "bmp",
+            "tga"
+        };
+
         [STAThread]
         static void Main()
         {

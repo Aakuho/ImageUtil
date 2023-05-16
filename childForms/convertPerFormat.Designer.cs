@@ -28,27 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnFileSelect = new System.Windows.Forms.Button();
-            this.btnConvert = new System.Windows.Forms.Button();
-            this.btnKeepFiles = new System.Windows.Forms.Button();
             this.panelButtonsLeft = new System.Windows.Forms.Panel();
             this.panelButtonsRight = new System.Windows.Forms.Panel();
+            this.btnConvert = new System.Windows.Forms.Button();
+            this.btnKeepFiles = new System.Windows.Forms.Button();
+            this.btnFileSelect = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // btnFileSelect
+            // panelButtonsLeft
             // 
-            this.btnFileSelect.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.btnFileSelect.FlatAppearance.BorderSize = 0;
-            this.btnFileSelect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFileSelect.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFileSelect.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnFileSelect.Location = new System.Drawing.Point(10, 10);
-            this.btnFileSelect.Name = "btnFileSelect";
-            this.btnFileSelect.Size = new System.Drawing.Size(200, 50);
-            this.btnFileSelect.TabIndex = 0;
-            this.btnFileSelect.Text = "Select Files";
-            this.btnFileSelect.UseVisualStyleBackColor = false;
-            this.btnFileSelect.Click += new System.EventHandler(this.btnFileSelect_Click);
+            this.panelButtonsLeft.Location = new System.Drawing.Point(10, 100);
+            this.panelButtonsLeft.Name = "panelButtonsLeft";
+            this.panelButtonsLeft.Size = new System.Drawing.Size(200, 400);
+            this.panelButtonsLeft.TabIndex = 9;
+            // 
+            // panelButtonsRight
+            // 
+            this.panelButtonsRight.Location = new System.Drawing.Point(230, 100);
+            this.panelButtonsRight.Name = "panelButtonsRight";
+            this.panelButtonsRight.Size = new System.Drawing.Size(200, 400);
+            this.panelButtonsRight.TabIndex = 10;
             // 
             // btnConvert
             // 
@@ -79,19 +78,20 @@
             this.btnKeepFiles.UseVisualStyleBackColor = false;
             this.btnKeepFiles.Click += new System.EventHandler(this.btnKeepFiles_Click);
             // 
-            // panelButtonsLeft
+            // btnFileSelect
             // 
-            this.panelButtonsLeft.Location = new System.Drawing.Point(10, 100);
-            this.panelButtonsLeft.Name = "panelButtonsLeft";
-            this.panelButtonsLeft.Size = new System.Drawing.Size(200, 400);
-            this.panelButtonsLeft.TabIndex = 9;
-            // 
-            // panelButtonsRight
-            // 
-            this.panelButtonsRight.Location = new System.Drawing.Point(230, 100);
-            this.panelButtonsRight.Name = "panelButtonsRight";
-            this.panelButtonsRight.Size = new System.Drawing.Size(200, 400);
-            this.panelButtonsRight.TabIndex = 10;
+            this.btnFileSelect.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.btnFileSelect.FlatAppearance.BorderSize = 0;
+            this.btnFileSelect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFileSelect.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFileSelect.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnFileSelect.Location = new System.Drawing.Point(10, 10);
+            this.btnFileSelect.Name = "btnFileSelect";
+            this.btnFileSelect.Size = new System.Drawing.Size(200, 50);
+            this.btnFileSelect.TabIndex = 0;
+            this.btnFileSelect.Text = "Select Files";
+            this.btnFileSelect.UseVisualStyleBackColor = false;
+            this.btnFileSelect.Click += new System.EventHandler(this.btnFileSelect_Click);
             // 
             // convertPerFormat
             // 
@@ -111,11 +111,10 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnFileSelect;
-        private System.Windows.Forms.Button btnConvert;
-        private System.Windows.Forms.Button btnKeepFiles;
         private System.Windows.Forms.Panel panelButtonsLeft;
         private System.Windows.Forms.Panel panelButtonsRight;
+        private System.Windows.Forms.Button btnConvert;
+        private System.Windows.Forms.Button btnKeepFiles;
+        private System.Windows.Forms.Button btnFileSelect;
     }
 }
