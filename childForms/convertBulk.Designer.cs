@@ -43,7 +43,7 @@ namespace ImageUtil.childForms
             this.btnFileSelection.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFileSelection.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnFileSelection.Location = new System.Drawing.Point(10, 10);
-            this.btnFileSelection.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnFileSelection.Margin = new System.Windows.Forms.Padding(5);
             this.btnFileSelection.Name = "btnFileSelection";
             this.btnFileSelection.Size = new System.Drawing.Size(200, 50);
             this.btnFileSelection.TabIndex = 0;
@@ -58,7 +58,7 @@ namespace ImageUtil.childForms
             this.btnConvert.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConvert.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnConvert.Location = new System.Drawing.Point(229, 10);
-            this.btnConvert.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnConvert.Margin = new System.Windows.Forms.Padding(5);
             this.btnConvert.Name = "btnConvert";
             this.btnConvert.Size = new System.Drawing.Size(200, 50);
             this.btnConvert.TabIndex = 1;
@@ -74,7 +74,7 @@ namespace ImageUtil.childForms
             this.btnFormatPNG.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFormatPNG.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnFormatPNG.Location = new System.Drawing.Point(10, 150);
-            this.btnFormatPNG.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnFormatPNG.Margin = new System.Windows.Forms.Padding(4);
             this.btnFormatPNG.Name = "btnFormatPNG";
             this.btnFormatPNG.Size = new System.Drawing.Size(200, 50);
             this.btnFormatPNG.TabIndex = 2;
@@ -89,7 +89,7 @@ namespace ImageUtil.childForms
             this.btnFormatJPEG.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFormatJPEG.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnFormatJPEG.Location = new System.Drawing.Point(10, 210);
-            this.btnFormatJPEG.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnFormatJPEG.Margin = new System.Windows.Forms.Padding(4);
             this.btnFormatJPEG.Name = "btnFormatJPEG";
             this.btnFormatJPEG.Size = new System.Drawing.Size(200, 50);
             this.btnFormatJPEG.TabIndex = 3;
@@ -104,7 +104,7 @@ namespace ImageUtil.childForms
             this.btnFormatBMP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFormatBMP.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnFormatBMP.Location = new System.Drawing.Point(10, 270);
-            this.btnFormatBMP.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnFormatBMP.Margin = new System.Windows.Forms.Padding(4);
             this.btnFormatBMP.Name = "btnFormatBMP";
             this.btnFormatBMP.Size = new System.Drawing.Size(200, 50);
             this.btnFormatBMP.TabIndex = 4;
@@ -114,8 +114,7 @@ namespace ImageUtil.childForms
             // 
             // convertBulk
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.ClientSize = new System.Drawing.Size(977, 946);
             this.Controls.Add(this.btnFormatBMP);
@@ -124,7 +123,7 @@ namespace ImageUtil.childForms
             this.Controls.Add(this.btnConvert);
             this.Controls.Add(this.btnFileSelection);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "convertBulk";
             this.Text = "convertBulk";
             this.ResumeLayout(false);

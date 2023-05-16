@@ -38,6 +38,14 @@ namespace ImageUtil.childForms
             {
                 panelButtonsRight.Controls.Add(fb.button);
             }
+            formatButton exButton = leftButtons[0];
+            Console.WriteLine($"{exButton.button.Width} | {exButton.button.Height}");
+            panelButtonsLeft.Size = new Size(exButton.button.Width, 400);
+            panelButtonsRight.Size = new Size(exButton.button.Width, 400);
+            panelButtonsRight.Location = new Point(exButton.button.Width + 60, panelButtonsRight.Location.Y);
+
+            this.AutoScaleMode = AutoScaleMode.Dpi;
+
         }
         ArrayList files = new ArrayList();
         private void btnFileSelect_Click(object sender, EventArgs e)

@@ -42,6 +42,7 @@ namespace ImageUtil.structure
             button.Text = this.text;
             button.TextAlign = ContentAlignment.MiddleCenter;
             button.UseVisualStyleBackColor = false;
+            
 
         }
 
