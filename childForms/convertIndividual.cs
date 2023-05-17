@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ImageUtil.structure;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,11 +16,21 @@ namespace ImageUtil.childForms
 {
     public partial class convertIndividual : Form
     {
+        public List<FormatButton> buttons = new List<FormatButton>();
+        private List<String> files = new List<string>();
         public convertIndividual()
         {
             InitializeComponent();
+            foreach (string format in Program.formats)
+            {
+                Console.WriteLine(format);
+                buttons.Add(new FormatButton($"btn{format}", format.ToUpper(), format, 0, (1 + Program.formats.IndexOf(format)) * 60));
+            }
+            foreach (var button in buttons)
+            {
+                panelButtons.Controls.Add(button);
+            }
         }
-        private ArrayList files = new ArrayList();
         private void btnFileSelection_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -40,22 +51,7 @@ namespace ImageUtil.childForms
 
         String activeFormat = "";
 
-        private void resetButtonColors()
-        {
-            Color defaultColor = Color.FromArgb(60, 60, 60);
-            btnFormatPNG.BackColor = defaultColor;
-            btnFormatJPEG.BackColor = defaultColor;
-            btnFormatBMP.BackColor = defaultColor;
-        }
 
-        private void ToggleButton(Button button)
-        {
-            resetButtonColors();
-
-            button.BackColor = Color.FromArgb(80, 80, 80);
-            if (activeFormat == "") { btnConvert.BackColor = Color.FromArgb(50, 50, 50); }
-            else { btnConvert.BackColor = Color.FromArgb(69, 69, 69); }
-        }
 
         private void btnConvert_Click(object sender, EventArgs e)
         {
@@ -69,24 +65,6 @@ namespace ImageUtil.childForms
                     sourceImage.Save($"{Path.GetDirectoryName(filePath)}\\{name}.{activeFormat}", format);
                 }
             }
-        }
-
-        private void btnFormatPNG_Click(object sender, EventArgs e)
-        {
-            activeFormat = "png";
-            ToggleButton(btnFormatPNG);
-        }
-
-        private void btnFormatJPEG_Click(object sender, EventArgs e)
-        {
-            activeFormat = "jpeg";
-            ToggleButton(btnFormatPNG);
-        }
-
-        private void btnFormatBMP_Click(object sender, EventArgs e)
-        {
-            activeFormat = "bmp";
-            ToggleButton(btnFormatPNG);
         }
     }
 }

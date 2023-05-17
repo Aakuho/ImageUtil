@@ -12,7 +12,7 @@ using ImageUtil.childForms;
 
 namespace ImageUtil.structure
 {
-    public class formatButton : Button
+    public class FormatButton : Button
     {
         public Button button2;
         public String name;
@@ -23,7 +23,7 @@ namespace ImageUtil.structure
         public int y;
         public bool isSelected;
         public bool isDisabled;
-        public formatButton(string name, string text, string formatName, int x, int y)
+        public FormatButton(string name, string text, string formatName, int x, int y)
         {
             Button button = this;
             this.name = name;
@@ -47,7 +47,7 @@ namespace ImageUtil.structure
 
         }
 
-        public formatButton(string name, string text, string formatName)
+        public FormatButton(string name, string text, string formatName)
         {
             Button button = this;
             this.name = name;

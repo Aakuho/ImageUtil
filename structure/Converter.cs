@@ -8,5 +8,6 @@ namespace ImageUtil.structure
 {
     internal class Converter
     {
+        public Converter() { }
     }
 }

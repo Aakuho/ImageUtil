@@ -10,21 +10,29 @@ using System.Windows.Forms;
 using System.Collections;
 using System.Drawing.Imaging;
 using System.IO;
-
+using ImageUtil.structure;
 
 namespace ImageUtil.childForms
 {
     public partial class convertBulk : Form
     {
+        public List<FormatButton> buttons = new List<FormatButton>();
+        private List<String> files = new List<string>();
         public convertBulk()
         {
             InitializeComponent();
-            btnConvert.BackColor = Color.FromArgb(50, 50, 50);
+            foreach (string format in Program.formats)
+            {
+                Console.WriteLine(format);
+                buttons.Add(new FormatButton($"btn{format}", format.ToUpper(), format, 0, (1 + Program.formats.IndexOf(format)) * 60));
+            }
+            foreach (var button in buttons)
+            {
+                panelButtons.Controls.Add(button);
+            }
         }
 
-        private ArrayList files = new ArrayList();
-
-        private void btnFileSelection_Click(object sender, EventArgs e)
+            private void btnFileSelection_Click(object sender, EventArgs e)
         {
 
             FolderBrowserDialog dialog = new FolderBrowserDialog();
@@ -36,20 +44,7 @@ namespace ImageUtil.childForms
                 foreach (string file in dirFiles)
                 {
                     Console.WriteLine(Path.GetExtension(file));
-                    switch (Path.GetExtension(file))
-                    {
-                        case ".png":
-                            files.Add(file);
-                            break;
-                        case ".jpg":
-                            files.Add(file);
-                            break;
-                        case ".bmp":
-                            files.Add(file);
-                            break;
-                        default: break;
-
-                    }
+                    if (Program.formats.Contains(Path.GetExtension(file))){ files.Add(file);  }
                 }
             }
         }
@@ -68,44 +63,6 @@ namespace ImageUtil.childForms
             }
         }
 
-        private void resetButtonColors()
-        {
-            Color defaultColor = Color.FromArgb(60, 60, 60);
-            btnFormatPNG.BackColor = defaultColor;
-            btnFormatJPEG.BackColor = defaultColor;
-            btnFormatBMP.BackColor = defaultColor;
-        }
 
-        private void ToggleButton(Button button)
-        {
-            resetButtonColors();
-            
-            button.BackColor = Color.FromArgb(80, 80, 80);
-            if (activeFormat == "") { btnConvert.BackColor = Color.FromArgb(50, 50, 50); } 
-            else { btnConvert.BackColor = Color.FromArgb(69, 69, 69) ; }
-        }
-
-        private void btnFormatPNG_Click(object sender, EventArgs e)
-        {
-            activeFormat = "png";
-            ToggleButton(btnFormatPNG);
-        }
-
-        private void btnFormatJPG_Click(object sender, EventArgs e)
-        {
-            activeFormat = "jpeg";
-            ToggleButton(btnFormatJPEG); 
-        }
-
-        private void btnFormatBMP_Click(object sender, EventArgs e)
-        {
-            activeFormat = "bmp";
-            ToggleButton(btnFormatBMP);
-        }
-
-        public void call()
-        {
-
-        }
     }
 }
