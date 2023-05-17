@@ -20,19 +20,24 @@ namespace ImageUtil.childForms
         public String toFormat;
         public List<FormatButton> leftButtons;
         public List<FormatButton> rightButtons;
-
+        public List<String> files;
+             
         public convertPerFormat()
         {
             InitializeComponent();
             leftButtons = new List<FormatButton>();
             rightButtons = new List<FormatButton>();
+            files = new List<String>();
 
-            foreach (Converter converter in Program.converters)
+            int buttonAmount = 0;
+
+            foreach (KeyValuePair<String, Type> kvp in Program.convertClasses)
             {
-                String format = converter.toFormat;
-                Console.WriteLine(format);
-                leftButtons.Add(new FormatButton($"btnLeft{format}", format.ToUpper(), format, 0, (1 + Program.formats.IndexOf(format)) * 60));
-                rightButtons.Add(new FormatButton($"btnRight{format}", format.ToUpper(), format, 0, (1 + Program.formats.IndexOf(format)) * 60));
+                Converter converterInstance = (Converter)Activator.CreateInstance(kvp.Value);
+                String format = converterInstance.toFormat;
+                leftButtons.Add(new FormatButton($"btnLeft{format}", format.ToUpper(), format, 0, buttonAmount * 60));
+                rightButtons.Add(new FormatButton($"btnRight{format}", format.ToUpper(), format, 0, buttonAmount * 60));
+                buttonAmount++;
             }
 
             foreach (FormatButton fb in leftButtons)
@@ -108,7 +113,7 @@ namespace ImageUtil.childForms
             }
         }
 
-        ArrayList files = new ArrayList();
+
         private void btnFileSelect_Click(object sender, EventArgs e)
         {
             CommonOpenFileDialog dialog = new CommonOpenFileDialog();
@@ -121,21 +126,7 @@ namespace ImageUtil.childForms
 
                 foreach (string file in dirFiles)
                 {
-                    Console.WriteLine(Path.GetExtension(file));
-                    switch (Path.GetExtension(file))
-                    {
-                        case ".png":
-                            files.Add(file);
-                            break;
-                        case ".jpg":
-                            files.Add(file);
-                            break;
-                        case ".bmp":
-                            files.Add(file);
-                            break;
-                        default: break;
-
-                    }
+                    if (Program.convertClasses.ContainsKey(Path.GetExtension(file).Remove(0, 1))) { files.Add(file); }
                 }
             }
         }
@@ -160,6 +151,16 @@ namespace ImageUtil.childForms
         {
             if ( keepFiles ) { keepFiles = false; btnKeepFiles.BackColor = defaultColor; }
             else { keepFiles = true; btnKeepFiles.BackColor = Color.FromArgb(80, 80, 80); }
+        }
+
+        private void btnConvert_Click(object sender, EventArgs e)
+        {
+            if (Program.convertClasses.TryGetValue(toFormat, out Type convertClass))
+            {
+                Converter convertInstance = (Converter)Activator.CreateInstance(convertClass);
+                convertInstance.convert(files, keepFiles);
+            }
+            Console.WriteLine(Program.convertClasses.TryGetValue(toFormat, out Type cc));
         }
     }
 }

@@ -18,11 +18,13 @@ namespace ImageUtil.converters
         public override void convert(List<String> files, bool keepFiles)
         {
             try { base.convert(files, keepFiles); }
-            catch (BadImageFormatException)
+            catch (Exception e)
             {
-                Console.WriteLine("Format is not yet supported");
+                //Console.WriteLine("Format is not yet supported");
+                Console.WriteLine(e);
                 // switch case for additional formats
             }
+            
 
         }
     }

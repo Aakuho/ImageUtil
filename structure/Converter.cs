@@ -17,14 +17,15 @@ namespace ImageUtil.structure
         // Usable formats in ./Program.cs
         public virtual void convert(List<String> files, bool keepFiles)
         {
-            if (files.Count == 0) { return; }
+           
             foreach (String file in files)
             {
-                Console.WriteLine("KYS");
+                Console.WriteLine($"The active format during conversion is: {toFormat}");
                 String name = Path.GetFileNameWithoutExtension(file);
                 using (Image sourceImage = Image.FromFile(file))
                 {
-                    ImageFormat format = (ImageFormat)new ImageFormatConverter().ConvertFromString(toFormat);
+                    //ImageFormat format = (ImageFormat)new ImageFormatConverter().ConvertFromString(toFormat);
+                    ImageFormat format = ImageFormat.Icon;
                     sourceImage.Save($"{Path.GetDirectoryName(file)}\\{name}.{toFormat}", format);
                 }
             }

@@ -62,6 +62,7 @@
             this.btnConvert.TabIndex = 1;
             this.btnConvert.Text = "Convert";
             this.btnConvert.UseVisualStyleBackColor = false;
+            this.btnConvert.Click += new System.EventHandler(this.btnConvert_Click);
             // 
             // btnKeepFiles
             // 

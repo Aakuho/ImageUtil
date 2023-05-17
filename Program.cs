@@ -12,16 +12,6 @@ namespace ImageUtil
 {
     static class Program
     {
-        // DEPRECATED Register new formats here, only if they are supported by the Image library
-        public static List<String> formats = new List<String>
-        {
-            "jpg",
-            "png",
-            "bmp",
-            "webp",
-            "tga",
-            "jpeg"
-        };
 
         // Registed new converters here
         // C# Image library by default supports:
@@ -35,22 +25,21 @@ namespace ImageUtil
          * Webp     DO
          */
 
-        // meh
+        
         public static List<Converter> converters = new List<Converter>
         {
-            new JpgConverter(),
+            new JpegConverter(),
             new PngConverter(),
             new BmpConverter(),
             new IconConverter(),
-            new WebpConverter()
         };
+        
 
         // Dictionary, so I can access the classes with just the format provided
         public static Dictionary<String, Type> convertClasses = new Dictionary<String, Type>()
         {
-            { "jpeg", typeof( JpgConverter )},
+            { "jpeg", typeof( JpegConverter )},
             { "png", typeof( PngConverter )},
-            { "webp", typeof( WebpConverter )},
             { "ico", typeof( IconConverter )},
             { "bmp", typeof( BmpConverter)}
         };

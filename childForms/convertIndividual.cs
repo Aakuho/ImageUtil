@@ -22,15 +22,26 @@ namespace ImageUtil.childForms
         public convertIndividual()
         {
             InitializeComponent();
-            foreach (Converter converter in Program.converters)
+            /*foreach (Converter converter in Program.converters)
             {
                 String format = converter.toFormat;
-                Console.WriteLine(format);
                 buttons.Add(new FormatButton($"btn{format}", format.ToUpper(), format, 0, (1 + Program.formats.IndexOf(format)) * 60));
+            }
+            */
+            int buttonAmount = 0;
+            foreach (KeyValuePair<String, Type> kvp in Program.convertClasses)
+            {
+                Converter converterInstance = (Converter)Activator.CreateInstance(kvp.Value);
+                String format = converterInstance.toFormat;
+
+                buttons.Add(new FormatButton($"btn{format}", format.ToUpper(), format, 0, buttonAmount * 60));
+                buttonAmount++;
+
             }
             foreach (var button in buttons)
             {
                 panelButtons.Controls.Add(button);
+                button.Click += new EventHandler(ButtonClick);
             }
         }
         private void btnFileSelection_Click(object sender, EventArgs e)
@@ -42,7 +53,7 @@ namespace ImageUtil.childForms
             switch (openFileDialog.ShowDialog())
             {
                 case DialogResult.OK:
-                    foreach (string file in openFileDialog.FileNames) { files.Add(file); activeFormat = Path.GetExtension(file).Remove(0, 1); }
+                    foreach (string file in openFileDialog.FileNames) { files.Add(file); }
 
                     break;
                 default:
@@ -54,17 +65,37 @@ namespace ImageUtil.childForms
 
         String activeFormat = "";
 
+        // yoink
+        private void ButtonClick(object sender, EventArgs e)
+        {
+
+            FormatButton activeButton = ((FormatButton)sender);
+            activeFormat = activeButton.formatName;
+            // Toggle isSelected
+            foreach (FormatButton fb in buttons) { fb.Default(); }
+            activeButton.Highlight();
+            Console.WriteLine(activeFormat);
+
+        }
+
         private void btnConvert_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("I am fucking trying");
-            Console.WriteLine(activeFormat);
-            if (Program.convertClasses.TryGetValue(activeFormat, out Type convertClass))
+            foreach (Converter convertor in Program.converters)
             {
-                Console.WriteLine("No you're not faggot");
+                if (convertor.toFormat == activeFormat)
+                {
+                    convertor.convert(files, true);
+                }
+            }
+
+
+            /*if (Program.convertClasses.TryGetValue(activeFormat, out Type convertClass))
+            {
                 Converter convertInstance = (Converter)Activator.CreateInstance(convertClass);
                 convertInstance.convert(files, true);
             }
             Console.WriteLine(Program.convertClasses.TryGetValue(activeFormat, out Type cc));
+            */
         }
     }
 }

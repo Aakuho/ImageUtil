@@ -8,11 +8,11 @@ using ImageUtil.structure;
 
 namespace ImageUtil.converters
 {
-    public class JpgConverter : Converter
+    public class JpegConverter : Converter
     {
-        public JpgConverter() 
+        public JpegConverter() 
         {
-            this.toFormat = "jpg"; 
+            this.toFormat = "jpeg"; 
         }
 
         public override void convert(List<String> files, bool keepFiles)
