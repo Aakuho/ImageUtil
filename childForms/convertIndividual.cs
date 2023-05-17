@@ -21,8 +21,9 @@ namespace ImageUtil.childForms
         public convertIndividual()
         {
             InitializeComponent();
-            foreach (string format in Program.formats)
+            foreach (Converter converter in Program.converters)
             {
+                String format = converter.toFormat;
                 Console.WriteLine(format);
                 buttons.Add(new FormatButton($"btn{format}", format.ToUpper(), format, 0, (1 + Program.formats.IndexOf(format)) * 60));
             }

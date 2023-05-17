@@ -94,6 +94,11 @@
     <Compile Include="childForms\convertPerFormat.Designer.cs">
       <DependentUpon>convertPerFormat.cs</DependentUpon>
     </Compile>
+    <Compile Include="converters\BmpConverter.cs" />
+    <Compile Include="converters\IconConverter.cs" />
+    <Compile Include="converters\JpgConverter.cs" />
+    <Compile Include="converters\PngConverter.cs" />
+    <Compile Include="converters\WebpConverter.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,8 +155,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="converters\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

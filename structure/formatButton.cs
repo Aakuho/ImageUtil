@@ -70,6 +70,6 @@ namespace ImageUtil.structure
 
         public void Highlight() { this.BackColor = Color.FromArgb(80, 80, 80); }
         public void Default() { this.BackColor = Color.FromArgb(60, 60, 60);this.isDisabled = false; }
-        public void Disable() { this.BackColor = Color.FromArgb(50, 50, 50); this.isDisabled = true; }
+        public void Disable() { this.BackColor = Color.FromArgb(40, 40, 40); this.isDisabled = true; }
     }
 }

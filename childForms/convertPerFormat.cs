@@ -27,8 +27,9 @@ namespace ImageUtil.childForms
             leftButtons = new List<FormatButton>();
             rightButtons = new List<FormatButton>();
 
-            foreach (string format in Program.formats)
+            foreach (Converter converter in Program.converters)
             {
+                String format = converter.toFormat;
                 Console.WriteLine(format);
                 leftButtons.Add(new FormatButton($"btnLeft{format}", format.ToUpper(), format, 0, (1 + Program.formats.IndexOf(format)) * 60));
                 rightButtons.Add(new FormatButton($"btnRight{format}", format.ToUpper(), format, 0, (1 + Program.formats.IndexOf(format)) * 60));
