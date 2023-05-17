@@ -11,13 +11,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using ImageUtil;
 namespace ImageUtil.childForms
 {
     public partial class convertIndividual : Form
     {
+        public bool keepFiles;
         public List<FormatButton> buttons = new List<FormatButton>();
-        private List<String> files = new List<string>();
+        public List<String> files = new List<string>();
         public convertIndividual()
         {
             InitializeComponent();
@@ -35,12 +36,13 @@ namespace ImageUtil.childForms
         private void btnFileSelection_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Image files (*.jpg, *.jpeg, *.png)|*.jpg;*.jpeg;*.png";
+            
+            openFileDialog.Filter = "Image files (*.jpg, *.jpeg, *.png, *.webp, *.bpm)|*.jpg;*.jpeg;*.png;*.webp;*.bmp|All files (*.*)|*.*";
             openFileDialog.Multiselect = true;
             switch (openFileDialog.ShowDialog())
             {
                 case DialogResult.OK:
-                    foreach (string file in openFileDialog.FileNames) { files.Add(file); Console.WriteLine(file); }
+                    foreach (string file in openFileDialog.FileNames) { files.Add(file); activeFormat = Path.GetExtension(file).Remove(0, 1); }
 
                     break;
                 default:
@@ -52,20 +54,17 @@ namespace ImageUtil.childForms
 
         String activeFormat = "";
 
-
-
         private void btnConvert_Click(object sender, EventArgs e)
         {
-            foreach (String filePath in files)
+            Console.WriteLine("I am fucking trying");
+            Console.WriteLine(activeFormat);
+            if (Program.convertClasses.TryGetValue(activeFormat, out Type convertClass))
             {
-
-                String name = Path.GetFileNameWithoutExtension(filePath);
-                using (Image sourceImage = Image.FromFile(filePath))
-                {
-                    ImageFormat format = (ImageFormat)new ImageFormatConverter().ConvertFromString(activeFormat);
-                    sourceImage.Save($"{Path.GetDirectoryName(filePath)}\\{name}.{activeFormat}", format);
-                }
+                Console.WriteLine("No you're not faggot");
+                Converter convertInstance = (Converter)Activator.CreateInstance(convertClass);
+                convertInstance.convert(files, true);
             }
+            Console.WriteLine(Program.convertClasses.TryGetValue(activeFormat, out Type cc));
         }
     }
 }

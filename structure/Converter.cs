@@ -20,7 +20,7 @@ namespace ImageUtil.structure
             if (files.Count == 0) { return; }
             foreach (String file in files)
             {
-
+                Console.WriteLine("KYS");
                 String name = Path.GetFileNameWithoutExtension(file);
                 using (Image sourceImage = Image.FromFile(file))
                 {

@@ -15,7 +15,17 @@ namespace ImageUtil.converters
             this.toFormat = "ico";
         }
 
-        public override void convert(List<String> files, bool keepFiles) { }
+        public override void convert(List<String> files, bool keepFiles)
+        {
+            try { base.convert(files, keepFiles); }
+            catch (BadImageFormatException)
+            {
+                Console.WriteLine("Format is not yet supported");
+                // switch case for additional formats
+
+            }
+
+        }
 
 
     }

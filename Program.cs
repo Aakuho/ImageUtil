@@ -34,6 +34,8 @@ namespace ImageUtil
          * Tiff     DONT
          * Webp     DO
          */
+
+        // meh
         public static List<Converter> converters = new List<Converter>
         {
             new JpgConverter(),
@@ -41,6 +43,16 @@ namespace ImageUtil
             new BmpConverter(),
             new IconConverter(),
             new WebpConverter()
+        };
+
+        // Dictionary, so I can access the classes with just the format provided
+        public static Dictionary<String, Type> convertClasses = new Dictionary<String, Type>()
+        {
+            { "jpeg", typeof( JpgConverter )},
+            { "png", typeof( PngConverter )},
+            { "webp", typeof( WebpConverter )},
+            { "ico", typeof( IconConverter )},
+            { "bmp", typeof( BmpConverter)}
         };
 
 
