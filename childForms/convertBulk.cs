@@ -28,6 +28,7 @@ namespace ImageUtil.childForms
             files = new List<String>();
 
             InitializeComponent();
+            btnConvert.BackColor = Color.FromArgb(40, 40, 40);
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             int buttonAmount = 0;
             foreach (Converter cv in Program.converters)
@@ -60,14 +61,18 @@ namespace ImageUtil.childForms
             filesAmount = 0;
             foreach (String file in files)
             {
-                if (file.EndsWith(activeFormat)) { filesAmount++; }
+                if (!file.EndsWith(activeFormat)) { filesAmount++; }
                 btnConvert.Text = $"Convert {filesAmount} file(s)";
+            }
+            if (files.Count > 0)
+            {
+                btnConvert.BackColor = Color.FromArgb(60, 60, 60);
             }
         }
 
         private void btnFileSelection_Click(object sender, EventArgs e)
         {
-
+            files = new List<string>();
             FolderBrowserDialog dialog = new FolderBrowserDialog();
             if (dialog.ShowDialog() == DialogResult.OK)
             {
@@ -79,6 +84,7 @@ namespace ImageUtil.childForms
                     files.Add(file);
                 }
             }
+            updateConvertButton();
         }
 
         private void btnConvert_Click(object sender, EventArgs e)

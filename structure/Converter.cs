@@ -71,7 +71,16 @@ namespace ImageUtil.structure
             {
                 MessageBox.Show($"Successfully converted {files2.Count} file(s)", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            else { MessageBox.Show($"Successfully converted {successful} file(s), failed to convert {files2.Count - successful} file(s)", "Result", MessageBoxButtons.OK, MessageBoxIcon.Information); }
+            
+            else { 
+                // TODO
+                StringBuilder stringBuilder = new StringBuilder();
+                stringBuilder.Append($"Successfully converted {successful} file(s), failed to convert {files2.Count - successful} file(s):\n");
+                foreach (bool status in result)
+                {
+                    if (!status) { stringBuilder.Append(files2[result.IndexOf(status)] + "\n"); }
+                }
+                MessageBox.Show(stringBuilder.ToString(), "Result", MessageBoxButtons.OK, MessageBoxIcon.Information); }
             return result;
         }
         public int generateUniqueSuffix(String name)
