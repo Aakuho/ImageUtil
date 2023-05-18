@@ -19,6 +19,9 @@ namespace ImageUtil.childForms
         public List<FormatButton> buttons;
         public List<String> files;
         public bool keepFiles;
+        public int filesAmount;
+        public String activeFormat = "";
+
         public convertBulk()
         {
             buttons = new List<FormatButton>();
@@ -48,7 +51,18 @@ namespace ImageUtil.childForms
             // Toggle isSelected
             foreach (FormatButton fb in buttons) { fb.Default(); }
             activeButton.Highlight();
+            updateConvertButton();
 
+        }
+
+        private void updateConvertButton()
+        {
+            filesAmount = 0;
+            foreach (String file in files)
+            {
+                if (file.EndsWith(activeFormat)) { filesAmount++; }
+                btnConvert.Text = $"Convert {filesAmount} file(s)";
+            }
         }
 
         private void btnFileSelection_Click(object sender, EventArgs e)
@@ -62,18 +76,19 @@ namespace ImageUtil.childForms
 
                 foreach (string file in dirFiles)
                 {
-                    //if (Program.formats.Contains(Path.GetExtension(file).Remove(0, 1))){ files.Add(file); }
+                    files.Add(file);
                 }
             }
         }
-        String activeFormat = "";
 
         private void btnConvert_Click(object sender, EventArgs e)
         {
             foreach (Converter convertor in Program.converters)
             {
-                if (convertor.toFormat == activeFormat) { convertor.convert(files, true); }
+                if (convertor.toFormat == activeFormat) { convertor.convert(files, keepFiles); }
             }
+            files = new List<string>();
+
         }
 
         private void btnKeepFiles_Click(object sender, EventArgs e)

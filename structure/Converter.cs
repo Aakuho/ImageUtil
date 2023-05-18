@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Windows.Forms;
+using System.Security.Cryptography.X509Certificates;
 
 namespace ImageUtil.structure
 {
@@ -20,39 +21,50 @@ namespace ImageUtil.structure
         {
             List<bool> result = new List<bool>();
             List<String> files2 = files;
+            string suffix = "";
             files2.RemoveAll(x => x.EndsWith(this.toFormat));
 
             int successful = 0;
+            int duplicateAmount = 0;
 
             if (!keepFiles)
             {
                 DialogResult overwrite = MessageBox.Show("This action will overwrite existing files. Continue?", "Overwrite", MessageBoxButtons.YesNo);
                 if ( overwrite == DialogResult.No) { return new List<bool>(); }
             }
-
             foreach (String file in files)
             {
                 Console.WriteLine($"Files to convert: {files2.Count}");
                 String name = Path.GetFileNameWithoutExtension(file);
-                try
-                {
-                    using (Image sourceImage = Image.FromFile(file))
-                    {
-                        ImageFormat format = (ImageFormat)new ImageFormatConverter().ConvertFromString(this.toFormat);
-                        sourceImage.Save($"{Path.GetDirectoryName(file)}\\{name}.{this.toFormat}", format);
-                        result.Add(true);
-                        successful++; 
-                    }
-                    if (!keepFiles) { File.Delete(file); }
-                }
-                catch (Exception ex)
-                {
-                    // Switch with Exception case is not supported in my current version of C#, bummer
-                    // cancel the image convert and display the error message to the user
-                    if ( ex is BadImageFormatException ) { }
-                    if ( ex is NotSupportedException ) { }
-                    if ( ex is System.Security.SecurityException ) { }
+                Image sourceImage = null;
 
+
+                try { using (sourceImage = Image.FromFile(file))
+                    {
+                        
+                        ImageFormat format = (ImageFormat)new ImageFormatConverter().ConvertFromString(this.toFormat);
+                        foreach (String i in Directory.GetFiles(Path.GetDirectoryName(file)))
+                        {
+                            // If a file already exists, change duplicateAmount to 1 and create a suffix, that will be added during naming
+                            if (Path.GetFileName(i).Contains($"{name}.{this.toFormat}")) { duplicateAmount++; suffix = $"({duplicateAmount})"; break; }
+                            else { continue; }
+                        }
+                        // If duplicate amount is greater than 0, it means there are multiple files and I should create the (n) 
+
+                        if (duplicateAmount > 0) { 
+                            sourceImage.Save($"{Path.GetDirectoryName(file)}\\{name} {suffix}.{this.toFormat}", format); 
+                        }
+                        else { 
+                            sourceImage.Save($"{Path.GetDirectoryName(file)}\\{name}.{this.toFormat}", format); 
+                        }
+                        result.Add(true);
+                        successful++;
+                        sourceImage.Dispose();
+                        if (!keepFiles) { File.Delete(file); }
+
+                    }
+                }
+                catch{
                     result.Add(false);
                 }
             }
