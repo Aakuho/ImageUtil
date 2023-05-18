@@ -22,12 +22,6 @@ namespace ImageUtil.childForms
         public convertIndividual()
         {
             InitializeComponent();
-            /*foreach (Converter converter in Program.converters)
-            {
-                String format = converter.toFormat;
-                buttons.Add(new FormatButton($"btn{format}", format.ToUpper(), format, 0, (1 + Program.formats.IndexOf(format)) * 60));
-            }
-            */
             int buttonAmount = 0;
             foreach (KeyValuePair<String, Type> kvp in Program.convertClasses)
             {
@@ -84,18 +78,16 @@ namespace ImageUtil.childForms
             {
                 if (convertor.toFormat == activeFormat)
                 {
-                    convertor.convert(files, true);
+                    convertor.convert(files, keepFiles);
+                    this.files = new List<string>();
                 }
             }
+        }
 
-
-            /*if (Program.convertClasses.TryGetValue(activeFormat, out Type convertClass))
-            {
-                Converter convertInstance = (Converter)Activator.CreateInstance(convertClass);
-                convertInstance.convert(files, true);
-            }
-            Console.WriteLine(Program.convertClasses.TryGetValue(activeFormat, out Type cc));
-            */
+        private void btnKeepFiles_Click(object sender, EventArgs e)
+        {
+            if (!keepFiles) { keepFiles = true; btnKeepFiles.BackColor = Color.FromArgb(80, 80, 80); }
+            else { keepFiles = false; btnKeepFiles.BackColor = Color.FromArgb(60, 60, 60); }
         }
     }
 }

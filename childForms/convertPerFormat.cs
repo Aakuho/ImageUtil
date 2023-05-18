@@ -21,6 +21,8 @@ namespace ImageUtil.childForms
         public List<FormatButton> leftButtons;
         public List<FormatButton> rightButtons;
         public List<String> files;
+        public bool keepFiles;
+
              
         public convertPerFormat()
         {
@@ -130,10 +132,6 @@ namespace ImageUtil.childForms
                 }
             }
         }
-        public String formatFrom = "";
-        public String formatTo = "";
-        public bool keepFiles;
-        Color defaultColor = Color.FromArgb(60, 60, 60);
 
         public void call()
         {
@@ -149,18 +147,19 @@ namespace ImageUtil.childForms
         }
         private void btnKeepFiles_Click(object sender, EventArgs e)
         {
-            if ( keepFiles ) { keepFiles = false; btnKeepFiles.BackColor = defaultColor; }
-            else { keepFiles = true; btnKeepFiles.BackColor = Color.FromArgb(80, 80, 80); }
+            if (!keepFiles) { keepFiles = true; btnKeepFiles.BackColor = Color.FromArgb(80, 80, 80); }
+            else { keepFiles = false; btnKeepFiles.BackColor = Color.FromArgb(60, 60, 60); }
         }
 
         private void btnConvert_Click(object sender, EventArgs e)
         {
-            if (Program.convertClasses.TryGetValue(toFormat, out Type convertClass))
+            foreach (Converter convertor in Program.converters)
             {
-                Converter convertInstance = (Converter)Activator.CreateInstance(convertClass);
-                convertInstance.convert(files, keepFiles);
+                if (convertor.toFormat == toFormat)
+                {
+                    convertor.convert(files, true);
+                }
             }
-            Console.WriteLine(Program.convertClasses.TryGetValue(toFormat, out Type cc));
         }
     }
 }

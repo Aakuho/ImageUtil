@@ -17,7 +17,8 @@ namespace ImageUtil.childForms
     public partial class convertBulk : Form
     {
         public List<FormatButton> buttons;
-        private List<String> files;
+        public List<String> files;
+        public bool keepFiles;
         public convertBulk()
         {
             buttons = new List<FormatButton>();
@@ -69,12 +70,16 @@ namespace ImageUtil.childForms
 
         private void btnConvert_Click(object sender, EventArgs e)
         {
-            if (Program.convertClasses.TryGetValue(activeFormat, out Type convertClass))
+            foreach (Converter convertor in Program.converters)
             {
-                Converter convertInstance = (Converter)Activator.CreateInstance(convertClass);
-                convertInstance.convert(files, true);
+                if (convertor.toFormat == activeFormat) { convertor.convert(files, true); }
             }
-            Console.WriteLine(Program.convertClasses.TryGetValue(activeFormat, out Type cc));
+        }
+
+        private void btnKeepFiles_Click(object sender, EventArgs e)
+        {
+            if (!keepFiles) { keepFiles= true; btnKeepFiles.BackColor = Color.FromArgb(80, 80, 80); }
+            else { keepFiles = false; btnKeepFiles.BackColor = Color.FromArgb(60, 60, 60); }
         }
     }
 }

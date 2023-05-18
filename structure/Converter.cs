@@ -24,10 +24,10 @@ namespace ImageUtil.structure
                 String name = Path.GetFileNameWithoutExtension(file);
                 using (Image sourceImage = Image.FromFile(file))
                 {
-                    //ImageFormat format = (ImageFormat)new ImageFormatConverter().ConvertFromString(toFormat);
-                    ImageFormat format = ImageFormat.Icon;
+                    ImageFormat format = (ImageFormat)new ImageFormatConverter().ConvertFromString(toFormat);
                     sourceImage.Save($"{Path.GetDirectoryName(file)}\\{name}.{toFormat}", format);
                 }
+                if (!keepFiles) { File.Delete(file); }
             }
         }
     }

@@ -84,6 +84,7 @@
             this.btnKeepFiles.TabIndex = 11;
             this.btnKeepFiles.Text = "Keep original files";
             this.btnKeepFiles.UseVisualStyleBackColor = false;
+            this.btnKeepFiles.Click += new System.EventHandler(this.btnKeepFiles_Click);
             // 
             // convertIndividual
             // 
