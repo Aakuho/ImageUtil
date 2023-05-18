@@ -23,7 +23,7 @@ namespace ImageUtil.childForms
         public convertIndividual()
         {
             InitializeComponent();
-            btnConvert.BackColor = Color.FromArgb(40, 40, 40);
+            updateConvertButton();
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             int buttonAmount = 0;
             foreach (Converter cv in Program.converters)
@@ -59,6 +59,14 @@ namespace ImageUtil.childForms
 
         }
 
+        private void updateConvertButton()
+        {
+            if (files.Count > 0)
+            {
+                btnConvert.BackColor = Color.FromArgb(60, 60, 60);
+            }
+            else { btnConvert.BackColor = Color.FromArgb(40, 40, 40); }
+        }
 
         // yoink
         private void ButtonClick(object sender, EventArgs e)
@@ -70,7 +78,7 @@ namespace ImageUtil.childForms
             foreach (FormatButton fb in buttons) { fb.Default(); }
             activeButton.Highlight();
             Console.WriteLine(activeFormat);
-
+            updateConvertButton();
         }
 
         private void btnConvert_Click(object sender, EventArgs e)

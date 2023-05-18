@@ -7,7 +7,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Windows.Forms;
-using System.Security.Cryptography.X509Certificates;
 
 namespace ImageUtil.structure
 {
@@ -25,7 +24,6 @@ namespace ImageUtil.structure
             files2.RemoveAll(x => x.EndsWith(this.toFormat));
 
             int successful = 0;
-            ImageFormat format = (ImageFormat)new ImageFormatConverter().ConvertFromString(this.toFormat);
             foreach (String file in files2)
             {
                 int duplicateAmount = 0;
@@ -35,6 +33,7 @@ namespace ImageUtil.structure
 
                 try
                 {
+                    ImageFormat format = (ImageFormat)new ImageFormatConverter().ConvertFromString(this.toFormat);
                     using (sourceImage = Image.FromFile(file))
                     {
                         foreach (String i in Directory.GetFiles(Path.GetDirectoryName(file)))

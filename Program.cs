@@ -20,6 +20,7 @@ namespace ImageUtil
             new PngConverter(),
             new BmpConverter(),
             new IconConverter(),
+            new TgaConverter()
         };
 
         [STAThread]
@@ -36,7 +37,14 @@ namespace ImageUtil
             List<String> returnFiles = new List<String>();
             foreach (String file in directory)
             {
-                if (Path.GetExtension(file).Remove(0, 1) == suffix) { returnFiles.Add(file); }
+                try
+                {
+                    if (Path.GetExtension(file).Remove(0, 1) == suffix) { returnFiles.Add(file); }
+                }
+                catch
+                {
+                    continue;
+                }
             }
 
             return returnFiles;
