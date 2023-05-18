@@ -25,6 +25,7 @@ namespace ImageUtil.structure
             files2.RemoveAll(x => x.EndsWith(this.toFormat));
 
             int successful = 0;
+            ImageFormat format = (ImageFormat)new ImageFormatConverter().ConvertFromString(this.toFormat);
             foreach (String file in files2)
             {
                 int duplicateAmount = 0;
@@ -32,7 +33,6 @@ namespace ImageUtil.structure
                 String name = Path.GetFileNameWithoutExtension(file);
                 Image sourceImage = null;
 
-                ImageFormat format = (ImageFormat)new ImageFormatConverter().ConvertFromString(this.toFormat);
                 try
                 {
                     using (sourceImage = Image.FromFile(file))

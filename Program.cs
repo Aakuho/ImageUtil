@@ -7,24 +7,12 @@ using System.Windows.Markup;
 using ImageUtil.converters;
 using ImageUtil.structure;
 using System.IO;
+using System.Diagnostics;
 
 namespace ImageUtil
 {
     static class Program
     {
-
-        // Registed new converters here
-        // C# Image library by default supports:
-        /*
-         * Bmp      DO
-         * Gif      DONT
-         * Icon     DO
-         * Jpeg     DO
-         * Png      DO
-         * Tiff     DONT
-         * Webp     DO
-         */
-
 
         public static List<Converter> converters = new List<Converter>
         {
@@ -33,10 +21,6 @@ namespace ImageUtil
             new BmpConverter(),
             new IconConverter(),
         };
-
-
-
-
 
         [STAThread]
         static void Main()
@@ -60,6 +44,7 @@ namespace ImageUtil
 
         public static void failedConvertCheck(List<bool> results, List<String> files)
         {
+            Debug.Assert(results.Count == files.Count);
             if (!results.All(x => x))
             {
                 for (int i = 0; i < files.Count; i++)

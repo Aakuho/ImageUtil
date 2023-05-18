@@ -19,9 +19,11 @@ namespace ImageUtil.childForms
         public bool keepFiles;
         public List<FormatButton> buttons = new List<FormatButton>();
         public List<String> files = new List<string>();
+        String activeFormat = "";
         public convertIndividual()
         {
             InitializeComponent();
+            btnConvert.BackColor = Color.FromArgb(40, 40, 40);
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             int buttonAmount = 0;
             foreach (Converter cv in Program.converters)
@@ -57,7 +59,6 @@ namespace ImageUtil.childForms
 
         }
 
-        String activeFormat = "";
 
         // yoink
         private void ButtonClick(object sender, EventArgs e)
