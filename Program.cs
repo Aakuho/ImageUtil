@@ -35,14 +35,6 @@ namespace ImageUtil
         };
 
 
-        // Dictionary, so I can access the classes with just the format provided
-        public static Dictionary<String, Type> convertClasses = new Dictionary<String, Type>()
-        {
-            { "jpeg", typeof( JpegConverter )},
-            { "png", typeof( PngConverter )},
-            { "ico", typeof( IconConverter )},
-            { "bmp", typeof( BmpConverter)}
-        };
 
 
 

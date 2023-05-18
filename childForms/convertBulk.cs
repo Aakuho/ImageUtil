@@ -30,10 +30,9 @@ namespace ImageUtil.childForms
             InitializeComponent();
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             int buttonAmount = 0;
-            foreach (KeyValuePair<String, Type> kvp in Program.convertClasses)
+            foreach (Converter cv in Program.converters)
             {
-                Converter converterInstance = (Converter)Activator.CreateInstance(kvp.Value);
-                String format = converterInstance.toFormat;
+                String format = cv.toFormat;
                 buttons.Add(new FormatButton($"btn{format}", format.ToUpper(), format, 0, buttonAmount * 60));
                 buttonAmount++;
             }

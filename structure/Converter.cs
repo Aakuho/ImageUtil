@@ -25,10 +25,9 @@ namespace ImageUtil.structure
             files2.RemoveAll(x => x.EndsWith(this.toFormat));
 
             int successful = 0;
-            int duplicateAmount = 0;
-
             foreach (String file in files2)
             {
+                int duplicateAmount = 0;
                 Console.WriteLine($"Files to convert: {files2.Count}");
                 String name = Path.GetFileNameWithoutExtension(file);
                 Image sourceImage = null;

@@ -37,10 +37,9 @@ namespace ImageUtil.childForms
 
             int buttonAmount = 0;
 
-            foreach (KeyValuePair<String, Type> kvp in Program.convertClasses)
+            foreach (Converter cv in Program.converters)
             {
-                Converter converterInstance = (Converter)Activator.CreateInstance(kvp.Value);
-                String format = converterInstance.toFormat;
+                String format = cv.toFormat;
                 leftButtons.Add(new FormatButton($"btnLeft{format}", format.ToUpper(), format, 0, buttonAmount * 60));
                 rightButtons.Add(new FormatButton($"btnRight{format}", format.ToUpper(), format, 0, buttonAmount * 60));
                 buttonAmount++;
@@ -132,7 +131,10 @@ namespace ImageUtil.childForms
                 string[] dirFiles = Directory.GetFiles(folderPath);
                 foreach (string file in dirFiles)
                 {
-                    if (Program.convertClasses.ContainsKey(Path.GetExtension(file).Remove(0, 1))) { files.Add(file); }
+                    foreach (Converter cv in Program.converters)
+                    {
+                        if ( cv.toFormat == Path.GetExtension(file).Remove(0, 1)){ files.Add(file); }
+                    }
                 }
             }
         }
