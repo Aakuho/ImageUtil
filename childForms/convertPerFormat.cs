@@ -22,8 +22,9 @@ namespace ImageUtil.childForms
         public List<FormatButton> rightButtons;
         public List<String> files;
         public bool keepFiles;
+        public int filesAmount = 0;
 
-             
+
         public convertPerFormat()
         {
             InitializeComponent();
@@ -95,7 +96,7 @@ namespace ImageUtil.childForms
                 // Toggle isSelected
                 foreach (FormatButton fb in leftButtons) { fb.isSelected = false; }
                 activeButton.isSelected = true;
-                Console.WriteLine($"Updated - from {fromFormat} to {toFormat}");
+                updateConvertButton();
             }
         }
 
@@ -111,7 +112,6 @@ namespace ImageUtil.childForms
 
                 foreach (FormatButton fb in rightButtons) { fb.isSelected = false; }
                 activeButton.isSelected = true;
-                Console.WriteLine($"Updated - from {fromFormat} to {toFormat}");
             }
         }
 
@@ -125,7 +125,6 @@ namespace ImageUtil.childForms
             {
                 string folderPath = dialog.FileName;
                 string[] dirFiles = Directory.GetFiles(folderPath);
-
                 foreach (string file in dirFiles)
                 {
                     if (Program.convertClasses.ContainsKey(Path.GetExtension(file).Remove(0, 1))) { files.Add(file); }
@@ -136,6 +135,16 @@ namespace ImageUtil.childForms
         public void call()
         {
             Console.WriteLine("Called function");
+        }
+
+        private void updateConvertButton()
+        {
+            filesAmount = 0;
+            foreach (String file in files)
+            {
+                if (file.EndsWith(fromFormat)) { filesAmount++; }
+                btnConvert.Text = $"Convert {filesAmount} file(s)";
+            }
         }
 
         private void resetButtonColors(List<FormatButton> fblist)
@@ -157,7 +166,7 @@ namespace ImageUtil.childForms
             {
                 if (convertor.toFormat == toFormat)
                 {
-                    convertor.convert(files, true);
+                    convertor.convert(Program.filterFiles(files, fromFormat), true);
                 }
             }
         }

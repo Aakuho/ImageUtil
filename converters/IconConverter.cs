@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using ImageUtil;
 using ImageUtil.structure;
 
@@ -15,18 +16,20 @@ namespace ImageUtil.converters
             this.toFormat = "ico";
         }
 
-        public override void convert(List<String> files, bool keepFiles)
+        public override List<bool> convert(List<String> files, bool keepFiles)
         {
-            try { base.convert(files, keepFiles); }
-            catch (BadImageFormatException)
+            List<bool> results = base.convert(files, keepFiles);
+            if (!results.All(x => x))
             {
-                Console.WriteLine("Format is not yet supported");
-                // switch case for additional formats
-
+                for (int i = 0; i < files.Count; i++)
+                {
+                    if (!results[i])
+                    {
+                        Console.WriteLine($"Failed to convert {files[i]}");
+                    }
+                }
             }
-
+            return new List<bool>();
         }
-
-
     }
 }
