@@ -28,6 +28,7 @@ namespace ImageUtil.childForms
         public convertPerFormat()
         {
             InitializeComponent();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             leftButtons = new List<FormatButton>();
             rightButtons = new List<FormatButton>();
             files = new List<String>();

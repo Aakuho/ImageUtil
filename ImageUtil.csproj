@@ -95,6 +95,12 @@
     <Compile Include="childForms\convertPerFormat.Designer.cs">
       <DependentUpon>convertPerFormat.cs</DependentUpon>
     </Compile>
+    <Compile Include="childForms\settingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="childForms\settingsForm.Designer.cs">
+      <DependentUpon>settingsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="converters\BmpConverter.cs" />
     <Compile Include="converters\IconConverter.cs" />
     <Compile Include="converters\JpegConverter.cs" />
@@ -128,6 +134,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="childForms\convertPerFormat.resx">
       <DependentUpon>convertPerFormat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="childForms\settingsForm.resx">
+      <DependentUpon>settingsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

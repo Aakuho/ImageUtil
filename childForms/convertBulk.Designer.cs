@@ -40,6 +40,7 @@ namespace ImageUtil.childForms
             this.btnFileSelection.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.btnFileSelection.FlatAppearance.BorderSize = 0;
             this.btnFileSelection.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFileSelection.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFileSelection.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnFileSelection.Location = new System.Drawing.Point(10, 10);
             this.btnFileSelection.Margin = new System.Windows.Forms.Padding(5);
@@ -55,6 +56,7 @@ namespace ImageUtil.childForms
             this.btnConvert.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.btnConvert.FlatAppearance.BorderSize = 0;
             this.btnConvert.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConvert.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConvert.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnConvert.Location = new System.Drawing.Point(450, 10);
             this.btnConvert.Margin = new System.Windows.Forms.Padding(5);
@@ -69,7 +71,7 @@ namespace ImageUtil.childForms
             // 
             this.panelButtons.Location = new System.Drawing.Point(10, 100);
             this.panelButtons.Name = "panelButtons";
-            this.panelButtons.Size = new System.Drawing.Size(200, 400);
+            this.panelButtons.Size = new System.Drawing.Size(400, 400);
             this.panelButtons.TabIndex = 10;
             // 
             // btnKeepFiles
@@ -89,14 +91,15 @@ namespace ImageUtil.childForms
             // 
             // convertBulk
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.ClientSize = new System.Drawing.Size(977, 946);
+            this.ClientSize = new System.Drawing.Size(702, 553);
             this.Controls.Add(this.btnKeepFiles);
             this.Controls.Add(this.panelButtons);
             this.Controls.Add(this.btnConvert);
             this.Controls.Add(this.btnFileSelection);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "convertBulk";
             this.Text = "convertBulk";

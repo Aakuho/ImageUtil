@@ -66,9 +66,10 @@
             // 
             // panelButtons
             // 
+            this.panelButtons.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelButtons.Location = new System.Drawing.Point(10, 100);
             this.panelButtons.Name = "panelButtons";
-            this.panelButtons.Size = new System.Drawing.Size(200, 400);
+            this.panelButtons.Size = new System.Drawing.Size(300, 400);
             this.panelButtons.TabIndex = 10;
             // 
             // btnKeepFiles
@@ -88,9 +89,10 @@
             // 
             // convertIndividual
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.ClientSize = new System.Drawing.Size(977, 946);
+            this.ClientSize = new System.Drawing.Size(702, 553);
             this.Controls.Add(this.btnKeepFiles);
             this.Controls.Add(this.panelButtons);
             this.Controls.Add(this.btnConvert);

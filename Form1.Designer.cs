@@ -81,6 +81,7 @@ namespace ImageUtil
             this.btnSettings.Text = "SETTINGS";
             this.btnSettings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSettings.UseVisualStyleBackColor = true;
+            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
             // 
             // panelConvert
             // 
@@ -279,15 +280,16 @@ namespace ImageUtil
             this.panelChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelChildForm.Location = new System.Drawing.Point(267, 0);
             this.panelChildForm.Margin = new System.Windows.Forms.Padding(4);
-            this.panelChildForm.MinimumSize = new System.Drawing.Size(995, 993);
+            this.panelChildForm.MinimumSize = new System.Drawing.Size(720, 600);
             this.panelChildForm.Name = "panelChildForm";
-            this.panelChildForm.Size = new System.Drawing.Size(995, 993);
+            this.panelChildForm.Size = new System.Drawing.Size(720, 600);
             this.panelChildForm.TabIndex = 1;
             this.panelChildForm.Paint += new System.Windows.Forms.PaintEventHandler(this.panelChildForm_Paint);
             // 
             // ParentForm
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(982, 553);
             this.Controls.Add(this.panelChildForm);
             this.Controls.Add(this.panelMenu);

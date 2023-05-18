@@ -99,7 +99,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.ClientSize = new System.Drawing.Size(977, 946);
+            this.ClientSize = new System.Drawing.Size(702, 553);
             this.Controls.Add(this.panelButtonsRight);
             this.Controls.Add(this.panelButtonsLeft);
             this.Controls.Add(this.btnKeepFiles);

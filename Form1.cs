@@ -108,5 +108,10 @@ namespace ImageUtil
         {
             Console.WriteLine($"{this.Width} | {this.Height}");
         }
+
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+            openChildForm(new settingsForm());
+        }
     }
 }

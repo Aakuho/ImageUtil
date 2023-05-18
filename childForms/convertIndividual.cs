@@ -22,6 +22,7 @@ namespace ImageUtil.childForms
         public convertIndividual()
         {
             InitializeComponent();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             int buttonAmount = 0;
             foreach (KeyValuePair<String, Type> kvp in Program.convertClasses)
             {

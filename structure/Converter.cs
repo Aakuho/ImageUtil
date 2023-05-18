@@ -77,4 +77,3 @@ namespace ImageUtil.structure
         }
     }
 }
-
