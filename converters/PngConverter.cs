@@ -20,7 +20,7 @@ namespace ImageUtil.converters
         {
             List<bool> results = base.convert(files, keepFiles);
             Program.failedConvertCheck(results, files);
-            return new List<bool>();
+            return results;
         }
     }
 }
