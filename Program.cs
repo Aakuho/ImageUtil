@@ -25,7 +25,7 @@ namespace ImageUtil
          * Webp     DO
          */
 
-        
+
         public static List<Converter> converters = new List<Converter>
         {
             new JpegConverter(),
@@ -33,7 +33,7 @@ namespace ImageUtil
             new BmpConverter(),
             new IconConverter(),
         };
-        
+
 
         // Dictionary, so I can access the classes with just the format provided
         public static Dictionary<String, Type> convertClasses = new Dictionary<String, Type>()
@@ -55,7 +55,7 @@ namespace ImageUtil
         }
 
 
-        public static List<String> filterFiles (List<String> directory, String suffix) 
+        public static List<String> filterFiles(List<String> directory, String suffix)
         {
             List<String> returnFiles = new List<String>();
             foreach (String file in directory)
@@ -64,6 +64,21 @@ namespace ImageUtil
             }
 
             return returnFiles;
-        }   
+        }
+
+        public static void failedConvertCheck(List<bool> results, List<String> files)
+        {
+            if (!results.All(x => x))
+            {
+                for (int i = 0; i < files.Count; i++)
+                {
+                    if (!results[i])
+                    {
+                        Console.WriteLine($"Failed to convert {files[i]}");
+                    }
+                }
+            }
+        }
     }
+
 }

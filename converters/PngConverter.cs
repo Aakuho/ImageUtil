@@ -19,14 +19,7 @@ namespace ImageUtil.converters
         public override List<bool> convert(List<String> files, bool keepFiles)
         {
             List<bool> results = base.convert(files, keepFiles);
-            if (!results.All(x => x)) 
-            {
-                for (int i = 0; i < files.Count; i++) { 
-                    if (!results[i]) { 
-                        Console.WriteLine($"Failed to convert {files[i]}");
-                    }
-                }
-            }
+            Program.failedConvertCheck(results, files);
             return new List<bool>();
         }
     }

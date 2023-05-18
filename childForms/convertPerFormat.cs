@@ -28,7 +28,9 @@ namespace ImageUtil.childForms
         public convertPerFormat()
         {
             InitializeComponent();
-            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            btnConvert.BackColor = Color.FromArgb(40, 40, 40);
+
+
             leftButtons = new List<FormatButton>();
             rightButtons = new List<FormatButton>();
             files = new List<String>();
@@ -73,6 +75,7 @@ namespace ImageUtil.childForms
             this.AutoScaleMode = AutoScaleMode.Dpi;
 
         }
+        
 
         private void selectButtonInColumn(List<FormatButton> fblist, FormatButton fb) {
             foreach (FormatButton iterButton in fblist)
@@ -113,6 +116,7 @@ namespace ImageUtil.childForms
 
                 foreach (FormatButton fb in rightButtons) { fb.isSelected = false; }
                 activeButton.isSelected = true;
+                updateConvertButton();
             }
         }
 
@@ -133,10 +137,6 @@ namespace ImageUtil.childForms
             }
         }
 
-        public void call()
-        {
-            Console.WriteLine("Called function");
-        }
 
         private void updateConvertButton()
         {
@@ -145,6 +145,10 @@ namespace ImageUtil.childForms
             {
                 if (file.EndsWith(fromFormat)) { filesAmount++; }
                 btnConvert.Text = $"Convert {filesAmount} file(s)";
+            }
+            if ( fromFormat != null && toFormat != null ) 
+            {
+                btnConvert.BackColor = Color.FromArgb(60, 60, 60);
             }
         }
 
@@ -163,6 +167,7 @@ namespace ImageUtil.childForms
 
         private void btnConvert_Click(object sender, EventArgs e)
         {
+            if (!(btnConvert.BackColor == Color.FromArgb(60, 60, 60))) { return; }
             foreach (Converter convertor in Program.converters)
             {
                 if (convertor.toFormat == toFormat)

@@ -90,7 +90,7 @@
             this.btnFileSelect.Name = "btnFileSelect";
             this.btnFileSelect.Size = new System.Drawing.Size(200, 50);
             this.btnFileSelect.TabIndex = 0;
-            this.btnFileSelect.Text = "Select Files";
+            this.btnFileSelect.Text = "Select Folder";
             this.btnFileSelect.UseVisualStyleBackColor = false;
             this.btnFileSelect.Click += new System.EventHandler(this.btnFileSelect_Click);
             // 

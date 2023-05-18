@@ -41,8 +41,9 @@ namespace ImageUtil.childForms
         }
         private void btnFileSelection_Click(object sender, EventArgs e)
         {
+            Console.WriteLine("Skill issue");
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            
+
             openFileDialog.Filter = "Image files (*.jpg, *.jpeg, *.png, *.webp, *.bpm)|*.jpg;*.jpeg;*.png;*.webp;*.bmp|All files (*.*)|*.*";
             openFileDialog.Multiselect = true;
             switch (openFileDialog.ShowDialog())
