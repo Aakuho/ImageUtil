@@ -49,7 +49,7 @@ namespace ImageUtil.childForms
             switch (openFileDialog.ShowDialog())
             {
                 case DialogResult.OK:
-                    foreach (string file in openFileDialog.FileNames) { files.Add(file); }
+                    foreach (string file in openFileDialog.FileNames) { files.Add(file); Console.WriteLine(file); }
 
                     break;
                 default:
@@ -87,10 +87,10 @@ namespace ImageUtil.childForms
             {
                 if (convertor.toFormat == activeFormat)
                 {
-                    convertor.convert(files, keepFiles);
-                    this.files = new List<string>();
+                    convertor.convert(Program.filterFiles(files, activeFormat), true);
                 }
             }
+            this.files = new List<string>();
         }
 
         private void btnKeepFiles_Click(object sender, EventArgs e)
