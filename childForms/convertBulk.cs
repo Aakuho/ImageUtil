@@ -30,6 +30,8 @@ namespace ImageUtil.childForms
 
             InitializeComponent();
             btnConvert.BackColor = Color.FromArgb(40, 40, 40);
+            this.btnKeepFiles.BackColor = Color.FromArgb(40, 40, 40);
+
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             int buttonAmount = 0;
             foreach (Converter cv in Program.converters)
@@ -101,8 +103,8 @@ namespace ImageUtil.childForms
 
         private void btnKeepFiles_Click(object sender, EventArgs e)
         {
-            if (!keepFiles) { keepFiles= true; btnKeepFiles.BackColor = Color.FromArgb(80, 80, 80); }
-            else { keepFiles = false; btnKeepFiles.BackColor = Color.FromArgb(60, 60, 60); }
+            if (!keepFiles) { keepFiles = true; btnKeepFiles.BackColor = Color.FromArgb(80, 80, 80); }
+            else { keepFiles = false; btnKeepFiles.BackColor = Color.FromArgb(40, 40, 40); }
         }
     }
 }

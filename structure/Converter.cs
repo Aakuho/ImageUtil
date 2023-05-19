@@ -55,7 +55,7 @@ namespace ImageUtil.structure
                 MessageBox.Show($"Successfully converted {files2.Count} file(s)", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             
-            else { 
+            else {  
                 StringBuilder stringBuilder = new StringBuilder();
                 stringBuilder.Append($"Successfully converted {successful} file(s), failed to convert {files2.Count - successful} file(s):\n");
                 for (int statusIndex = 0; statusIndex < result.Count; statusIndex++)
@@ -70,10 +70,9 @@ namespace ImageUtil.structure
             return result;
         }
 
-        // Some pictures may have identical names, as I said previously. Putting a correct number in the parentheses is for some reason, difficult
+        // Some pictures may have an identical name, this will be solved by definitely not copying Windows's way of doing it nooooo
         public string generateUniqueName(String name)
         {
-            // get all the directories- yeye we get that
             string baseName = Path.GetFileNameWithoutExtension(name);
             string[] existingFiles = Directory.GetFiles(Path.GetDirectoryName(name));
             String dir = Path.GetDirectoryName(name);
