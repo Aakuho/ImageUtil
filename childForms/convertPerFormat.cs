@@ -149,7 +149,7 @@ namespace ImageUtil.childForms
             {
                 btnConvert.BackColor = Color.FromArgb(60, 60, 60);
             }
-            if (files.Count > 0) { btnConvert.Text = $"Convert {Program.filterFiles(files, fromFormat).Count} files"; }
+            if (files.Count > 0) { btnConvert.Text = $"Convert {Program.filterFiles(files, fromFormat).Count} file(s)   "; }
         }
 
         private void resetButtonColors(List<FormatButton> fblist)
