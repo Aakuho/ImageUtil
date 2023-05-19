@@ -58,11 +58,11 @@ namespace ImageUtil.childForms
 
         private void updateConvertButton()
         {
-            if (files.Count > 0) { btnConvert.Text = $"Convert {Program.filterFiles(files, activeFormat).Count} files"; }
-            if (files.Count > 0)
-            {
+            if (files.Count > 0) { 
+                btnConvert.Text = $"Convert {Program.filterFiles(files, activeFormat).Count} files";
                 btnConvert.BackColor = Color.FromArgb(60, 60, 60);
             }
+            else { btnConvert.BackColor = Color.FromArgb(40, 40, 40); }
         }
 
         private void btnFileSelection_Click(object sender, EventArgs e)
