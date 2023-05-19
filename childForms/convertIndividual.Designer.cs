@@ -32,6 +32,8 @@
             this.btnFileSelection = new System.Windows.Forms.Button();
             this.panelButtons = new System.Windows.Forms.Panel();
             this.btnKeepFiles = new System.Windows.Forms.Button();
+            this.labelFilesHeader = new System.Windows.Forms.Label();
+            this.labelFiles = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnConvert
@@ -87,12 +89,32 @@
             this.btnKeepFiles.UseVisualStyleBackColor = false;
             this.btnKeepFiles.Click += new System.EventHandler(this.btnKeepFiles_Click);
             // 
+            // labelFilesHeader
+            // 
+            this.labelFilesHeader.AutoSize = true;
+            this.labelFilesHeader.ForeColor = System.Drawing.Color.Gainsboro;
+            this.labelFilesHeader.Location = new System.Drawing.Point(385, 100);
+            this.labelFilesHeader.Name = "labelFilesHeader";
+            this.labelFilesHeader.Size = new System.Drawing.Size(0, 18);
+            this.labelFilesHeader.TabIndex = 12;
+            // 
+            // labelFiles
+            // 
+            this.labelFiles.AutoSize = true;
+            this.labelFiles.ForeColor = System.Drawing.Color.Gainsboro;
+            this.labelFiles.Location = new System.Drawing.Point(385, 150);
+            this.labelFiles.Name = "labelFiles";
+            this.labelFiles.Size = new System.Drawing.Size(0, 18);
+            this.labelFiles.TabIndex = 13;
+            // 
             // convertIndividual
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.ClientSize = new System.Drawing.Size(702, 553);
+            this.Controls.Add(this.labelFiles);
+            this.Controls.Add(this.labelFilesHeader);
             this.Controls.Add(this.btnKeepFiles);
             this.Controls.Add(this.panelButtons);
             this.Controls.Add(this.btnConvert);
@@ -101,6 +123,7 @@
             this.Name = "convertIndividual";
             this.Text = "7";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -109,5 +132,7 @@
         private System.Windows.Forms.Button btnFileSelection;
         private System.Windows.Forms.Panel panelButtons;
         private System.Windows.Forms.Button btnKeepFiles;
+        private System.Windows.Forms.Label labelFilesHeader;
+        private System.Windows.Forms.Label labelFiles;
     }
 }

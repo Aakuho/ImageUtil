@@ -85,6 +85,8 @@ namespace ImageUtil.childForms
                         if (cv.toFormat == Path.GetExtension(file).Remove(0, 1)) { files.Add(file); }
                     }
                 }
+                labelFilesHeader.Text = "Loaded file(s):";
+                labelFiles.Text = Program.organizeLoadedFiles(files);
             }
             updateConvertButton();
         }

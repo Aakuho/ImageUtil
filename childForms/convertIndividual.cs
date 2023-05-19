@@ -51,12 +51,13 @@ namespace ImageUtil.childForms
             {
                 case DialogResult.OK:
                     foreach (string file in openFileDialog.FileNames) { files.Add(file); Console.WriteLine(file); }
-
                     break;
                 default:
                     Console.WriteLine("User cancelled the selection");
                     break;
             }
+            labelFilesHeader.Text = "Loaded file(s):";
+            labelFiles.Text = Program.organizeLoadedFiles(files);
 
         }
 

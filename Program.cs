@@ -8,6 +8,7 @@ using ImageUtil.converters;
 using ImageUtil.structure;
 using System.IO;
 using System.Diagnostics;
+using System.Text;
 
 namespace ImageUtil
 {
@@ -44,21 +45,37 @@ namespace ImageUtil
             }
             return returnFiles;
         }
-        
-        // This is purely for debug information, I might get rid of this in the future
-        public static void failedConvertCheck(List<bool> results, List<String> files)
+
+        //I want the files that are sent to be shortened, so that they don't really take up that much space
+        // So for example:  C:\Users\marti\Desktop\kitten.png
+        //                  -> ...\Desktop\kitten.png 
+        // Keep the name as well as one upper directory
+        public static String organizeLoadedFiles(List<String> files)
         {
-            Debug.Assert(results.Count == files.Count);
-            if (!results.All(x => x))
+            StringBuilder sb = new StringBuilder();
+            foreach (String file in files)
             {
-                for (int i = 0; i < files.Count; i++)
+                string[] path = file.Split('\\');
+                if (path.Length > 2)
                 {
-                    if (!results[i])
+                    sb.Append("...\\");
+                    for (int i = path.Length - 2; i < path.Length; i++)
                     {
-                        Console.WriteLine($"Failed to convert {files[i]}");
+                        sb.Append(path[i - 1] + "\\");
                     }
+                    sb.Append(Path.GetFileName(file) + "\n");
+                }
+                else 
+                {
+                    for (int i = 0; i < path.Length; i++)
+                    {
+                        sb.Append(path[i] + "\\");
+                    }
+                    sb.Append(Path.GetFileName(file) + "\n");
                 }
             }
+            return sb.ToString();
+
         }
     }
 

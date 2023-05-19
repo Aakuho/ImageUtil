@@ -137,6 +137,8 @@ namespace ImageUtil.childForms
                         if ( cv.toFormat == Path.GetExtension(file).Remove(0, 1)){ files.Add(file); }
                     }
                 }
+                labelFilesHeader.Text = "Loaded file(s):";
+                labelFiles.Text = Program.organizeLoadedFiles(files);
             }
         }
 
@@ -173,6 +175,11 @@ namespace ImageUtil.childForms
                     convertor.convert(Program.filterFiles(files, fromFormat), keepFiles);
                 }
             }
+        }
+
+        private void convertPerFormat_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

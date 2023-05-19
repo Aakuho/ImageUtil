@@ -21,7 +21,6 @@ namespace ImageUtil.converters
         public override List<bool> convert(List<String> files, bool keepFiles)
         {
             List<bool> results = base.convert(files, keepFiles);
-            Program.failedConvertCheck(results, files);
             return results;
         }
     }
