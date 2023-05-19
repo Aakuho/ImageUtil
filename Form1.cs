@@ -13,27 +13,23 @@ namespace ImageUtil
 {
     public partial class ParentForm : Form
     {
-        /*
-         * Color 1-3 will be used as 3 dominant colors that will manipulate the general appearance. 
-         * If the colors are not hard set, and are instead stored as variables, they can be changed during run time.
-         */
-        private Color color1 = Color.FromArgb(60, 60, 60);
-        /*
-         * Dominant color
-         */
-        private Color color2 = Color.FromArgb(69, 69, 69);
-        /*
-         * Buttons
-         */
-        private Color color3 = Color.FromArgb(50, 50, 50);
-        /*
-         * Restricted Buttons
-         */
+        List<Button> buttonList;
 
         public ParentForm()
         {
             InitializeComponent();
             HideSubMenus();
+            buttonList = new List<Button>()
+            {
+                btnAboutProject,
+                btnAboutCompany,
+                btnAboutSchool,
+                btnConvertBulk,
+                btnConvertIndividual,
+                btnConvertFormat
+            };
+
+            
         }
 
         private void HideSubMenus()
@@ -73,40 +69,47 @@ namespace ImageUtil
             childForm.BringToFront();
             childForm.Show();
         }
+        private void toggleButtonColor(Button button)
+        {
+            buttonList.ForEach(b => b.BackColor = Color.FromArgb(69, 69, 69));
+            button.BackColor = Color.FromArgb(80, 80, 80);
+        }
+
 
         private void btnAboutProject_Click(object sender, EventArgs e)
         {
             openChildForm(new aboutProjectForm());
+            toggleButtonColor(btnAboutProject);
         }
 
         private void btnAboutCompany_Click(object sender, EventArgs e)
         {
             openChildForm(new aboutCompanyForm());
+            toggleButtonColor(btnAboutCompany);
         }
 
         private void btnAboutSchool_Click(object sender, EventArgs e)
         {
             openChildForm(new aboutSchoolForm());
+            toggleButtonColor(btnAboutSchool);
         }
 
         private void btnConvertBulk_Click(object sender, EventArgs e)
         {
             openChildForm(new convertBulk());
+            toggleButtonColor(btnConvertBulk);
         }
 
         private void btnConvertIndividual_Click(object sender, EventArgs e)
         {
             openChildForm(new convertIndividual());
+            toggleButtonColor(btnConvertIndividual);
         }
 
         private void btnConvertFormat_Click(object sender, EventArgs e)
         {
             openChildForm(new convertPerFormat());
-        }
-
-        private void panelChildForm_Paint(object sender, PaintEventArgs e)
-        {
-            Console.WriteLine($"{this.Width} | {this.Height}");
+            toggleButtonColor(btnConvertFormat);
         }
 
         private void btnSettings_Click(object sender, EventArgs e)

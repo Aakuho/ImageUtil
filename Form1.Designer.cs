@@ -284,7 +284,6 @@ namespace ImageUtil
             this.panelChildForm.Name = "panelChildForm";
             this.panelChildForm.Size = new System.Drawing.Size(720, 600);
             this.panelChildForm.TabIndex = 1;
-            this.panelChildForm.Paint += new System.Windows.Forms.PaintEventHandler(this.panelChildForm_Paint);
             // 
             // ParentForm
             // 
