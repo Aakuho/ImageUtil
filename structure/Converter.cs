@@ -56,12 +56,15 @@ namespace ImageUtil.structure
             }
             
             else { 
-                // TODO FIX
                 StringBuilder stringBuilder = new StringBuilder();
                 stringBuilder.Append($"Successfully converted {successful} file(s), failed to convert {files2.Count - successful} file(s):\n");
-                foreach (bool status in result)
+                for (int statusIndex = 0; statusIndex < result.Count; statusIndex++)
                 {
-                    if (!status) { stringBuilder.Append(files[result.IndexOf(status)] + "\n"); }
+                    Console.WriteLine(result[statusIndex]);
+                    if (!result[statusIndex])
+                    {
+                        stringBuilder.Append(files[statusIndex].ToString() + "\n");
+                    }
                 }
                 MessageBox.Show(stringBuilder.ToString(), "Result", MessageBoxButtons.OK, MessageBoxIcon.Information); }
             return result;
