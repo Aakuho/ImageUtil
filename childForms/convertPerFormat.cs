@@ -142,16 +142,11 @@ namespace ImageUtil.childForms
 
         private void updateConvertButton()
         {
-            filesAmount = 0;
-            foreach (String file in files)
-            {
-                if (file.EndsWith(fromFormat)) { filesAmount++; }
-                btnConvert.Text = $"Convert {filesAmount} file(s)";
-            }
             if ( fromFormat != null && toFormat != null ) 
             {
                 btnConvert.BackColor = Color.FromArgb(60, 60, 60);
             }
+            if (files.Count > 0) { btnConvert.Text = $"Convert {Program.filterFiles(files, fromFormat).Count} files"; }
         }
 
         private void resetButtonColors(List<FormatButton> fblist)

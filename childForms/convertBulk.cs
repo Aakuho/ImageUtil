@@ -58,12 +58,7 @@ namespace ImageUtil.childForms
 
         private void updateConvertButton()
         {
-            filesAmount = 0;
-            foreach (String file in files)
-            {
-                if (!file.EndsWith(activeFormat)) { filesAmount++; }
-                btnConvert.Text = $"Convert {filesAmount} file(s)";
-            }
+            if (files.Count > 0) { btnConvert.Text = $"Convert {Program.filterFiles(files, activeFormat).Count} files"; }
             if (files.Count > 0)
             {
                 btnConvert.BackColor = Color.FromArgb(60, 60, 60);
