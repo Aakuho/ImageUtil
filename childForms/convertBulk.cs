@@ -11,6 +11,7 @@ using System.Collections;
 using System.Drawing.Imaging;
 using System.IO;
 using ImageUtil.structure;
+using Microsoft.WindowsAPICodePack.Dialogs;
 
 namespace ImageUtil.childForms
 {
@@ -68,15 +69,19 @@ namespace ImageUtil.childForms
         private void btnFileSelection_Click(object sender, EventArgs e)
         {
             files = new List<string>();
-            FolderBrowserDialog dialog = new FolderBrowserDialog();
-            if (dialog.ShowDialog() == DialogResult.OK)
+            CommonOpenFileDialog dialog = new CommonOpenFileDialog();
+            dialog.InitialDirectory = "C:\\Users";
+            dialog.IsFolderPicker = true;
+            if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
             {
-                string folderPath = dialog.SelectedPath;
+                string folderPath = dialog.FileName;
                 string[] dirFiles = Directory.GetFiles(folderPath);
-
                 foreach (string file in dirFiles)
                 {
-                    files.Add(file);
+                    foreach (Converter cv in Program.converters)
+                    {
+                        if (cv.toFormat == Path.GetExtension(file).Remove(0, 1)) { files.Add(file); }
+                    }
                 }
             }
             updateConvertButton();
@@ -87,7 +92,7 @@ namespace ImageUtil.childForms
             foreach (Converter convertor in Program.converters)
             {
                 if (convertor.toFormat == activeFormat) {
-                    convertor.convert(Program.filterFiles(files, activeFormat), true);
+                    convertor.convert(Program.filterFiles(files, activeFormat), keepFiles);
                 }
             }
             files = new List<string>();

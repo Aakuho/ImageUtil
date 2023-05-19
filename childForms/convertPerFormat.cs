@@ -169,7 +169,7 @@ namespace ImageUtil.childForms
             {
                 if (convertor.toFormat == toFormat)
                 {
-                    convertor.convert(Program.filterFiles(files, fromFormat), true);
+                    convertor.convert(Program.filterFiles(files, fromFormat), keepFiles);
                 }
             }
         }

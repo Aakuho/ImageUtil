@@ -21,12 +21,10 @@ namespace ImageUtil.structure
         {
             List<bool> result = new List<bool>();
             List<String> files2 = files;
-            string suffix = "";
             int successful = 0;
 
             foreach (String file in files2)
             {
-                int duplicateAmount = 0;
                 Console.WriteLine($"Files to convert: {files2.Count}"); // Informational
                 String name = Path.GetFileNameWithoutExtension(file);
                 Image sourceImage = null;
@@ -37,33 +35,18 @@ namespace ImageUtil.structure
                     ImageFormat format = (ImageFormat)new ImageFormatConverter().ConvertFromString(this.toFormat);
                     using (sourceImage = Image.FromFile(file))
                     {
-                        foreach (String i in Directory.GetFiles(Path.GetDirectoryName(file)))
-                        {
-                            // If a file already exists, change duplicateAmount to 1 and create a suffix, that will be added during naming
-                            if (Path.GetFileName(i).Contains($"{name}.{this.toFormat}")) { duplicateAmount++; suffix = $"({duplicateAmount})"; break; }
-                            else { continue; }
-                        }
-                        // If duplicate amount is greater than 0, it means there are multiple files and I should create the (n) 
-
-                        if (duplicateAmount > 0)
-                        {
-                            sourceImage.Save($"{Path.GetDirectoryName(file)}\\{name} ({generateUniqueSuffix(file)}).{this.toFormat}", format);
-                        }
-                        else
-                        {
-                            sourceImage.Save($"{Path.GetDirectoryName(file)}\\{name}.{this.toFormat}", format);
-                        }
+                        String path = $"{generateUniqueName(file)}.{this.toFormat}";
+                        sourceImage.Save(path, format);
                         result.Add(true);
                         successful++;
                         sourceImage.Dispose(); // using keyword normally disposes of the file automatically, but If I try to ..
                         if (!keepFiles)
-                        {
+                        { 
                             File.Delete(file); // .. delete it, it won't go through and will cause an exception
                         }
                     }
                 }
-                catch
-                {
+                catch {
                     result.Add(false);
                 }
             }
@@ -85,35 +68,21 @@ namespace ImageUtil.structure
         }
 
         // Some pictures may have identical names, as I said previously. Putting a correct number in the parentheses is for some reason, difficult
-        public int generateUniqueSuffix(String name)
+        public string generateUniqueName(String name)
         {
             // get all the directories- yeye we get that
             string baseName = Path.GetFileNameWithoutExtension(name);
             string[] existingFiles = Directory.GetFiles(Path.GetDirectoryName(name));
-            int highestSuffix = 1; 
+            String dir = Path.GetDirectoryName(name);
 
-            foreach (string file in existingFiles)
+            String candidate = $"{dir}\\{baseName}";
+            if (!existingFiles.Contains(candidate)) { return candidate; }
+
+            for (int highestSuffix = 1; true; highestSuffix++)
             {
-                string existingFileName = Path.GetFileNameWithoutExtension(file);
-
-                // checking for matching base name
-                if (existingFileName.StartsWith(baseName))
-                {
-                    // getting the suffix
-                    string suffixString = existingFileName.Substring(baseName.Length);
-                    if (suffixString.StartsWith(" (") && suffixString.EndsWith(")"))
-                    {
-                        // remove all the unimportant characters, such as ' ', '(', ')'
-                        suffixString = suffixString.Substring(2, suffixString.Length - 3);
-                        // Get the max suffix
-                        if (int.TryParse(suffixString, out int suffix))
-                        {
-                            highestSuffix = Math.Max(highestSuffix, suffix);
-                        }
-                    }
-                }
+                candidate = $"{dir}\\{baseName} ({highestSuffix})";
+                if (!existingFiles.Contains(candidate)) { return candidate; }
             }
-            return highestSuffix;
         }
     }
 }

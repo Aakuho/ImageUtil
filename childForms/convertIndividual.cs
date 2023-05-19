@@ -87,7 +87,7 @@ namespace ImageUtil.childForms
             {
                 if (convertor.toFormat == activeFormat)
                 {
-                    convertor.convert(Program.filterFiles(files, activeFormat), true);
+                    convertor.convert(Program.filterFiles(files, activeFormat), keepFiles);
                 }
             }
             this.files = new List<string>();
