@@ -76,7 +76,7 @@ namespace ImageUtil.structure
             String dir = Path.GetDirectoryName(name);
 
             String candidate = $"{dir}\\{baseName}";
-            if (!existingFiles.Contains(candidate)) { return candidate; }
+            if (!existingFiles.Contains(candidate + $".{toFormat}")) { return candidate; }
 
             for (int highestSuffix = 1; true; highestSuffix++)
             {
