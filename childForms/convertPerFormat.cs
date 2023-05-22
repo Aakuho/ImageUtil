@@ -133,7 +133,7 @@ namespace ImageUtil.childForms
                 List<String> dirFilesList = dirFiles.ToList<String>();
                 foreach (Converter cv in Program.converters)
                 {
-                    if ( cv.toFormat != fromFormat){ files = Program.filterFiles(dirFilesList, fromFormat); }
+                    if ( cv.toFormat != fromFormat){ dirFilesList.ForEach(f => files.Add(f)); break; }
                 }
                 
                 labelFilesHeader.Text = "Loaded file(s):";
@@ -148,7 +148,7 @@ namespace ImageUtil.childForms
             {
                 btnConvert.BackColor = Color.FromArgb(60, 60, 60);
             }
-            if (files.Count > 0) { btnConvert.Text = $"Convert {Program.filterFiles(files, fromFormat).Count} file(s)   "; }
+            if (files.Count > 0) { btnConvert.Text = $"Convert {Program.filterFiles(files, toFormat).Count} file(s)   "; }
         }
 
         private void resetButtonColors(List<FormatButton> fblist)
@@ -171,7 +171,7 @@ namespace ImageUtil.childForms
             {
                 if (convertor.toFormat == toFormat)
                 {
-                    convertor.convert(Program.filterFiles(files, fromFormat), keepFiles);
+                    convertor.convert(Program.filterFiles(files, toFormat), keepFiles);
                 }
             }
         }
