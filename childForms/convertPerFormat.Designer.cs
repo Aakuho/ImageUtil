@@ -100,7 +100,7 @@
             // 
             this.labelFilesHeader.AutoSize = true;
             this.labelFilesHeader.ForeColor = System.Drawing.Color.Gainsboro;
-            this.labelFilesHeader.Location = new System.Drawing.Point(500, 100);
+            this.labelFilesHeader.Location = new System.Drawing.Point(600, 100);
             this.labelFilesHeader.Name = "labelFilesHeader";
             this.labelFilesHeader.Size = new System.Drawing.Size(0, 16);
             this.labelFilesHeader.TabIndex = 11;
@@ -109,7 +109,7 @@
             // 
             this.labelFiles.AutoSize = true;
             this.labelFiles.ForeColor = System.Drawing.Color.Gainsboro;
-            this.labelFiles.Location = new System.Drawing.Point(500, 150);
+            this.labelFiles.Location = new System.Drawing.Point(600, 150);
             this.labelFiles.Name = "labelFiles";
             this.labelFiles.Size = new System.Drawing.Size(0, 16);
             this.labelFiles.TabIndex = 12;

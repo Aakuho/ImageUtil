@@ -130,13 +130,12 @@ namespace ImageUtil.childForms
             {
                 string folderPath = dialog.FileName;
                 string[] dirFiles = Directory.GetFiles(folderPath);
-                foreach (string file in dirFiles)
+                List<String> dirFilesList = dirFiles.ToList<String>();
+                foreach (Converter cv in Program.converters)
                 {
-                    foreach (Converter cv in Program.converters)
-                    {
-                        if ( cv.toFormat == Path.GetExtension(file).Remove(0, 1)){ files.Add(file); }
-                    }
+                    if ( cv.toFormat != fromFormat){ files = Program.filterFiles(dirFilesList, fromFormat); }
                 }
+                
                 labelFilesHeader.Text = "Loaded file(s):";
                 labelFiles.Text = Program.organizeLoadedFiles(files);
             }
