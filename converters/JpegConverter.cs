@@ -13,7 +13,7 @@ namespace ImageUtil.converters
     {
         public JpegConverter() 
         {
-            this.toFormat = "jpg"; 
+            this.toFormat = "jpeg"; 
         }
 
         public override List<bool> convert(List<String> files, bool keepFiles)

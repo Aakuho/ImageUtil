@@ -25,7 +25,7 @@ namespace ImageUtil.structure
 
             foreach (String file in files2)
             {
-                Console.WriteLine($"Files to convert: {files2.Count}"); // Informational
+                Console.WriteLine(file);
                 String name = Path.GetFileNameWithoutExtension(file);
                 Image sourceImage = null;
 

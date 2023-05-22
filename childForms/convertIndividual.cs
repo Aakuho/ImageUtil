@@ -67,13 +67,14 @@ namespace ImageUtil.childForms
                 btnConvert.Text = $"Convert {Program.filterFiles(files, activeFormat).Count} file(s)";
                 btnConvert.BackColor = Color.FromArgb(60, 60, 60);
             }
-            else { btnConvert.BackColor = Color.FromArgb(40, 40, 40); }
+            else { 
+                btnConvert.BackColor = Color.FromArgb(40, 40, 40);
+                btnConvert.Text = $"Convert";
+            }
         }
 
-        // yoink
         private void ButtonClick(object sender, EventArgs e)
         {
-
             FormatButton activeButton = ((FormatButton)sender);
             activeFormat = activeButton.formatName;
             // Toggle isSelected
@@ -92,7 +93,14 @@ namespace ImageUtil.childForms
                     convertor.convert(Program.filterFiles(files, activeFormat), keepFiles);
                 }
             }
-            this.files = new List<string>();
+            // reset everything to it's base form
+            files = new List<string>();
+            labelFiles.Text = "";
+            labelFilesHeader.Text = "";
+            buttons.ForEach(btn => btn.Default());
+            keepFiles = false; btnKeepFiles.BackColor = Color.FromArgb(40, 40, 40);
+            activeFormat = "";
+            updateConvertButton();
         }
 
         private void btnKeepFiles_Click(object sender, EventArgs e)

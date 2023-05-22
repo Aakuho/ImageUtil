@@ -75,19 +75,19 @@ namespace ImageUtil.childForms
             this.AutoScaleMode = AutoScaleMode.Dpi;
 
         }
-        
+
 
         private void selectButtonInColumn(List<FormatButton> fblist, FormatButton fb) {
             foreach (FormatButton iterButton in fblist)
             {
-                if (!(iterButton.isDisabled)) { iterButton.Default();  }
+                if (!(iterButton.isDisabled)) { iterButton.Default(); }
             }
             fb.Highlight(); fb.isSelected = true;
         }
 
         private void LeftButtonClick(object sender, EventArgs e)
         {
-            
+
             FormatButton activeButton = ((FormatButton)sender);
             fromFormat = activeButton.formatName;
             if (!(activeButton.isDisabled))
@@ -123,6 +123,8 @@ namespace ImageUtil.childForms
 
         private void btnFileSelect_Click(object sender, EventArgs e)
         {
+            resetForm();
+
             CommonOpenFileDialog dialog = new CommonOpenFileDialog();
             dialog.InitialDirectory = "C:\\Users";
             dialog.IsFolderPicker = true;
@@ -133,22 +135,39 @@ namespace ImageUtil.childForms
                 List<String> dirFilesList = dirFiles.ToList<String>();
                 foreach (Converter cv in Program.converters)
                 {
-                    if ( cv.toFormat != fromFormat){ dirFilesList.ForEach(f => files.Add(f)); break; }
+                    if (cv.toFormat != fromFormat) { dirFilesList.ForEach(f => files.Add(f)); break; }
                 }
-                
+
                 labelFilesHeader.Text = "Loaded file(s):";
                 labelFiles.Text = Program.organizeLoadedFiles(files);
             }
         }
 
-
+        private void resetForm()
+        {
+            files = new List<string>();
+            labelFiles.Text = "";
+            labelFilesHeader.Text = "";
+            leftButtons.ForEach(btn => btn.Default());
+            rightButtons.ForEach(btn => btn.Default());
+            keepFiles = false; btnKeepFiles.BackColor = Color.FromArgb(40, 40, 40);
+            fromFormat = "";
+            toFormat = "";
+            updateConvertButton();
+        }
         private void updateConvertButton()
         {
-            if ( fromFormat != null && toFormat != null ) 
+            if (files.Count > 0)
             {
+                Console.WriteLine($"Haiii :3 {toFormat} | {fromFormat}");
+                if (toFormat != null && fromFormat != null) { btnConvert.Text = $"Convert {Program.filterFilesPF(files, fromFormat, toFormat).Count} file(s)"; }           
                 btnConvert.BackColor = Color.FromArgb(60, 60, 60);
             }
-            if (files.Count > 0) { btnConvert.Text = $"Convert {Program.filterFiles(files, toFormat).Count} file(s)   "; }
+            else
+            {
+                btnConvert.BackColor = Color.FromArgb(40, 40, 40);
+                btnConvert.Text = $"Convert";
+            }
         }
 
         private void resetButtonColors(List<FormatButton> fblist)
@@ -171,9 +190,11 @@ namespace ImageUtil.childForms
             {
                 if (convertor.toFormat == toFormat)
                 {
-                    convertor.convert(Program.filterFiles(files, toFormat), keepFiles);
+                    convertor.convert(Program.filterFilesPF(files, fromFormat, toFormat), keepFiles);
                 }
             }
+            // reset everything to it's base form
+            resetForm();
         }
 
         private void convertPerFormat_Load(object sender, EventArgs e)

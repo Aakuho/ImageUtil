@@ -40,8 +40,29 @@ namespace ImageUtil
             List<String> returnFiles = new List<String>();
             foreach (String file in directory)
             {
-                try { if (Path.GetExtension(file).Remove(0, 1) != suffix) { returnFiles.Add(file); }}
+                // if (!directory.Any(c => Path.GetExtension(c).Remove(0, 1) == suffix)) { continue; } idiotic
+
+                // goal:
+                // Only add files to return files, that don't have the same suffix
+                // Also, if there are no files with the suffix, refrain from returning directory.Count
+                if (directory.All(f => f == suffix)) { continue; }
+                try { if (Path.GetExtension(file).Remove(0, 1) != suffix) { returnFiles.Add(file); Console.WriteLine(suffix); }}
                 catch{ continue; }
+            }
+            return returnFiles;
+        }
+
+        // Can't fit this into the normal filterFiles function. F
+        public static List<String> filterFilesPF(List<String> directory, String from, String to)
+        {
+            List<String> returnFiles = new List<String>();
+            foreach (String file in directory)
+            {
+                String format = Path.GetExtension(file).Remove(0, 1);
+                if ( directory.All(f => f == from) ) { continue; }
+                if ( format == to ) { continue; }
+                try { if ( format == from ) { returnFiles.Add(file); Console.WriteLine(to); } }
+                catch { continue; }
             }
             return returnFiles;
         }

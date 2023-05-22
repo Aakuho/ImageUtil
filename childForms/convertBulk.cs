@@ -61,16 +61,32 @@ namespace ImageUtil.childForms
 
         private void updateConvertButton()
         {
-            if (files.Count > 0) { 
+            if (files.Count > 0)
+            {
                 btnConvert.Text = $"Convert {Program.filterFiles(files, activeFormat).Count} file(s)";
                 btnConvert.BackColor = Color.FromArgb(60, 60, 60);
             }
-            else { btnConvert.BackColor = Color.FromArgb(40, 40, 40); }
+            else
+            {
+                btnConvert.BackColor = Color.FromArgb(40, 40, 40);
+                btnConvert.Text = $"Convert";
+            }
+        }
+        private void resetForm()
+        {
+            files = new List<string>();
+            labelFiles.Text = "";
+            labelFilesHeader.Text = "";
+            buttons.ForEach(btn => btn.Default());
+            keepFiles = false; btnKeepFiles.BackColor = Color.FromArgb(40, 40, 40);
+            activeFormat = "";
+            updateConvertButton();
         }
 
         private void btnFileSelection_Click(object sender, EventArgs e)
         {
-            files = new List<string>();
+            resetForm();
+
             CommonOpenFileDialog dialog = new CommonOpenFileDialog();
             dialog.InitialDirectory = "C:\\Users";
             dialog.IsFolderPicker = true;
@@ -78,13 +94,9 @@ namespace ImageUtil.childForms
             {
                 string folderPath = dialog.FileName;
                 string[] dirFiles = Directory.GetFiles(folderPath);
-                foreach (string file in dirFiles)
-                {
-                    foreach (Converter cv in Program.converters)
-                    {
-                        if (cv.toFormat == Path.GetExtension(file).Remove(0, 1)) { files.Add(file); }
-                    }
-                }
+                List<String> dirFilesList = dirFiles.ToList<String>();
+                dirFilesList.ForEach(f => files.Add(f));
+
                 labelFilesHeader.Text = "Loaded file(s):";
                 labelFiles.Text = Program.organizeLoadedFiles(files);
             }
@@ -99,7 +111,14 @@ namespace ImageUtil.childForms
                 }
             }
             files = new List<string>();
-
+            // reset everything to it's base form
+            files = new List<string>();
+            labelFiles.Text = "";
+            labelFilesHeader.Text = "";
+            buttons.ForEach(btn => btn.Default());
+            keepFiles = false; btnKeepFiles.BackColor = Color.FromArgb(40, 40, 40);
+            activeFormat = "";
+            updateConvertButton();
         }
 
         private void btnKeepFiles_Click(object sender, EventArgs e)
