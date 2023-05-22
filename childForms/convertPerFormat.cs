@@ -29,7 +29,8 @@ namespace ImageUtil.childForms
         {
             InitializeComponent();
             btnConvert.BackColor = Color.FromArgb(40, 40, 40);
-            this.btnKeepFiles.BackColor = Color.FromArgb(40, 40, 40);
+            btnKeepFiles.BackColor = Color.FromArgb(40, 40, 40);
+            btnKeepFiles.Text = "✕ Keep files";
 
 
             leftButtons = new List<FormatButton>();
@@ -179,8 +180,8 @@ namespace ImageUtil.childForms
         }
         private void btnKeepFiles_Click(object sender, EventArgs e)
         {
-            if (!keepFiles) { keepFiles = true; btnKeepFiles.BackColor = Color.FromArgb(80, 80, 80); }
-            else { keepFiles = false; btnKeepFiles.BackColor = Color.FromArgb(40, 40, 40); }
+            if (!keepFiles) { keepFiles = true; btnKeepFiles.BackColor = Color.FromArgb(80, 80, 80); btnKeepFiles.Text = "✓ Keep files"; }
+            else { keepFiles = false; btnKeepFiles.BackColor = Color.FromArgb(40, 40, 40); btnKeepFiles.Text = "✕ Keep files"; }
         }
 
         private void btnConvert_Click(object sender, EventArgs e)
