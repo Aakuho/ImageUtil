@@ -60,9 +60,8 @@ namespace ImageUtil
             this.panelMenu.Controls.Add(this.panelLogo);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
-            this.panelMenu.Margin = new System.Windows.Forms.Padding(4);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(267, 553);
+            this.panelMenu.Size = new System.Drawing.Size(214, 449);
             this.panelMenu.TabIndex = 0;
             // 
             // btnSettings
@@ -72,11 +71,10 @@ namespace ImageUtil
             this.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSettings.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnSettings.Location = new System.Drawing.Point(0, 581);
-            this.btnSettings.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSettings.Location = new System.Drawing.Point(0, 464);
             this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
-            this.btnSettings.Size = new System.Drawing.Size(246, 63);
+            this.btnSettings.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnSettings.Size = new System.Drawing.Size(197, 50);
             this.btnSettings.TabIndex = 5;
             this.btnSettings.Text = "SETTINGS";
             this.btnSettings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -89,10 +87,9 @@ namespace ImageUtil
             this.panelConvert.Controls.Add(this.btnConvertIndividual);
             this.panelConvert.Controls.Add(this.btnConvertBulk);
             this.panelConvert.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelConvert.Location = new System.Drawing.Point(0, 415);
-            this.panelConvert.Margin = new System.Windows.Forms.Padding(4);
+            this.panelConvert.Location = new System.Drawing.Point(0, 331);
             this.panelConvert.Name = "panelConvert";
-            this.panelConvert.Size = new System.Drawing.Size(246, 166);
+            this.panelConvert.Size = new System.Drawing.Size(197, 133);
             this.panelConvert.TabIndex = 4;
             // 
             // btnConvertFormat
@@ -104,11 +101,10 @@ namespace ImageUtil
             this.btnConvertFormat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConvertFormat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConvertFormat.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnConvertFormat.Location = new System.Drawing.Point(0, 110);
-            this.btnConvertFormat.Margin = new System.Windows.Forms.Padding(4);
+            this.btnConvertFormat.Location = new System.Drawing.Point(0, 88);
             this.btnConvertFormat.Name = "btnConvertFormat";
-            this.btnConvertFormat.Padding = new System.Windows.Forms.Padding(47, 0, 0, 0);
-            this.btnConvertFormat.Size = new System.Drawing.Size(246, 55);
+            this.btnConvertFormat.Padding = new System.Windows.Forms.Padding(38, 0, 0, 0);
+            this.btnConvertFormat.Size = new System.Drawing.Size(197, 44);
             this.btnConvertFormat.TabIndex = 5;
             this.btnConvertFormat.Text = "Per Format";
             this.btnConvertFormat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -124,11 +120,10 @@ namespace ImageUtil
             this.btnConvertIndividual.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConvertIndividual.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConvertIndividual.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnConvertIndividual.Location = new System.Drawing.Point(0, 55);
-            this.btnConvertIndividual.Margin = new System.Windows.Forms.Padding(4);
+            this.btnConvertIndividual.Location = new System.Drawing.Point(0, 44);
             this.btnConvertIndividual.Name = "btnConvertIndividual";
-            this.btnConvertIndividual.Padding = new System.Windows.Forms.Padding(47, 0, 0, 0);
-            this.btnConvertIndividual.Size = new System.Drawing.Size(246, 55);
+            this.btnConvertIndividual.Padding = new System.Windows.Forms.Padding(38, 0, 0, 0);
+            this.btnConvertIndividual.Size = new System.Drawing.Size(197, 44);
             this.btnConvertIndividual.TabIndex = 4;
             this.btnConvertIndividual.Text = "Individual";
             this.btnConvertIndividual.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -145,10 +140,9 @@ namespace ImageUtil
             this.btnConvertBulk.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConvertBulk.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnConvertBulk.Location = new System.Drawing.Point(0, 0);
-            this.btnConvertBulk.Margin = new System.Windows.Forms.Padding(4);
             this.btnConvertBulk.Name = "btnConvertBulk";
-            this.btnConvertBulk.Padding = new System.Windows.Forms.Padding(47, 0, 0, 0);
-            this.btnConvertBulk.Size = new System.Drawing.Size(246, 55);
+            this.btnConvertBulk.Padding = new System.Windows.Forms.Padding(38, 0, 0, 0);
+            this.btnConvertBulk.Size = new System.Drawing.Size(197, 44);
             this.btnConvertBulk.TabIndex = 3;
             this.btnConvertBulk.Text = "Bulk";
             this.btnConvertBulk.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -162,11 +156,10 @@ namespace ImageUtil
             this.btnConvert.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConvert.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConvert.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnConvert.Location = new System.Drawing.Point(0, 352);
-            this.btnConvert.Margin = new System.Windows.Forms.Padding(4);
+            this.btnConvert.Location = new System.Drawing.Point(0, 281);
             this.btnConvert.Name = "btnConvert";
-            this.btnConvert.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
-            this.btnConvert.Size = new System.Drawing.Size(246, 63);
+            this.btnConvert.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnConvert.Size = new System.Drawing.Size(197, 50);
             this.btnConvert.TabIndex = 3;
             this.btnConvert.Text = "CONVERT";
             this.btnConvert.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -179,10 +172,9 @@ namespace ImageUtil
             this.panelAbout.Controls.Add(this.btnAboutCompany);
             this.panelAbout.Controls.Add(this.btnAboutProject);
             this.panelAbout.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelAbout.Location = new System.Drawing.Point(0, 186);
-            this.panelAbout.Margin = new System.Windows.Forms.Padding(4);
+            this.panelAbout.Location = new System.Drawing.Point(0, 148);
             this.panelAbout.Name = "panelAbout";
-            this.panelAbout.Size = new System.Drawing.Size(246, 166);
+            this.panelAbout.Size = new System.Drawing.Size(197, 133);
             this.panelAbout.TabIndex = 2;
             // 
             // btnAboutSchool
@@ -194,11 +186,10 @@ namespace ImageUtil
             this.btnAboutSchool.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAboutSchool.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAboutSchool.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnAboutSchool.Location = new System.Drawing.Point(0, 110);
-            this.btnAboutSchool.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAboutSchool.Location = new System.Drawing.Point(0, 88);
             this.btnAboutSchool.Name = "btnAboutSchool";
-            this.btnAboutSchool.Padding = new System.Windows.Forms.Padding(47, 0, 0, 0);
-            this.btnAboutSchool.Size = new System.Drawing.Size(246, 55);
+            this.btnAboutSchool.Padding = new System.Windows.Forms.Padding(38, 0, 0, 0);
+            this.btnAboutSchool.Size = new System.Drawing.Size(197, 44);
             this.btnAboutSchool.TabIndex = 2;
             this.btnAboutSchool.Text = "About School";
             this.btnAboutSchool.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -214,11 +205,10 @@ namespace ImageUtil
             this.btnAboutCompany.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAboutCompany.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAboutCompany.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnAboutCompany.Location = new System.Drawing.Point(0, 55);
-            this.btnAboutCompany.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAboutCompany.Location = new System.Drawing.Point(0, 44);
             this.btnAboutCompany.Name = "btnAboutCompany";
-            this.btnAboutCompany.Padding = new System.Windows.Forms.Padding(47, 0, 0, 0);
-            this.btnAboutCompany.Size = new System.Drawing.Size(246, 55);
+            this.btnAboutCompany.Padding = new System.Windows.Forms.Padding(38, 0, 0, 0);
+            this.btnAboutCompany.Size = new System.Drawing.Size(197, 44);
             this.btnAboutCompany.TabIndex = 1;
             this.btnAboutCompany.Text = "About Company";
             this.btnAboutCompany.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -235,10 +225,9 @@ namespace ImageUtil
             this.btnAboutProject.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAboutProject.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnAboutProject.Location = new System.Drawing.Point(0, 0);
-            this.btnAboutProject.Margin = new System.Windows.Forms.Padding(4);
             this.btnAboutProject.Name = "btnAboutProject";
-            this.btnAboutProject.Padding = new System.Windows.Forms.Padding(47, 0, 0, 0);
-            this.btnAboutProject.Size = new System.Drawing.Size(246, 55);
+            this.btnAboutProject.Padding = new System.Windows.Forms.Padding(38, 0, 0, 0);
+            this.btnAboutProject.Size = new System.Drawing.Size(197, 44);
             this.btnAboutProject.TabIndex = 0;
             this.btnAboutProject.Text = "About Project";
             this.btnAboutProject.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -252,11 +241,10 @@ namespace ImageUtil
             this.btnAbout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAbout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAbout.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnAbout.Location = new System.Drawing.Point(0, 123);
-            this.btnAbout.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAbout.Location = new System.Drawing.Point(0, 98);
             this.btnAbout.Name = "btnAbout";
-            this.btnAbout.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
-            this.btnAbout.Size = new System.Drawing.Size(246, 63);
+            this.btnAbout.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnAbout.Size = new System.Drawing.Size(197, 50);
             this.btnAbout.TabIndex = 1;
             this.btnAbout.Text = "ABOUT";
             this.btnAbout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -269,32 +257,29 @@ namespace ImageUtil
             this.panelLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
-            this.panelLogo.Margin = new System.Windows.Forms.Padding(4);
             this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(246, 123);
+            this.panelLogo.Size = new System.Drawing.Size(197, 98);
             this.panelLogo.TabIndex = 0;
             // 
             // panelChildForm
             // 
             this.panelChildForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.panelChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelChildForm.Location = new System.Drawing.Point(267, 0);
-            this.panelChildForm.Margin = new System.Windows.Forms.Padding(4);
-            this.panelChildForm.MinimumSize = new System.Drawing.Size(720, 600);
+            this.panelChildForm.Location = new System.Drawing.Point(214, 0);
+            this.panelChildForm.MinimumSize = new System.Drawing.Size(576, 480);
             this.panelChildForm.Name = "panelChildForm";
-            this.panelChildForm.Size = new System.Drawing.Size(720, 600);
+            this.panelChildForm.Size = new System.Drawing.Size(576, 480);
             this.panelChildForm.TabIndex = 1;
             // 
             // ParentForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(982, 553);
+            this.ClientSize = new System.Drawing.Size(787, 449);
             this.Controls.Add(this.panelChildForm);
             this.Controls.Add(this.panelMenu);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.MinimumSize = new System.Drawing.Size(1000, 600);
+            this.MinimumSize = new System.Drawing.Size(803, 488);
             this.Name = "ParentForm";
             this.Text = "Image Utilities";
             this.panelMenu.ResumeLayout(false);
