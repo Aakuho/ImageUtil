@@ -36,7 +36,6 @@ namespace ImageUtil
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -105,24 +104,12 @@ namespace ImageUtil
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label6.Location = new System.Drawing.Point(14, 277);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(128, 45);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "Thank you for reading.\r\n\r\n\r\n";
-            // 
             // aboutProjectForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -145,6 +132,5 @@ namespace ImageUtil
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label6;
     }
 }

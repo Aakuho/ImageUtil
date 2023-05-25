@@ -11,12 +11,13 @@ using ImageUtil.childForms;
 
 namespace ImageUtil
 {
-    public partial class ParentForm : Form
+    public partial class parentForm : Form
     {
         List<Button> buttonList;
 
-        public ParentForm()
+        public parentForm()
         {
+            // I did this way before I had dynamic buttons in mind
             InitializeComponent();
             HideSubMenus();
             buttonList = new List<Button>()
@@ -28,8 +29,18 @@ namespace ImageUtil
                 btnConvertIndividual,
                 btnConvertFormat
             };
+        }
 
-            
+        // ssshhhhhhh
+        public List<Panel> getPanels()
+        {
+            return new List<Panel> { panelAbout, panelChildForm, panelConvert, panelLogo, panelMenu };
+        }
+        public List<Button> getButtons()
+        {
+            return new List<Button> {   btnAbout, btnAboutCompany, btnAboutProject, btnAboutSchool,
+                                        btnConvert, btnConvertBulk, btnConvertFormat, btnConvertIndividual,
+                                        btnSettings };
         }
 
         private void HideSubMenus()
@@ -71,8 +82,8 @@ namespace ImageUtil
         }
         private void toggleButtonColor(Button button)
         {
-            buttonList.ForEach(b => b.BackColor = Color.FromArgb(69, 69, 69));
-            button.BackColor = Color.FromArgb(80, 80, 80);
+            buttonList.ForEach(b => b.BackColor = Color.FromArgb(255, Color.FromArgb(Program.color5)));
+            button.BackColor = Color.FromArgb(255, Color.FromArgb(Program.color6));
         }
 
 
@@ -110,6 +121,11 @@ namespace ImageUtil
         {
             openChildForm(new convertPerFormat());
             toggleButtonColor(btnConvertFormat);
+        }
+
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+            openChildForm(new settingsForm(this));
         }
     }
 }
