@@ -80,9 +80,9 @@ namespace ImageUtil
                 if (path.Length > 2)
                 {
                     sb.Append("...\\");
-                    for (int i = path.Length - 2; i < path.Length; i++)
+                    for (int i = path.Length - 3; i < path.Length; i++)
                     {
-                        sb.Append(path[i - 1] + "\\");
+                        sb.Append(path[i] + "\\");
                     }
                     sb.Append(Path.GetFileName(file) + "\n");
                 }

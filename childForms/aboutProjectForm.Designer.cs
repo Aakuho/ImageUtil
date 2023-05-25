@@ -112,9 +112,9 @@ namespace ImageUtil
             this.label6.ForeColor = System.Drawing.Color.Gainsboro;
             this.label6.Location = new System.Drawing.Point(14, 277);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(153, 30);
+            this.label6.Size = new System.Drawing.Size(128, 45);
             this.label6.TabIndex = 6;
-            this.label6.Text = "Thank you for reading this. \r\n- Aakuho\r\n";
+            this.label6.Text = "Thank you for reading.\r\n\r\n\r\n";
             // 
             // aboutProjectForm
             // 

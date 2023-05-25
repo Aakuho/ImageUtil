@@ -42,10 +42,10 @@ namespace ImageUtil.childForms
             this.label1.ForeColor = System.Drawing.Color.Gainsboro;
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(453, 30);
+            this.label1.Size = new System.Drawing.Size(443, 30);
             this.label1.TabIndex = 2;
-            this.label1.Text = "My college is located in Český Brod, a small city in Czech Republic near to Pragu" +
-    "e.\r\nIt\'s focus is on Economics, Management, Computer graphics and Programming.";
+            this.label1.Text = "My college is located in Český Brod, a small city in Czech Republic near Prague.\r" +
+    "\nIt\'s focus is on Economics, Management, Computer graphics and Programming.";
             // 
             // pictureBox1
             // 
