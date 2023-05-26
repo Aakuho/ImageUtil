@@ -71,13 +71,8 @@ namespace ImageUtil
             foreach (String file in directory)
             {
                 String filesuffix = Path.GetExtension(file).Remove(0, 1);
-                // if (!directory.Any(c => Path.GetExtension(c).Remove(0, 1) == suffix)) { continue; } idiotic
-
-                // goal:
-                // Only add files to return files, that don't have the same suffix
-                // Also, if there are no files with the suffix, refrain from returning directory.Count
-                if (directory.All(f => f == from)) { continue; }
-                try { if (filesuffix != from && acceptibleFormats.Any(n => n.ToLower() == filesuffix)) { returnFiles.Add(file); Console.WriteLine(from); } }
+                if (!file.Contains(from)) { continue; }
+                try { if (filesuffix != to && acceptibleFormats.Any(n => n.ToLower() == filesuffix)) { returnFiles.Add(file); Console.WriteLine(from); } }
                 catch { continue; }
             }
             return returnFiles;

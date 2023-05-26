@@ -194,9 +194,9 @@ namespace ImageUtil.childForms
         }
         private void updateConvertButton()
         {
-            if (files.Count > 0)
+            if (files.Count > 0 && fromFormat != "" && toFormat != "")
             {
-                if (toFormat != null && fromFormat != null) { btnConvert.Text = $"Convert {Program.filterFiles(files, fromFormat).Count} file(s)"; }           
+                if (toFormat != null && fromFormat != null) { btnConvert.Text = $"Convert {Program.filterFilesPF(files, fromFormat, toFormat).Count} file(s)"; }           
                 btnConvert.BackColor = Color.FromArgb(60, 60, 60);
             }
             else
