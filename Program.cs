@@ -38,15 +38,20 @@ namespace ImageUtil
         public static List<String> filterFiles(List<String> directory, String suffix)
         {
             List<String> returnFiles = new List<String>();
+            List<String> acceptibleFormats = new List<String>();
+
+            Program.converters.ForEach(n => acceptibleFormats.Add(n.toFormat.ToLower()));
+            acceptibleFormats.Add("jpg");
             foreach (String file in directory)
             {
+                String filesuffix = Path.GetExtension(file).Remove(0, 1);
                 // if (!directory.Any(c => Path.GetExtension(c).Remove(0, 1) == suffix)) { continue; } idiotic
 
                 // goal:
                 // Only add files to return files, that don't have the same suffix
                 // Also, if there are no files with the suffix, refrain from returning directory.Count
                 if (directory.All(f => f == suffix)) { continue; }
-                try { if (Path.GetExtension(file).Remove(0, 1) != suffix) { returnFiles.Add(file); Console.WriteLine(suffix); }}
+                try { if (filesuffix != suffix && acceptibleFormats.Any(n => n.ToLower() == filesuffix)) { returnFiles.Add(file); Console.WriteLine(suffix); }}
                 catch{ continue; }
             }
             return returnFiles;
@@ -80,9 +85,9 @@ namespace ImageUtil
                 if (path.Length > 2)
                 {
                     sb.Append("...\\");
-                    for (int i = path.Length - 3; i < path.Length; i++)
+                    for (int i = path.Length - 2; i < path.Length; i++)
                     {
-                        sb.Append(path[i] + "\\");
+                        sb.Append(path[i - 1] + "\\");
                     }
                     sb.Append(Path.GetFileName(file) + "\n");
                 }

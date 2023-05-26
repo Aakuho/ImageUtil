@@ -25,14 +25,14 @@ namespace ImageUtil.structure
 
             foreach (String file in files2)
             {
-                Console.WriteLine(file);
                 String name = Path.GetFileNameWithoutExtension(file);
                 Image sourceImage = null;
-
+                ImageFormat format = null;
+                String filesuffix = Path.GetExtension(file).Remove(0, 1);
                 try
                 {
                     // If the format is not compatible, or something is wrong, it'll go straight to the exceptions
-                    ImageFormat format = (ImageFormat)new ImageFormatConverter().ConvertFromString(this.toFormat);
+                    format = (ImageFormat)new ImageFormatConverter().ConvertFromString(this.toFormat);
                     using (sourceImage = Image.FromFile(file))
                     {
                         String path = $"{generateUniqueName(file)}.{this.toFormat}";
