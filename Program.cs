@@ -21,7 +21,9 @@ namespace ImageUtil
             new PngConverter(),
             new BmpConverter(),
             new IconConverter(),
-            new TgaConverter()
+            new TgaConverter(),
+            new GifConverter(),
+            new TiffConverter()
         };
 
         [STAThread]
@@ -31,6 +33,7 @@ namespace ImageUtil
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new ParentForm());
         }
+
 
 
         // I want to convert only images that are not of the same format. Ex. cat.png -/> cat.png, but cat.jpg -> cat.png
@@ -78,29 +81,19 @@ namespace ImageUtil
         // Keep the name as well as one upper directory
         public static String organizeLoadedFiles(List<String> files)
         {
+            List<String> acceptibleFormats = new List<String>();
+            Program.converters.ForEach(n => acceptibleFormats.Add(n.toFormat.ToLower()));
+            acceptibleFormats.Add("jpg");
             StringBuilder sb = new StringBuilder();
+
             foreach (String file in files)
             {
+                String suffix = Path.GetExtension(file).Remove(0, 1);
+                if (!acceptibleFormats.Any(n => n.ToLower() == suffix)) { continue; }
                 string[] path = file.Split('\\');
-                if (path.Length > 2)
-                {
-                    sb.Append("...\\");
-                    for (int i = path.Length - 2; i < path.Length; i++)
-                    {
-                        sb.Append(path[i - 1] + "\\");
-                    }
-                    sb.Append(Path.GetFileName(file) + "\n");
-                }
-                else 
-                {
-                    for (int i = 0; i < path.Length; i++)
-                    {
-                        sb.Append(path[i] + "\\");
-                    }
-                    sb.Append(Path.GetFileName(file) + "\n");
-                }
+                sb.Append(Path.GetFileName(file) + "\n");
             }
-            return sb.ToString();
+            return sb.ToString(); 
 
         }
     }

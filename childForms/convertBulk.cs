@@ -22,6 +22,12 @@ namespace ImageUtil.childForms
         public bool keepFiles;
         public int filesAmount;
         public String activeFormat = "";
+        /*
+         * step 0 - No files selected, formats, keep files and convert hidden and disabled
+         * step 1 - Files selected formats and keep files shown
+         * step 2 - Files and format selected, show convert
+         */
+        public int step = 0; 
 
         public convertBulk()
         {
@@ -45,6 +51,43 @@ namespace ImageUtil.childForms
                 panelButtons.Controls.Add(button);
                 button.Click += new EventHandler(ButtonClick);
             }
+            updateStep(0);
+        }
+
+        private void updateStep(int updatedStep)
+        {
+            step = updatedStep;
+            Console.WriteLine(step);
+            switch (step)
+            {
+                case 0:
+                    labelSource.Visible = false;
+                    panelButtons.Visible = false;
+                    btnKeepFiles.Visible = false;
+                    btnConvert.Enabled = false;
+                    btnConvert.Visible = false;
+                    break;
+                case 1:
+                    labelSource.Visible = true;
+                    panelButtons.Visible = true;
+                    btnKeepFiles.Visible = true;
+                    btnConvert.Enabled = false;
+                    btnConvert.Visible = false;
+                    labelFilesHeader.Text = "Usable file(s)";
+                    break;
+                case 2:
+                    labelSource.Visible = true;
+                    panelButtons.Visible = true;
+                    btnKeepFiles.Visible = true;
+                    btnConvert.Enabled = true;
+                    btnConvert.Visible = true;
+                    labelFilesHeader.Text = "Using file(s)";
+                    List<String> ff = Program.organizeLoadedFiles(files).Split("\n".ToCharArray()).ToList();
+                    ff.RemoveAll(n => n.EndsWith(activeFormat));
+                    labelFiles.Text = String.Join("\n", ff);
+                    break;
+            }
+                
         }
 
         private void ButtonClick(object sender, EventArgs e)
@@ -56,6 +99,7 @@ namespace ImageUtil.childForms
             foreach (FormatButton fb in buttons) { fb.Default(); }
             activeButton.Highlight();
             updateConvertButton();
+            updateStep(2);
 
         }
 
@@ -97,9 +141,10 @@ namespace ImageUtil.childForms
                 List<String> dirFilesList = dirFiles.ToList<String>();
                 dirFilesList.ForEach(f => files.Add(f));
 
-                labelFilesHeader.Text = "Loaded file(s):";
+                labelFilesHeader.Text = "Usable file(s):";
                 labelFiles.Text = Program.organizeLoadedFiles(files);
             }
+            updateStep(1);
         }
 
         private void btnConvert_Click(object sender, EventArgs e)

@@ -96,10 +96,12 @@
       <DependentUpon>convertPerFormat.cs</DependentUpon>
     </Compile>
     <Compile Include="converters\BmpConverter.cs" />
+    <Compile Include="converters\GifConverter.cs" />
     <Compile Include="converters\IconConverter.cs" />
     <Compile Include="converters\JpegConverter.cs" />
     <Compile Include="converters\PngConverter.cs" />
     <Compile Include="converters\TgaConverter.cs" />
+    <Compile Include="converters\TiffConverter.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +114,7 @@
     <Compile Include="structure\FormatButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="structure\BaseImageEncoder.cs" />
     <EmbeddedResource Include="childForms\aboutCompanyForm.resx">
       <DependentUpon>aboutCompanyForm.cs</DependentUpon>
     </EmbeddedResource>

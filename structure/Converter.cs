@@ -7,12 +7,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Windows.Forms;
+using ImageUtil.structure;
+using ImageUtil;
 
 namespace ImageUtil.structure
 {
     public class Converter
     {
         public String toFormat;
+        
 
         // This convert will be called anytime someone tries to convert anything. If it doesn't go through this,
         // the person can code his own encoder in the separate classes. Also, this process can be removed by deleting
@@ -27,16 +30,18 @@ namespace ImageUtil.structure
             {
                 String name = Path.GetFileNameWithoutExtension(file);
                 Image sourceImage = null;
-                ImageFormat format = null;
                 String filesuffix = Path.GetExtension(file).Remove(0, 1);
+                BaseImageEncoder encoder = new BaseImageEncoder();
+                
                 try
                 {
                     // If the format is not compatible, or something is wrong, it'll go straight to the exceptions
-                    format = (ImageFormat)new ImageFormatConverter().ConvertFromString(this.toFormat);
                     using (sourceImage = Image.FromFile(file))
                     {
+                        
                         String path = $"{generateUniqueName(file)}.{this.toFormat}";
-                        sourceImage.Save(path, format);
+                        //sourceImage.Save(path, format);
+                        encoder.ConvertImage(file, path, this.toFormat);
                         result.Add(true);
                         successful++;
                         sourceImage.Dispose(); // using keyword normally disposes of the file automatically, but If I try to ..
