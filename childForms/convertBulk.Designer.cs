@@ -83,7 +83,7 @@ namespace ImageUtil.childForms
             // 
             // btnKeepFiles
             // 
-            this.btnKeepFiles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.btnKeepFiles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
             this.btnKeepFiles.FlatAppearance.BorderSize = 0;
             this.btnKeepFiles.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnKeepFiles.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -132,9 +132,9 @@ namespace ImageUtil.childForms
             this.labelSource.ForeColor = System.Drawing.Color.Gainsboro;
             this.labelSource.Location = new System.Drawing.Point(11, 69);
             this.labelSource.Name = "labelSource";
-            this.labelSource.Size = new System.Drawing.Size(119, 15);
+            this.labelSource.Size = new System.Drawing.Size(142, 15);
             this.labelSource.TabIndex = 14;
-            this.labelSource.Text = "Select source format";
+            this.labelSource.Text = "Select destination format";
             // 
             // convertBulk
             // 

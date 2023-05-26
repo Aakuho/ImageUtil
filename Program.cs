@@ -64,12 +64,20 @@ namespace ImageUtil
         public static List<String> filterFilesPF(List<String> directory, String from, String to)
         {
             List<String> returnFiles = new List<String>();
+            List<String> acceptibleFormats = new List<String>();
+
+            Program.converters.ForEach(n => acceptibleFormats.Add(n.toFormat.ToLower()));
+            acceptibleFormats.Add("jpg");
             foreach (String file in directory)
             {
-                String format = Path.GetExtension(file).Remove(0, 1);
-                if ( directory.All(f => f == from) ) { continue; }
-                if ( format == to ) { continue; }
-                try { if ( format == from ) { returnFiles.Add(file); Console.WriteLine(to); } }
+                String filesuffix = Path.GetExtension(file).Remove(0, 1);
+                // if (!directory.Any(c => Path.GetExtension(c).Remove(0, 1) == suffix)) { continue; } idiotic
+
+                // goal:
+                // Only add files to return files, that don't have the same suffix
+                // Also, if there are no files with the suffix, refrain from returning directory.Count
+                if (directory.All(f => f == from)) { continue; }
+                try { if (filesuffix != from && acceptibleFormats.Any(n => n.ToLower() == filesuffix)) { returnFiles.Add(file); Console.WriteLine(from); } }
                 catch { continue; }
             }
             return returnFiles;

@@ -36,8 +36,6 @@ namespace ImageUtil.childForms
 
             InitializeComponent();
             btnConvert.BackColor = Color.FromArgb(40, 40, 40);
-            this.btnKeepFiles.BackColor = Color.FromArgb(40, 40, 40);
-            btnKeepFiles.Text = "✕ Keep files";
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             int buttonAmount = 0;
             foreach (Converter cv in Program.converters)
@@ -51,13 +49,13 @@ namespace ImageUtil.childForms
                 panelButtons.Controls.Add(button);
                 button.Click += new EventHandler(ButtonClick);
             }
+            keepFiles = true; btnKeepFiles.BackColor = Color.FromArgb(80, 80, 80); btnKeepFiles.Text = "✓ Keep files";
             updateStep(0);
         }
 
         private void updateStep(int updatedStep)
         {
             step = updatedStep;
-            Console.WriteLine(step);
             switch (step)
             {
                 case 0:
@@ -74,6 +72,7 @@ namespace ImageUtil.childForms
                     btnConvert.Enabled = false;
                     btnConvert.Visible = false;
                     labelFilesHeader.Text = "Usable file(s)";
+                    keepFiles = true; btnKeepFiles.BackColor = Color.FromArgb(80, 80, 80); btnKeepFiles.Text = "✓ Keep files";
                     break;
                 case 2:
                     labelSource.Visible = true;
@@ -81,7 +80,7 @@ namespace ImageUtil.childForms
                     btnKeepFiles.Visible = true;
                     btnConvert.Enabled = true;
                     btnConvert.Visible = true;
-                    labelFilesHeader.Text = "Using file(s)";
+                    labelFilesHeader.Text = "File(s) selected for conversion";
                     List<String> ff = Program.organizeLoadedFiles(files).Split("\n".ToCharArray()).ToList();
                     ff.RemoveAll(n => n.EndsWith(activeFormat));
                     labelFiles.Text = String.Join("\n", ff);
@@ -141,7 +140,6 @@ namespace ImageUtil.childForms
                 List<String> dirFilesList = dirFiles.ToList<String>();
                 dirFilesList.ForEach(f => files.Add(f));
 
-                labelFilesHeader.Text = "Usable file(s):";
                 labelFiles.Text = Program.organizeLoadedFiles(files);
             }
             updateStep(1);
@@ -164,9 +162,15 @@ namespace ImageUtil.childForms
             keepFiles = false; btnKeepFiles.BackColor = Color.FromArgb(40, 40, 40);
             activeFormat = "";
             updateConvertButton();
+            updateStep(0);
         }
 
         private void btnKeepFiles_Click(object sender, EventArgs e)
+        {
+            updateKeepFiles();
+        }
+
+        private void updateKeepFiles()
         {
             if (!keepFiles) { keepFiles = true; btnKeepFiles.BackColor = Color.FromArgb(80, 80, 80); btnKeepFiles.Text = "✓ Keep files"; }
             else { keepFiles = false; btnKeepFiles.BackColor = Color.FromArgb(40, 40, 40); btnKeepFiles.Text = "✕ Keep files"; }

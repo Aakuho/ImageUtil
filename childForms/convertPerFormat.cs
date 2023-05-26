@@ -16,20 +16,19 @@ namespace ImageUtil.childForms
 {
     public partial class convertPerFormat : Form
     {
-        public String fromFormat;
-        public String toFormat;
+        public String fromFormat = "";
+        public String toFormat = "";
         public List<FormatButton> leftButtons;
         public List<FormatButton> rightButtons;
         public List<String> files;
         public bool keepFiles;
         public int filesAmount = 0;
-
+        public int step;
 
         public convertPerFormat()
         {
             InitializeComponent();
-            btnConvert.BackColor = Color.FromArgb(40, 40, 40);
-            btnKeepFiles.BackColor = Color.FromArgb(40, 40, 40);
+            updateStep(0);
             btnKeepFiles.Text = "✕ Keep files";
 
 
@@ -56,10 +55,6 @@ namespace ImageUtil.childForms
                 panelButtonsRight.Controls.Add(fb);
             }
             FormatButton exButton = leftButtons[0];
-            Console.WriteLine($"{exButton.Width} | {exButton.Height}");
-            panelButtonsLeft.Size = new Size(exButton.Width, 400);
-            panelButtonsRight.Size = new Size(exButton.Width, 400);
-            panelButtonsRight.Location = new Point(exButton.Width + 60, panelButtonsRight.Location.Y);
 
 
             foreach (FormatButton fb in leftButtons)
@@ -77,6 +72,47 @@ namespace ImageUtil.childForms
 
         }
 
+        private void updateStep(int updatedStep)
+        {
+            step = updatedStep;
+            switch (step)
+            {
+                case 0:
+                    labelSource.Visible = false;
+                    labelDestination.Visible = false;
+                    panelButtonsLeft.Visible = false;
+                    panelButtonsRight.Visible = false;
+                    btnKeepFiles.Visible = false;
+                    btnConvert.Enabled = false;
+                    btnConvert.Visible = false;
+                    break;
+                case 1:
+                    labelSource.Visible = true;
+                    labelDestination.Visible = true;
+                    panelButtonsLeft.Visible = true;
+                    panelButtonsRight.Visible = true;
+                    btnKeepFiles.Visible = true;
+                    btnConvert.Enabled = false;
+                    btnConvert.Visible = false;
+                    labelFilesHeader.Text = "Usable file(s):";
+                    keepFiles = true; btnKeepFiles.BackColor = Color.FromArgb(80, 80, 80); btnKeepFiles.Text = "✓ Keep files";
+                    break;
+                case 2:
+                    labelSource.Visible = true;
+                    labelDestination.Visible = true;
+                    panelButtonsLeft.Visible = true;
+                    panelButtonsRight.Visible = true;
+                    btnKeepFiles.Visible = true;
+                    btnConvert.Enabled = true;
+                    btnConvert.Visible = true;
+                    labelFilesHeader.Text = "File(s) selected for conversion:";
+                    List<String> ff = Program.organizeLoadedFiles(files).Split("\n".ToCharArray()).ToList();
+                    ff.RemoveAll(n => !n.EndsWith(fromFormat));
+                    labelFiles.Text = String.Join("\n", ff);
+                    break;
+            }
+
+        }
 
         private void selectButtonInColumn(List<FormatButton> fblist, FormatButton fb) {
             foreach (FormatButton iterButton in fblist)
@@ -102,9 +138,10 @@ namespace ImageUtil.childForms
                 foreach (FormatButton fb in leftButtons) { fb.isSelected = false; }
                 activeButton.isSelected = true;
                 updateConvertButton();
+                updateStep(2); 
             }
         }
-
+        
         private void RightButtonClick(object sender, EventArgs e)
         {
             FormatButton activeButton = ((FormatButton)sender);
@@ -120,8 +157,8 @@ namespace ImageUtil.childForms
                 updateConvertButton();
             }
         }
-
-
+        
+        
         private void btnFileSelect_Click(object sender, EventArgs e)
         {
             resetForm();
@@ -134,14 +171,12 @@ namespace ImageUtil.childForms
                 string folderPath = dialog.FileName;
                 string[] dirFiles = Directory.GetFiles(folderPath);
                 List<String> dirFilesList = dirFiles.ToList<String>();
-                foreach (Converter cv in Program.converters)
-                {
-                    if (cv.toFormat != fromFormat) { dirFilesList.ForEach(f => files.Add(f)); break; }
-                }
+                dirFilesList.ForEach(f => files.Add(f));
 
-                labelFilesHeader.Text = "Loaded file(s):";
                 labelFiles.Text = Program.organizeLoadedFiles(files);
+                updateStep(1);
             }
+            
         }
 
         private void resetForm()
@@ -155,13 +190,13 @@ namespace ImageUtil.childForms
             fromFormat = "";
             toFormat = "";
             updateConvertButton();
+            updateStep(0);
         }
         private void updateConvertButton()
         {
             if (files.Count > 0)
             {
-                Console.WriteLine($"Haiii :3 {toFormat} | {fromFormat}");
-                if (toFormat != null && fromFormat != null) { btnConvert.Text = $"Convert {Program.filterFilesPF(files, fromFormat, toFormat).Count} file(s)"; }           
+                if (toFormat != null && fromFormat != null) { btnConvert.Text = $"Convert {Program.filterFiles(files, fromFormat).Count} file(s)"; }           
                 btnConvert.BackColor = Color.FromArgb(60, 60, 60);
             }
             else
@@ -191,7 +226,7 @@ namespace ImageUtil.childForms
             {
                 if (convertor.toFormat == toFormat)
                 {
-                    convertor.convert(Program.filterFilesPF(files, fromFormat, toFormat), keepFiles);
+                    convertor.convert(Program.filterFiles(files, toFormat), keepFiles);
                 }
             }
             // reset everything to it's base form
