@@ -49,13 +49,15 @@ namespace ImageUtil
                 try
                 {
                     String filesuffix = Path.GetExtension(file).Remove(0, 1);
+                    String ff = file; // for the fix below, i cant change the iterable directly
                     // if (!directory.Any(c => Path.GetExtension(c).Remove(0, 1) == suffix)) { continue; } idiotic
 
                     // goal:
                     // Only add files to return files, that don't have the same suffix
                     // Also, if there are no files with the suffix, refrain from returning directory.Count
-                    if (directory.All(f => f == suffix)) { continue; }
-                    try { if (filesuffix != suffix && acceptibleFormats.Any(n => n.ToLower() == filesuffix)) { returnFiles.Add(file); Console.WriteLine(suffix); } }
+                    if (file.Contains(".jpg")) { ff = file.Substring(0, file.IndexOf(".jpg")) + ".jpeg"; }
+                    if (ff.Contains(suffix)) { continue; }
+                    try { if (filesuffix != suffix && acceptibleFormats.Any(n => n.ToLower() == filesuffix)) { returnFiles.Add(file);  } }
                     catch { continue; }
                 }
                 catch { continue;  }
@@ -77,7 +79,7 @@ namespace ImageUtil
                 if (file.Contains(".jpg")) { ff = file.Substring(0, file.IndexOf(".jpg")) + ".jpeg";  }
                 String filesuffix = Path.GetExtension(ff).Remove(0, 1);
                 if (!ff.Contains(from)) { continue; }
-                try { if (filesuffix != to && acceptibleFormats.Any(n => n.ToLower() == filesuffix)) { returnFiles.Add(file); Console.WriteLine(from); } }
+                try { if (filesuffix != to && acceptibleFormats.Any(n => n.ToLower() == filesuffix)) { returnFiles.Add(file); } }
                 catch { continue; }
             }
             return returnFiles;
