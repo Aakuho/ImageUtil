@@ -39,7 +39,7 @@ namespace ImageUtil.structure
                     using (sourceImage = Image.FromFile(file))
                     {
                         
-                        String path = $"{generateUniqueName(file)}.{this.toFormat}";
+                        String path = $"{generateUniqueName(file, this.toFormat)}.{this.toFormat}";
                         //sourceImage.Save(path, format);
                         encoder.ConvertImage(file, path, this.toFormat);
                         result.Add(true);
@@ -51,8 +51,9 @@ namespace ImageUtil.structure
                         }
                     }
                 }
-                catch {
+                catch (Exception e){
                     result.Add(false);
+                    Console.WriteLine(e);
                 }
             }
             if ( result.All(x => x) )
@@ -76,22 +77,27 @@ namespace ImageUtil.structure
         }
 
         // Some pictures may have an identical name, this will be solved by definitely not copying Windows's way of doing it nooooo
-        public string generateUniqueName(String name)
+        public string generateUniqueName(String name, String format)
         {
             string baseName = Path.GetFileNameWithoutExtension(name);
             List<String> existingFilesWithDir = Directory.GetFiles(Path.GetDirectoryName(name)).ToList();
             List<String> existingFiles = new List<String>();
             foreach ( String file in existingFilesWithDir) { existingFiles.Add(Path.GetFileName(file));  }
+            existingFiles.Remove(Path.GetFileName(name));
             String dir = Path.GetDirectoryName(name);
 
          
-            String candidate = Path.GetFileName(name);
-            if (!existingFiles.Contains(candidate)) { return candidate; }
+            String candidate = Path.GetFileNameWithoutExtension(name);
+            if (!existingFiles.Contains(candidate + $".{format}")) { return $"{dir}\\{Path.GetFileNameWithoutExtension(name)}"; }
 
             for (int highestSuffix = 1; true; highestSuffix++)
             {
-                candidate = $"{baseName.Substring(0, baseName.IndexOf("("))}({highestSuffix})";
-                if (!existingFiles.Contains($"{candidate}{Path.GetExtension(name)}")) { return $"{dir}\\{candidate}"; }
+                try
+                {
+                    candidate = $"{baseName.Substring(0, baseName.IndexOf("("))}({highestSuffix})";
+                    if (!existingFiles.Contains($"{candidate}{Path.GetExtension(name)}")) { return $"{dir}\\{candidate}"; }
+                }
+                catch { return $"{dir}\\{candidate} ({highestSuffix})"; }
             }
         }
     }
