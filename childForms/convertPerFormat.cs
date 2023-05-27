@@ -226,7 +226,7 @@ namespace ImageUtil.childForms
             {
                 if (convertor.toFormat == toFormat)
                 {
-                    convertor.convert(Program.filterFiles(files, toFormat), keepFiles);
+                    convertor.convert(Program.filterFilesPF(files, fromFormat, toFormat), keepFiles);
                 }
             }
             // reset everything to it's base form

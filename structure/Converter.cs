@@ -62,7 +62,7 @@ namespace ImageUtil.structure
             
             else {  
                 StringBuilder stringBuilder = new StringBuilder();
-                stringBuilder.Append($"Successfully converted {successful} file(s), failed to convert {files2.Count - successful} file(s):\n");
+                stringBuilder.Append($"Successfully converted {successful} file(s), failed to convert {files2.Count - successful} file(s):\n"); 
                 for (int statusIndex = 0; statusIndex < result.Count; statusIndex++)
                 {
                     Console.WriteLine(result[statusIndex]);
@@ -79,16 +79,19 @@ namespace ImageUtil.structure
         public string generateUniqueName(String name)
         {
             string baseName = Path.GetFileNameWithoutExtension(name);
-            string[] existingFiles = Directory.GetFiles(Path.GetDirectoryName(name));
+            List<String> existingFilesWithDir = Directory.GetFiles(Path.GetDirectoryName(name)).ToList();
+            List<String> existingFiles = new List<String>();
+            foreach ( String file in existingFilesWithDir) { existingFiles.Add(Path.GetFileName(file));  }
             String dir = Path.GetDirectoryName(name);
 
-            String candidate = $"{dir}\\{baseName}";
-            if (!existingFiles.Contains(candidate + $".{toFormat}")) { return candidate; }
+            //String candidate = $"{dir}\\{baseName}";
+            String candidate = Path.GetFileName(name);
+            if (!existingFiles.Contains(candidate)) { return candidate; }
 
             for (int highestSuffix = 1; true; highestSuffix++)
             {
-                candidate = $"{dir}\\{baseName} ({highestSuffix})";
-                if (!existingFiles.Contains(candidate)) { return candidate; }
+                candidate = $"{baseName.Substring(0, baseName.IndexOf("("))}({highestSuffix})";
+                if (!existingFiles.Contains($"{candidate}{Path.GetExtension(name)}")) { return $"{dir}\\{candidate}"; }
             }
         }
     }
