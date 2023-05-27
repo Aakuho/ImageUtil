@@ -116,7 +116,7 @@
             // 
             this.labelFilesHeader.AutoSize = true;
             this.labelFilesHeader.ForeColor = System.Drawing.Color.Gainsboro;
-            this.labelFilesHeader.Location = new System.Drawing.Point(312, 79);
+            this.labelFilesHeader.Location = new System.Drawing.Point(315, 69);
             this.labelFilesHeader.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelFilesHeader.Name = "labelFilesHeader";
             this.labelFilesHeader.Size = new System.Drawing.Size(0, 15);

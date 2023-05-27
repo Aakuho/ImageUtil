@@ -47,15 +47,19 @@ namespace ImageUtil
             acceptibleFormats.Add("jpg");
             foreach (String file in directory)
             {
-                String filesuffix = Path.GetExtension(file).Remove(0, 1);
-                // if (!directory.Any(c => Path.GetExtension(c).Remove(0, 1) == suffix)) { continue; } idiotic
+                try
+                {
+                    String filesuffix = Path.GetExtension(file).Remove(0, 1);
+                    // if (!directory.Any(c => Path.GetExtension(c).Remove(0, 1) == suffix)) { continue; } idiotic
 
-                // goal:
-                // Only add files to return files, that don't have the same suffix
-                // Also, if there are no files with the suffix, refrain from returning directory.Count
-                if (directory.All(f => f == suffix)) { continue; }
-                try { if (filesuffix != suffix && acceptibleFormats.Any(n => n.ToLower() == filesuffix)) { returnFiles.Add(file); Console.WriteLine(suffix); }}
-                catch{ continue; }
+                    // goal:
+                    // Only add files to return files, that don't have the same suffix
+                    // Also, if there are no files with the suffix, refrain from returning directory.Count
+                    if (directory.All(f => f == suffix)) { continue; }
+                    try { if (filesuffix != suffix && acceptibleFormats.Any(n => n.ToLower() == filesuffix)) { returnFiles.Add(file); Console.WriteLine(suffix); } }
+                    catch { continue; }
+                }
+                catch { continue;  }
             }
             return returnFiles;
         }
@@ -70,8 +74,10 @@ namespace ImageUtil
             acceptibleFormats.Add("jpg");
             foreach (String file in directory)
             {
-                String filesuffix = Path.GetExtension(file).Remove(0, 1);
-                if (!file.Contains(from)) { continue; }
+                String ff = file; // for the fix below, i cant change the iterable directly
+                if (file.Contains(".jpg")) { ff = file.Substring(0, file.IndexOf(".jpg")) + ".jpeg";  }
+                String filesuffix = Path.GetExtension(ff).Remove(0, 1);
+                if (!ff.Contains(from)) { continue; }
                 try { if (filesuffix != to && acceptibleFormats.Any(n => n.ToLower() == filesuffix)) { returnFiles.Add(file); Console.WriteLine(from); } }
                 catch { continue; }
             }
@@ -91,10 +97,13 @@ namespace ImageUtil
 
             foreach (String file in files)
             {
-                String suffix = Path.GetExtension(file).Remove(0, 1);
-                if (!acceptibleFormats.Any(n => n.ToLower() == suffix)) { continue; }
-                string[] path = file.Split('\\');
-                sb.Append(Path.GetFileName(file) + "\n");
+                try
+                {
+                    String suffix = Path.GetExtension(file).Remove(0, 1);
+                    if (!acceptibleFormats.Any(n => n.ToLower() == suffix)) { continue; }
+                    sb.Append(Path.GetFileName(file) + "\n");
+                }
+                catch { continue;  }
             }
             return sb.ToString(); 
 

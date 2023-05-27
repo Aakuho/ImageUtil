@@ -151,11 +151,12 @@
             // labelFilesHeader
             // 
             this.labelFilesHeader.AutoSize = true;
+            this.labelFilesHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelFilesHeader.ForeColor = System.Drawing.Color.Gainsboro;
-            this.labelFilesHeader.Location = new System.Drawing.Point(611, 50);
+            this.labelFilesHeader.Location = new System.Drawing.Point(611, 69);
             this.labelFilesHeader.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelFilesHeader.Name = "labelFilesHeader";
-            this.labelFilesHeader.Size = new System.Drawing.Size(0, 13);
+            this.labelFilesHeader.Size = new System.Drawing.Size(0, 15);
             this.labelFilesHeader.TabIndex = 17;
             // 
             // convertPerFormat

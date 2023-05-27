@@ -63,7 +63,7 @@ namespace ImageUtil.childForms
                     btnKeepFiles.Visible = true;
                     btnConvert.Enabled = false;
                     btnConvert.Visible = false;
-                    labelFilesHeader.Text = "Usable file(s)";
+                    labelFilesHeader.Text = "Available file(s)";
                     keepFiles = true; btnKeepFiles.BackColor = Color.FromArgb(80, 80, 80); btnKeepFiles.Text = "✓ Keep files";
                     break;
                 case 2:
@@ -72,9 +72,10 @@ namespace ImageUtil.childForms
                     btnKeepFiles.Visible = true;
                     btnConvert.Enabled = true;
                     btnConvert.Visible = true;
-                    labelFilesHeader.Text = "File(s) selected for conversion";
+                    labelFilesHeader.Text = "File(s) selected for conversion:";
                     List<String> ff = Program.organizeLoadedFiles(files).Split("\n".ToCharArray()).ToList();
                     ff.RemoveAll(n => n.EndsWith(activeFormat));
+                    if (activeFormat == "jpeg"){ ff.RemoveAll(n => n.EndsWith(".jpg")); } 
                     labelFiles.Text = String.Join("\n", ff);
                     break;
             }
@@ -96,7 +97,6 @@ namespace ImageUtil.childForms
                     Console.WriteLine("User cancelled the selection");
                     break;
             }
-            labelFilesHeader.Text = "Loaded file(s):";
             labelFiles.Text = Program.organizeLoadedFiles(files);
             updateStep(1);
         }

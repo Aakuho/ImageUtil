@@ -84,7 +84,7 @@ namespace ImageUtil.structure
             foreach ( String file in existingFilesWithDir) { existingFiles.Add(Path.GetFileName(file));  }
             String dir = Path.GetDirectoryName(name);
 
-            //String candidate = $"{dir}\\{baseName}";
+         
             String candidate = Path.GetFileName(name);
             if (!existingFiles.Contains(candidate)) { return candidate; }
 

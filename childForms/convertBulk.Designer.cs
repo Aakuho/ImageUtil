@@ -48,7 +48,7 @@ namespace ImageUtil.childForms
             this.btnFileSelection.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFileSelection.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnFileSelection.Location = new System.Drawing.Point(10, 10);
-            this.btnFileSelection.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnFileSelection.Margin = new System.Windows.Forms.Padding(4);
             this.btnFileSelection.Name = "btnFileSelection";
             this.btnFileSelection.Size = new System.Drawing.Size(200, 50);
             this.btnFileSelection.TabIndex = 0;
@@ -64,7 +64,7 @@ namespace ImageUtil.childForms
             this.btnConvert.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConvert.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnConvert.Location = new System.Drawing.Point(223, 432);
-            this.btnConvert.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnConvert.Margin = new System.Windows.Forms.Padding(4);
             this.btnConvert.Name = "btnConvert";
             this.btnConvert.Size = new System.Drawing.Size(200, 50);
             this.btnConvert.TabIndex = 1;
@@ -76,7 +76,7 @@ namespace ImageUtil.childForms
             // 
             this.panelButtons.AutoScroll = true;
             this.panelButtons.Location = new System.Drawing.Point(11, 92);
-            this.panelButtons.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelButtons.Margin = new System.Windows.Forms.Padding(2);
             this.panelButtons.Name = "panelButtons";
             this.panelButtons.Size = new System.Drawing.Size(240, 320);
             this.panelButtons.TabIndex = 10;
@@ -89,7 +89,7 @@ namespace ImageUtil.childForms
             this.btnKeepFiles.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnKeepFiles.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnKeepFiles.Location = new System.Drawing.Point(13, 432);
-            this.btnKeepFiles.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnKeepFiles.Margin = new System.Windows.Forms.Padding(2);
             this.btnKeepFiles.Name = "btnKeepFiles";
             this.btnKeepFiles.Size = new System.Drawing.Size(200, 50);
             this.btnKeepFiles.TabIndex = 11;
@@ -110,15 +110,17 @@ namespace ImageUtil.childForms
             // labelFilesHeader
             // 
             this.labelFilesHeader.AutoSize = true;
+            this.labelFilesHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelFilesHeader.ForeColor = System.Drawing.Color.Gainsboro;
-            this.labelFilesHeader.Location = new System.Drawing.Point(440, 50);
+            this.labelFilesHeader.Location = new System.Drawing.Point(440, 69);
             this.labelFilesHeader.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelFilesHeader.Name = "labelFilesHeader";
-            this.labelFilesHeader.Size = new System.Drawing.Size(0, 13);
+            this.labelFilesHeader.Size = new System.Drawing.Size(0, 15);
             this.labelFilesHeader.TabIndex = 12;
             // 
             // panelText
             // 
+            this.panelText.AutoScroll = true;
             this.panelText.Controls.Add(this.labelFiles);
             this.panelText.Location = new System.Drawing.Point(443, 92);
             this.panelText.Name = "panelText";
@@ -151,7 +153,7 @@ namespace ImageUtil.childForms
             this.Controls.Add(this.btnConvert);
             this.Controls.Add(this.btnFileSelection);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "convertBulk";
             this.panelText.ResumeLayout(false);
             this.panelText.PerformLayout();
