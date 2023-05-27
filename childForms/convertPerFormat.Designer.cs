@@ -66,7 +66,7 @@
             this.btnConvert.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConvert.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConvert.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnConvert.Location = new System.Drawing.Point(223, 432);
+            this.btnConvert.Location = new System.Drawing.Point(221, 432);
             this.btnConvert.Margin = new System.Windows.Forms.Padding(2);
             this.btnConvert.Name = "btnConvert";
             this.btnConvert.Size = new System.Drawing.Size(200, 50);
@@ -82,7 +82,7 @@
             this.btnKeepFiles.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnKeepFiles.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnKeepFiles.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnKeepFiles.Location = new System.Drawing.Point(13, 432);
+            this.btnKeepFiles.Location = new System.Drawing.Point(11, 432);
             this.btnKeepFiles.Margin = new System.Windows.Forms.Padding(2);
             this.btnKeepFiles.Name = "btnKeepFiles";
             this.btnKeepFiles.Size = new System.Drawing.Size(200, 50);

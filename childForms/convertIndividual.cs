@@ -20,6 +20,7 @@ namespace ImageUtil.childForms
         public List<FormatButton> buttons = new List<FormatButton>();
         public List<String> files = new List<string>();
         String activeFormat = "";
+        private int step;
         public convertIndividual()
         {
             InitializeComponent();
@@ -41,7 +42,45 @@ namespace ImageUtil.childForms
                 panelButtons.Controls.Add(button);
                 button.Click += new EventHandler(ButtonClick);
             }
+            updateStep(0);
         }
+
+        private void updateStep(int updatedStep)
+        {
+            step = updatedStep;
+            switch (step)
+            {
+                case 0:
+                    labelSource.Visible = false;
+                    panelButtons.Visible = false;
+                    btnKeepFiles.Visible = false;
+                    btnConvert.Enabled = false;
+                    btnConvert.Visible = false;
+                    break;
+                case 1:
+                    labelSource.Visible = true;
+                    panelButtons.Visible = true;
+                    btnKeepFiles.Visible = true;
+                    btnConvert.Enabled = false;
+                    btnConvert.Visible = false;
+                    labelFilesHeader.Text = "Usable file(s)";
+                    keepFiles = true; btnKeepFiles.BackColor = Color.FromArgb(80, 80, 80); btnKeepFiles.Text = "✓ Keep files";
+                    break;
+                case 2:
+                    labelSource.Visible = true;
+                    panelButtons.Visible = true;
+                    btnKeepFiles.Visible = true;
+                    btnConvert.Enabled = true;
+                    btnConvert.Visible = true;
+                    labelFilesHeader.Text = "File(s) selected for conversion";
+                    List<String> ff = Program.organizeLoadedFiles(files).Split("\n".ToCharArray()).ToList();
+                    ff.RemoveAll(n => n.EndsWith(activeFormat));
+                    labelFiles.Text = String.Join("\n", ff);
+                    break;
+            }
+
+        }
+
         private void btnFileSelection_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -59,7 +98,7 @@ namespace ImageUtil.childForms
             }
             labelFilesHeader.Text = "Loaded file(s):";
             labelFiles.Text = Program.organizeLoadedFiles(files);
-
+            updateStep(1);
         }
 
         private void updateConvertButton()
@@ -83,6 +122,7 @@ namespace ImageUtil.childForms
             activeButton.Highlight();
             Console.WriteLine(activeFormat);
             updateConvertButton();
+            updateStep(2);
         }
 
         private void btnConvert_Click(object sender, EventArgs e)
@@ -102,6 +142,7 @@ namespace ImageUtil.childForms
             keepFiles = false; btnKeepFiles.BackColor = Color.FromArgb(40, 40, 40);
             activeFormat = "";
             updateConvertButton();
+            updateStep(0);
         }
 
         private void btnKeepFiles_Click(object sender, EventArgs e)

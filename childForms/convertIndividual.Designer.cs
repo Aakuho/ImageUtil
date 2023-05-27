@@ -35,6 +35,7 @@
             this.panelText = new System.Windows.Forms.Panel();
             this.labelFiles = new System.Windows.Forms.Label();
             this.labelFilesHeader = new System.Windows.Forms.Label();
+            this.labelSource = new System.Windows.Forms.Label();
             this.panelText.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -44,9 +45,9 @@
             this.btnConvert.FlatAppearance.BorderSize = 0;
             this.btnConvert.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConvert.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnConvert.Location = new System.Drawing.Point(360, 8);
+            this.btnConvert.Location = new System.Drawing.Point(221, 432);
             this.btnConvert.Name = "btnConvert";
-            this.btnConvert.Size = new System.Drawing.Size(160, 40);
+            this.btnConvert.Size = new System.Drawing.Size(200, 50);
             this.btnConvert.TabIndex = 6;
             this.btnConvert.Text = "Convert";
             this.btnConvert.UseVisualStyleBackColor = false;
@@ -58,9 +59,9 @@
             this.btnFileSelection.FlatAppearance.BorderSize = 0;
             this.btnFileSelection.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFileSelection.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnFileSelection.Location = new System.Drawing.Point(8, 8);
+            this.btnFileSelection.Location = new System.Drawing.Point(10, 10);
             this.btnFileSelection.Name = "btnFileSelection";
-            this.btnFileSelection.Size = new System.Drawing.Size(160, 40);
+            this.btnFileSelection.Size = new System.Drawing.Size(200, 50);
             this.btnFileSelection.TabIndex = 5;
             this.btnFileSelection.Text = "Select Files";
             this.btnFileSelection.UseVisualStyleBackColor = false;
@@ -68,9 +69,10 @@
             // 
             // panelButtons
             // 
+            this.panelButtons.AutoScroll = true;
             this.panelButtons.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelButtons.Location = new System.Drawing.Point(11, 92);
-            this.panelButtons.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelButtons.Margin = new System.Windows.Forms.Padding(2);
             this.panelButtons.Name = "panelButtons";
             this.panelButtons.Size = new System.Drawing.Size(240, 320);
             this.panelButtons.TabIndex = 10;
@@ -82,10 +84,10 @@
             this.btnKeepFiles.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnKeepFiles.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnKeepFiles.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnKeepFiles.Location = new System.Drawing.Point(184, 8);
-            this.btnKeepFiles.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnKeepFiles.Location = new System.Drawing.Point(11, 432);
+            this.btnKeepFiles.Margin = new System.Windows.Forms.Padding(2);
             this.btnKeepFiles.Name = "btnKeepFiles";
-            this.btnKeepFiles.Size = new System.Drawing.Size(160, 40);
+            this.btnKeepFiles.Size = new System.Drawing.Size(200, 50);
             this.btnKeepFiles.TabIndex = 11;
             this.btnKeepFiles.Text = "Keep original files";
             this.btnKeepFiles.UseVisualStyleBackColor = false;
@@ -93,8 +95,9 @@
             // 
             // panelText
             // 
+            this.panelText.AutoScroll = true;
             this.panelText.Controls.Add(this.labelFiles);
-            this.panelText.Location = new System.Drawing.Point(315, 121);
+            this.panelText.Location = new System.Drawing.Point(315, 92);
             this.panelText.Name = "panelText";
             this.panelText.Size = new System.Drawing.Size(287, 320);
             this.panelText.TabIndex = 15;
@@ -119,12 +122,24 @@
             this.labelFilesHeader.Size = new System.Drawing.Size(0, 15);
             this.labelFilesHeader.TabIndex = 14;
             // 
+            // labelSource
+            // 
+            this.labelSource.AutoSize = true;
+            this.labelSource.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSource.ForeColor = System.Drawing.Color.Gainsboro;
+            this.labelSource.Location = new System.Drawing.Point(11, 69);
+            this.labelSource.Name = "labelSource";
+            this.labelSource.Size = new System.Drawing.Size(119, 15);
+            this.labelSource.TabIndex = 16;
+            this.labelSource.Text = "Select source format";
+            // 
             // convertIndividual
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.ClientSize = new System.Drawing.Size(954, 572);
+            this.Controls.Add(this.labelSource);
             this.Controls.Add(this.panelText);
             this.Controls.Add(this.labelFilesHeader);
             this.Controls.Add(this.btnKeepFiles);
@@ -132,7 +147,7 @@
             this.Controls.Add(this.btnConvert);
             this.Controls.Add(this.btnFileSelection);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "convertIndividual";
             this.Text = "7";
             this.panelText.ResumeLayout(false);
@@ -150,5 +165,6 @@
         private System.Windows.Forms.Panel panelText;
         private System.Windows.Forms.Label labelFiles;
         private System.Windows.Forms.Label labelFilesHeader;
+        private System.Windows.Forms.Label labelSource;
     }
 }
