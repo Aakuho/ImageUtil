@@ -86,8 +86,9 @@ namespace ImageUtil.childForms
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
 
-            openFileDialog.Filter = "Image files (*.jpg, *.jpeg, *.png, *.webp, *.bpm)|*.jpg;*.jpeg;*.png;*.webp;*.bmp|All files (*.*)|*.*";
+            openFileDialog.Filter = "Image files (*.jpg, *.jpeg, *.png, *.bmp, *.ico, *.tiff, *.gif)|*.jpg;*.jpeg;*.png;*.bmp;*ico;*.tiff;*.gif|All files (*.*)|*.*";
             openFileDialog.Multiselect = true;
+            files = new List<String>();
             switch (openFileDialog.ShowDialog())
             {
                 case DialogResult.OK:

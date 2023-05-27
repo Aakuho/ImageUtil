@@ -21,7 +21,6 @@ namespace ImageUtil
             new PngConverter(),
             new BmpConverter(),
             new IconConverter(),
-            new TgaConverter(),
             new GifConverter(),
             new TiffConverter()
         };

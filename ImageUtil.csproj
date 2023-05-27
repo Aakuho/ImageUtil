@@ -100,7 +100,6 @@
     <Compile Include="converters\IconConverter.cs" />
     <Compile Include="converters\JpegConverter.cs" />
     <Compile Include="converters\PngConverter.cs" />
-    <Compile Include="converters\TgaConverter.cs" />
     <Compile Include="converters\TiffConverter.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
