@@ -85,12 +85,11 @@ namespace ImageUtil.structure
 
             for (int highestSuffix = 1; true; highestSuffix++)
             {
-                try
-                {
-                    candidate = $"{baseName.Substring(0, baseName.IndexOf("("))}({highestSuffix})";
-                    if (!existingFiles.Contains($"{candidate}{Path.GetExtension(name)}")) { return $"{dir}\\{candidate}"; }
+                if ( highestSuffix != 1) {
+                    candidate = $"{candidate.Substring(0, candidate.IndexOf("("))}({highestSuffix})";
                 }
-                catch { return $"{dir}\\{candidate} ({highestSuffix})"; }
+                else { candidate = $"{candidate} ({highestSuffix})"; }
+                if (!existingFiles.Contains($"{candidate}.{format}")) { return $"{dir}\\{candidate}"; }
             }
         }
     }
