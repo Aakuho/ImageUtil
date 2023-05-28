@@ -28,8 +28,6 @@ namespace ImageUtil
                 btnConvertIndividual,
                 btnConvertFormat
             };
-
-            
         }
 
         private void HideSubMenus()
@@ -40,7 +38,6 @@ namespace ImageUtil
 
         private void ToggleSubMenu(Panel subMenu)
         {
-            //if (subMenu.Visible ? subMenu.Visible = false : subMenu.Visible = true) ;
             HideSubMenus();
             subMenu.Visible = true;
         }

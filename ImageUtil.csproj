@@ -160,13 +160,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\SCS_Software_logo.svg.png" />
+    <Content Include="Resources\SCSSoftLogo.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\logo.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\download.png" />
+    <Content Include="Resources\schoolLogo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

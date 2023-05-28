@@ -45,7 +45,7 @@ namespace ImageUtil.structure
                 case "gif":
                     return ImageFormat.Gif;
                 default:
-                    return null; // Format not registered or not in ImageFormat 
+                    return null;
             }
         }
     }

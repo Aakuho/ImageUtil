@@ -49,26 +49,14 @@ namespace ImageUtil.childForms
             foreach (FormatButton fb in leftButtons)
             {
                 panelButtonsLeft.Controls.Add(fb);
+                fb.Click += new EventHandler(LeftButtonClick);
             }
             foreach (FormatButton fb in rightButtons)
             {
                 panelButtonsRight.Controls.Add(fb);
-            }
-            FormatButton exButton = leftButtons[0];
-
-
-            foreach (FormatButton fb in leftButtons)
-            {
-                fb.Click += new EventHandler(LeftButtonClick);
-            }
-
-            foreach (FormatButton fb in rightButtons)
-            {
                 fb.Click += new EventHandler(RightButtonClick);
             }
-
-
-            this.AutoScaleMode = AutoScaleMode.Dpi;
+            FormatButton exButton = leftButtons[0];
 
         }
 

@@ -28,28 +28,22 @@ namespace ImageUtil.structure
 
             foreach (String file in files2)
             {
-                String name = Path.GetFileNameWithoutExtension(file);
                 Image sourceImage = null;
-                String filesuffix = Path.GetExtension(file).Remove(0, 1);
                 BaseImageEncoder encoder = new BaseImageEncoder();
                 
                 try
                 {
                     // If the format is not compatible, or something is wrong, it'll go straight to the exceptions
-                    using (sourceImage = Image.FromFile(file))
-                    {
-                        
                         String path = $"{generateUniqueName(file, this.toFormat)}.{this.toFormat}";
                         //sourceImage.Save(path, format);
                         encoder.ConvertImage(file, path, this.toFormat);
                         result.Add(true);
                         successful++;
-                        sourceImage.Dispose(); // using keyword normally disposes of the file automatically, but If I try to ..
                         if (!keepFiles)
                         { 
                             File.Delete(file); // .. delete it, it won't go through and will cause an exception
                         }
-                    }
+
                 }
                 catch (Exception e){
                     result.Add(false);
@@ -66,7 +60,6 @@ namespace ImageUtil.structure
                 stringBuilder.Append($"Successfully converted {successful} file(s), failed to convert {files2.Count - successful} file(s):\n"); 
                 for (int statusIndex = 0; statusIndex < result.Count; statusIndex++)
                 {
-                    Console.WriteLine(result[statusIndex]);
                     if (!result[statusIndex])
                     {
                         stringBuilder.Append(files[statusIndex].ToString() + "\n");

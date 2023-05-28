@@ -125,6 +125,7 @@ namespace ImageUtil.childForms
             keepFiles = false; btnKeepFiles.BackColor = Color.FromArgb(40, 40, 40);
             activeFormat = "";
             updateConvertButton();
+            updateStep(0);
         }
 
         private void btnFileSelection_Click(object sender, EventArgs e)
@@ -155,15 +156,7 @@ namespace ImageUtil.childForms
                 }
             }
             files = new List<string>();
-            // reset everything to it's base form
-            files = new List<string>();
-            labelFiles.Text = "";
-            labelFilesHeader.Text = "";
-            buttons.ForEach(btn => btn.Default());
-            keepFiles = false; btnKeepFiles.BackColor = Color.FromArgb(40, 40, 40);
-            activeFormat = "";
-            updateConvertButton();
-            updateStep(0);
+            resetForm();
         }
 
         private void btnKeepFiles_Click(object sender, EventArgs e)
